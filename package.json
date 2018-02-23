@@ -1,0 +1,55 @@
+{
+    "name": "systemverilog-1800-2012",
+    "displayName": "SystemVerilog-1800-2012",
+    "description": "Unified hardware design, specification, and verification language + One functional verification methodology for everyone.",
+    "version": "1.0.0",
+    "publisher": "gvekony",
+    "engines": {
+        "vscode": "^1.20.0"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Gergo Vekony",
+        "email": "gvekony@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "categories": [
+        "Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "systemverilog",
+            "aliases": ["SystemVerilog-1800-2012", "SV", "sv"],
+            "extensions": [".sv",".sva",".svh",".v",".vh"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "systemverilog",
+            "scopeName": "source.systemverilog",
+            "path": "./syntaxes/systemverilog.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "systemverilog",
+                "path": "./snippets/sv_containers.json"
+            },
+            {
+                "language": "systemverilog",
+                "path": "./snippets/sv_language_constructs.json"
+            },
+            {
+                "language": "systemverilog",
+                "path": "./snippets/uvm_containers.json"
+            },
+            {
+                "language": "systemverilog",
+                "path": "./snippets/uvm_macros.json"
+            }
+        ]
+    },
+    "icon": "sv_icon.png"
+}

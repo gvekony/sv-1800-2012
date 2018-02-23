@@ -1,0 +1,44 @@
+{
+  "comments": {
+    // symbol used for single line comment. Remove this entry if your language does not support line comments
+    "lineComment": "//",
+    // symbols used for start and end a block comment. Remove this entry if your language does not support block comments
+    "blockComment": [ "/*", "*/" ]
+  },
+  // symbols used as brackets
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
+  // symbols that are auto closed when typing
+  "autoClosingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""],
+    ["/* ", " */"]
+  ],
+  // symbols that that can be used to surround a selection
+  "surroundingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""],
+    ["/* ", " */"]
+  ],
+  "indentationRules": {
+    "increaseIndentPattern": "^\\s*(((priority|unique(0|))\\s+)?(case(x|z|))|checker|(virtual\\s+)?class|config|covergroup|generate|interface|module|package|primitive|program|property|randcase|(rand|)sequence|specify|((static|virtual)\\s+)?(function|task))\\b|^((?!\\/\\/|\\/\\*).)*\\bbegin\\b(?!.*\\bend\\b)|^((?!\\/\\/|\\/\\*).)*\\bfork\\b(?!.*\\b(join(_any|_none|))\\b)|^((?!\\/\\/|\\/\\*).)*\\{$|^\\s*((default|global)\\s+)?(clocking\\b).*\\@",
+    "decreaseIndentPattern": "^\\s*(end(case|checker|class|clocking|config|function|generate|group|interface|module|package|primitive|program|property|sequence|specify|task)\\b)|^\\s*end\\b|^\\s*join(_any|_none|)\\b|^\\s*\\}",
+    //  sadly there is no option to include multi lines... so this rule fails on the first unterminated block comment line. Life is cruel. ^^
+    // "indentNextLinePattern": "^(?!.*(begin|end|fork|join|\\`\\w+(\\(.*\\))?|\\;|\\{)\\s*(\\/\\/|\\/\\*)?).*[^\\s;{}]\\s*$",
+    //  unIndented contains: comments, macros, attributes
+    "unIndentedLinePattern": "^\\s*(\\/\\/|\\/\\*|\\`\\w+|\\(\\*).*$"
+  },
+  "folding": {
+    "markers": {
+      "start": "^\\s*(`celldefine|`ifndef|`pragma\\s+protect\\b.*begin(_protected)?|`unconnected_drive|begin)\\b",
+      "end": "^\\s*(`endcelldefine|`endif|`nounconnected_drive|`pragma\\s+protect\\b.*end(_protected)?|`resetall|end)\\b"
+    }
+  }
+}

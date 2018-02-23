@@ -1,0 +1,36 @@
+{
+  "module": {
+    "prefix": "sv_module",
+    "body": [
+      "module ${1:<module_name>} (",
+      "\t\t$2",
+      "\t);\n",
+      "\t$0",
+      "endmodule: $1"
+    ],
+    "description": "Basic SystemVerilog module construct."
+  },
+  "interface": {
+    "prefix": "sv_interface",
+    "body": [
+      "interface ${1:<if_name>} (",
+      "\t\t$2",
+      "\t);\n",
+      "\t$0",
+      "endinterface: $1"
+    ],
+    "description": "Basic SystemVerilog interface construct."
+  },
+  "sv_class": {
+    "prefix": "sv_class",
+    "body": [
+      "class ${1:<class_name>};",
+      "\t/*  VARIABLES  */\n",
+      "\tfunction new(string name=\"$1\");",
+      "\tendfunction: new\n\n",
+      "\t$0",
+      "endclass: $1"
+    ],
+    "description": "SV class template"
+  },
+}

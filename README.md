@@ -8,7 +8,7 @@ This extension incorporates syntax highlighting and snippet support for `IEEE St
 * UVM class and type integration ()
 * Snippet support for the verification side of SV and UVM
 
-![Screenshot](https://github.com/gvekony/sv-1800-2012/blob/master/images/sv_screenshot_vs_code_dark.png)
+![Screenshot](https://github.com/gvekony/sv-1800-2012/raw/master/images/sv_screenshot_vs_code_dark.png)
 
 ## Fully or partially supported SystemVerilog-2012-1800 features
 * checkers

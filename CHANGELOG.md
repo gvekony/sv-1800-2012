@@ -1,4 +1,7 @@
-# Change Log
+# Change Log (Functional Changes)
+## [1.0.1]
+### License information and screenshots are added
+
 ## [1.0.0]
 ### Initial release
 #### The addon supports the following features

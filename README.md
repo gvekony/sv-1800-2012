@@ -8,13 +8,15 @@ This extension incorporates syntax highlighting and snippet support for `IEEE St
 * UVM class and type integration ()
 * Snippet support for the verification side of SV and UVM
 
-## SystemVerilog-2012-1800
+[Screenshot](https://github.com/gvekony/sv-1800-2012/blob/master/images/sv_screenshot_vs_code_dark.png)
+
+## Fully or partially supported SystemVerilog-2012-1800 features
 * checkers
 * classes
 * comments, attributes, various conventional highlights (accessors, numbers, etc.)
 * constraint blocks
-* coverage
-* interfaces
+* coverage, covergroups
+* interfaces, modports, clocking blocks
 * modules
 * packages
 * programs
@@ -49,8 +51,10 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 
 # Release Notes
 
-## 1.0.0
+## 1.0.1
+Added screenshot, cleared up license information, etc.
 
+## 1.0.0
 Initial release of SystemVerilog-1800-2012 for the public domain. The addon lacks a lot of features (yet) and will be further developed during the spring. Nevertheless the extension is fully functional and useable.
 
 # License information

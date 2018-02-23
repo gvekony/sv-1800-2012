@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "publisher": "gvekony",
     "engines": {
-        "vscode": "^1.20.0"
+        "vscode": "^1.12.0"
     },
     "license": "MIT",
     "author": {

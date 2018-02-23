@@ -51,11 +51,12 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 
 # Release Notes
 
-## 1.0.1
-Added screenshot, cleared up license information, etc.
+## 1.0.2
+Fixed various minor bugs, related to rare constructs, like interface classes, general interface parameters, formal sequence types and so.
 
-## 1.0.0
-Initial release of SystemVerilog-1800-2012 for the public domain. The addon lacks a lot of features (yet) and will be further developed during the spring. Nevertheless the extension is fully functional and useable.
+# Known bugs
+* AND property/sequence operator and AND gate level primitive is not yet distinguished.
+
 
 # License information
 

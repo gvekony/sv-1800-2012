@@ -3,15 +3,15 @@
   "name": "SystemVerilog-1800-2012",
   "scopeName": "source.systemverilog",
   "patterns": [
-    {"include": "#module_declaration"},
-    {"include": "#udp_declaration"},
-    {"include": "#interface_declaration"},
-    {"include": "#program_declaration"},
-    {"include": "#package_declaration"},
     {"include": "#bind_directive"},
-    {"include": "#config_declaration"},
     {"include": "#checker_declaration"},
     {"include": "#class_declaration"},
+    {"include": "#config_declaration"},
+    {"include": "#interface_declaration"},
+    {"include": "#module_declaration"},
+    {"include": "#package_declaration"},
+    {"include": "#program_declaration"},
+    {"include": "#udp_declaration"},
 
     {"include": "#compiler_directive"},
     {"include": "#functions"},
@@ -38,7 +38,11 @@
         {"include": "#net_types"},
         {"include": "#operators"},
         {"include": "#system_tasks"},
-        {"include": "#uvm_types"}
+        {"include": "#uvm_types"},
+        {
+          "match": "(?i)\\b(interface|sequence|untyped)\\b",
+          "name": "storage.type.formal-type-in-parens.systemverilog"
+        }
       ]
     },
     "prototype_curly_braces": {
@@ -274,8 +278,8 @@
 						{
 							"match": "\\b(export|import|inout|input|output|ref)\\b",
 							"name": "storage.modifier.direction.systemverilog"
-						},
-						{
+            },
+            {
 							"match": "\\b(clocking)\\b",
 							"name": "storage.type.clocking-block.systemverilog"
 						},
@@ -318,7 +322,9 @@
               "name": "keyword.control.systemverilog"
             },
             {"include": "#prototype"},
-            {"include": "#operators"}
+            {"include": "#operators"},
+            {"include": "#property"},
+            {"include": "#sequence"}
 					]
         },
         {
@@ -730,11 +736,11 @@
     "attributes": {
       "patterns": [
         {
-          "begin": "\\(\\*",
+          "begin": "\\(\\*(?!\\))",
           "beginCaptures": {
             "0": {"name": "keyword.control.attribute.systemverilog"}
           },
-          "end": "\\*\\)",
+          "end": "(?<!\\()\\*\\)",
           "endCaptures": {
             "0": {"name": "keyword.control.attribute.systemverilog"}
           },
@@ -964,10 +970,6 @@
           "name": "storage.type.variable.cross-coverage.systemverilog"
         },
         {
-          "match": "\\b(sequence|untyped)\\b",
-          "name": "storage.type.formal-type.systemverilog"
-        },
-        {
           "match": "\\b(enum|struct|union)\\b",
           "name": "storage.type.structure.systemverilog"
         },
@@ -988,7 +990,7 @@
           "name": "storage.modifier.net-access.systemverilog"
         },
         {
-          "match": "(?i)\\b(interconnect|interface|reg|tri(0|1|and|or|reg|)|supply(0|1)|wand|wire|wor)\\b",
+          "match": "(?i)\\b(interconnect|nettype|reg|tri(0|1|and|or|reg|)|supply(0|1)|wand|wire|wor)\\b",
           "name": "storage.type.net-type.systemverilog"
         },
         {
@@ -1039,7 +1041,7 @@
           "beginCaptures": {
             "0": {"name": "keyword.control.typedef.systemverilog"}
           },
-          "end": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b(?=(?:\\;))",
+          "end": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b(?=(?:([\\[\\]0-9:_\\s]*)?\\;))",
           "endCaptures": {
             "1": {"name": "support.type.systemverilog"}
           },
@@ -1929,9 +1931,11 @@
               "name": "meta.coverpoint.declaration.systemverilog",
               "patterns": [
                 {"include": "#prototype_curly_braces"}
+
               ]
             },
             {"include": "#prototype"},
+            {"include": "#operators"},
             {"include": "#variable_types"},
             {"include": "#uvm_types"}
           ]

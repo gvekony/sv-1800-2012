@@ -1,4 +1,12 @@
 # Change Log (Functional Changes)
+## [1.0.2]
+* Corrected indent pattern on open curly braces
+* Added special formal types to parenthesis (sequence, untyped)
+* Fixed attribute bug in always(*) constructs
+* Added operators to covergroup body (iff operator)
+* Added nettype user defined type
+* Added property and sequence to clocking block
+
 ## [1.0.1]
 ### License information and screenshots are added
 

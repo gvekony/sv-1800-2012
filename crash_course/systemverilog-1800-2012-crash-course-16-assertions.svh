@@ -355,31 +355,32 @@ module dut_two();
     a4: assert property(p_multiclock(negedge clk2, , posedge clk1, a, b, c, d) );
   endmodule
 
-  sequence s2; @(posedge clk) a ##2 b; endsequence
-    property p2; not s2;
-    endproperty
-    assert property (p2);
-
-    // — Property, for example:
-    property p3; @(posedge clk) not (a ##2 b);
-    endproperty
-    assert property (p3);
-    // — Contextually inferred clock from a procedural block, for example:
-    always @(posedge clk) assert property (not (a ##2 b));
-    // — A clocking block, for example:
-    clocking master_clk @(posedge clk);
-      property p3; not (a ##2 b);
-      endproperty
-    endclocking
-
-    assert property (master_clk.p3);
-
-    // — Default clock, for example:
-    default clocking master_clk ; // master clock as defined above
-    property p4; (a ##2 b);
-    endproperty
-    assert property (p4);
-
-    expect  wait
+  sequence s2; @(posedge clk) a ##2 b;
   endsequence
+  property p2; not s2;
+  endproperty
+  assert property (p2);
+
+  // — Property, for example:
+  property p3; @(posedge clk) not (a ##2 b);
+  endproperty
+  assert property (p3);
+  // — Contextually inferred clock from a procedural block, for example:
+  always @(posedge clk) assert property (not (a ##2 b));
+  // — A clocking block, for example:
+  clocking master_clk @(posedge clk);
+    property p3; not (a ##2 b);
+    endproperty
+  endclocking
+
+  assert property (master_clk.p3);
+
+  // — Default clock, for example:
+  default clocking master_clk ; // master clock as defined above
+  property p4; (a ##2 b);
+  endproperty
+  assert property (p4);
+
+  expect  wait
+endsequence
 endmodule

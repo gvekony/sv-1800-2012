@@ -28,7 +28,7 @@
     ["/* ", " */"]
   ],
   "indentationRules": {
-    "increaseIndentPattern": "^\\s*(((priority|unique(0|))\\s+)?(case(x|z|))|checker|(virtual\\s+)?class|config|covergroup|generate|interface|module|package|primitive|program|property|randcase|(rand|)sequence|specify|((static|virtual)\\s+)?(function|task))\\b|^((?!\\/\\/|\\/\\*).)*\\bbegin\\b(?!.*\\bend\\b)|^((?!\\/\\/|\\/\\*).)*\\bfork\\b(?!.*\\b(join(_any|_none|))\\b)|^((?!\\/\\/|\\/\\*).)*\\{$|^\\s*((default|global)\\s+)?(clocking\\b).*\\@",
+    "increaseIndentPattern": "^\\s*(((priority|unique(0|))\\s+)?(case(x|z|))|checker|(virtual\\s+)?class|config|covergroup|generate|interface|module|package|primitive|program|property|randcase|(rand|)sequence|specify|((static|virtual)\\s+)?(function|task))\\b|^((?!\\/\\/|\\/\\*).)*\\bbegin\\b(?!.*\\bend\\b)|^((?!\\/\\/|\\/\\*).)*\\bfork\\b(?!.*\\b(join(_any|_none|))\\b)|^((?!\\/\\/|\\/\\*).)*\\{\\s*((\\/\\/|\\/\\*).*|$)|^\\s*((default|global)\\s+)?(clocking\\b).*\\@",
     "decreaseIndentPattern": "^\\s*(end(case|checker|class|clocking|config|function|generate|group|interface|module|package|primitive|program|property|sequence|specify|task)\\b)|^\\s*end\\b|^\\s*join(_any|_none|)\\b|^\\s*\\}",
     //  sadly there is no option to include multi lines... so this rule fails on the first unterminated block comment line. Life is cruel. ^^
     // "indentNextLinePattern": "^(?!.*(begin|end|fork|join|\\`\\w+(\\(.*\\))?|\\;|\\{)\\s*(\\/\\/|\\/\\*)?).*[^\\s;{}]\\s*$",

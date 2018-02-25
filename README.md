@@ -41,6 +41,8 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Macros (field macros are purposely omitted): uvm_macro_info, uvm_macro_warning, uvm_macro_error, uvm_macro_object_utils, etc.
 * Phases: uvm_phase_build, uvm_phase_connect, etc.
 
+![Snippets](https://github.com/gvekony/sv-1800-2012/raw/master/images/vs_code_snippets.gif)
+
 ## Indentation rules
 * Indentation rules are added for the common constructs of SystemVerilog (eg.: module-endmodule, begin-end, etc.) for VS Code's `reindent` function
 * As VS Code uses tmLanguage (TextMate) styled rules for this, there is no multiline support, eg. block comments can break your indentation if a line starts with begin for example.

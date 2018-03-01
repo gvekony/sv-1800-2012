@@ -1,4 +1,10 @@
 # Change Log (Functional Changes)
+## [1.0.4]
+* Added snippet demonstration gif
+* Added correct scoping to externally defined functions, tasks, modules, etc.
+* End label handling of module, interface, etc. constructs moved to the punctuation region.
+* End labels are handled well even when the previous end(construct) keyword is stray and illegal.
+
 ## [1.0.2]
 * Corrected indent pattern on open curly braces
 * Added special formal types to parenthesis (sequence, untyped)

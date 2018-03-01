@@ -54,7 +54,7 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 # Release Notes
 
 ## 1.0.2
-Fixed various minor bugs, related to rare constructs, like interface classes, general interface parameters, formal sequence types and so.
+Fixed scoping on extern defined construct, to have the correct scopes defined for their namespaces and names.
 
 # Known bugs
 * AND property/sequence operator and AND gate level primitive is not yet distinguished.

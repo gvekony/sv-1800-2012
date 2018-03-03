@@ -53,7 +53,7 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 
 # Release Notes
 
-## 1.0.2
+## 1.0.4
 Fixed scoping on extern defined construct, to have the correct scopes defined for their namespaces and names.
 
 # Known bugs

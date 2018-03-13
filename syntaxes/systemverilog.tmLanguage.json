@@ -272,7 +272,7 @@
         },
         {
           "comment": "Clocking declaration",
-          "begin": "(?i)^\\s*((default|global)\\s+)?(clocking)\\s+([A-Za-z_][A-Za-z0-9_$]*)(?=(?:\\s*\\@))",
+          "begin": "(?i)^\\s*((default|global)\\s+)?(clocking)\\s+([A-Za-z_][A-Za-z0-9_$]*)?(?=(?:\\s*\\@))",
           "beginCaptures": {
             "2": {"name": "storage.modifier.systemverilog"},
             "3": {"name": "storage.type.clocking.systemverilog"},
@@ -678,7 +678,7 @@
           "beginCaptures": {
             "0": {"name": "punctuation.definition.comment.begin.systemverilog"}
           },
-          "end": "\\*/",
+          "end": "\\*\\/",
           "endCaptures": {
             "0": {"name": "punctuation.definition.comment.end.systemverilog"}
           },
@@ -688,7 +688,7 @@
           ]
         },
         {
-          "match": "\\*/.*\\n",
+          "match": "\\*\\/.*\\n",
           "name": "invalid.illegal.stray-comment-end.c"
         }
       ]
@@ -704,12 +704,11 @@
     "end_labels": {
       "patterns": [
         {
-          "begin": "(?i)((?<=(endchecker))|(?<=(endclocking))|(?<=(endconfig))|(?<=(endinterface))|(?<=(endmodule))|(?<=(endpackage))|(?<=(endprogram))|(?<=(endprimitive)))(?=(?:\\s*\\:))",
+          "begin": "(?i)((?<=(endchecker))|(?<=(endclass))|(?<=(endclocking))|(?<=(endconfig))|(?<=(endgroup))|(?<=(endinterface))|(?<=(endmodule))|(?<=(endpackage))|(?<=(endprogram))|(?<=(endproperty))|(?<=(endprimitive))|(?<=(endsequence)))(?=(?:\\s*\\:))",
           "beginCaptures": {
             "2": {"name": "punctuation.definition.label.systemverilog"}
           },
           "end": "$|(?=(?:\\/(\\/|\\*)))",
-          "name": "endmodule_scope",
           "patterns": [
             {
               "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b(?!\\s*::)",
@@ -724,7 +723,6 @@
             "2": {"name": "punctuation.definition.label.systemverilog"}
           },
           "end": "$|(?=(?:\\/(\\/|\\*)))",
-          "name": "endtask_scope",
           "patterns": [
             {
               "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b(?!\\s*\\:\\:)",
@@ -1020,12 +1018,12 @@
     "compiler_directive": {
       "patterns": [
         {
-          "begin": "(\\`)(__FILE__|__LINE__|(begin|end)_keywords|celldefine|default_nettype|define|else|elsif|endcelldefine|endif|ifdef|ifndef|include|line|pragma|resetall|timescale|unconnected_drive\\s+pull(1|0)|nounconnected_drive|undef|undefineall)\\b",
+          "begin": "(\\`)(__FILE__|__LINE__|(begin|end)_keywords|celldefine|default_nettype|define|else|elsif|endcelldefine|endif|ifdef|ifndef|include|line|pragma|resetall|timescale|unconnected_drive\\s+pull(1|0)|nounconnected_drive|undef|undefineall)",
           "beginCaptures": {
             "1": {"name": "punctuation.definition.directive.systemverilog"},
             "2": {"name": "keyword.control.directive.systemverilog"}
           },
-          "end": "(?=(?:\\/\\/|\\/\\*))|(?=\\n)",
+          "end": "(?=(?:\\/\\/|\\/\\*))|\\n",
           "name": "meta.preprocessor.systemverilog",
           "patterns": [
             {"include": "#prototype"}
@@ -1407,10 +1405,6 @@
             {
               "match": "\\$(countdrivers|getpattern|incsave|input|key|list|log|no(key|log)|reset(_count|_value|)|restart|save|scale|scope|show(scopes|vars)|sreadmem(b|h))\\b",
               "name": "invalid.deprecated.systemverilog"
-            },
-            {
-              "match": "\\${{systemverilog_id}}\\b",
-              "name": "invalid.illegal.unknown-system-call.systemverilog"
             }
           ]
         }
@@ -1449,17 +1443,6 @@
           ]
         },
         {
-          "begin": "((?<=(endproperty)))(?=(?:\\s*\\:))",
-          "end": "(?=(?:\\/\\/|\\/\\*|\\n))",
-          "patterns": [
-            {
-              "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
-              "name": "entity.name.type.systemverilog"
-            },
-            {"include": "#punctuation"}
-          ]
-        },
-        {
           "match": "\\b(endproperty)\\b",
           "name": "invalid.illegal.stray-keyword.systemverilog"
         }
@@ -1486,24 +1469,13 @@
                 {
                   "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\s*(?=(?:\\(|\\;))",
                   "captures": {
-                    "1": {"name": "entity.name.package.systemverilog"}
+                    "1": {"name": "entity.name.type.systemverilog"}
                   }
                 },
                 {"include": "#prototype"}
               ]
             },
             {"include": "#prototype_statements"}
-          ]
-        },
-        {
-          "begin": "((?<=(endsequence)))(?=(?:\\s*\\:))",
-          "end": "(?=(?:\\/\\/|\\/\\*|\\n))",
-          "patterns": [
-            {
-              "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
-              "name": "entity.name.sequence.systemverilog"
-            },
-            {"include": "#punctuation"}
           ]
         },
         {
@@ -1581,7 +1553,6 @@
             {"include": "#prototype_statements"}
           ]
         },
-
         {
           "match": "\\b(endfunction|endtask)\\b",
           "name": "invalid.illegal.stray-keyword.systemverilog"
@@ -1807,21 +1778,6 @@
           ]
         },
         {
-          "begin": "(?i)(?<=(endclass))(?=(?:\\s*\\:))",
-          "end": "(?=(?:\\/\\/|\\/\\*|\\n))",
-          "patterns": [
-            {"include": "#operator_access"},
-            {
-              "match": "(?<!\\:)\\:(?!\\:)",
-              "name": "punctuation.definition.label.systemverilog"
-            },
-            {
-              "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
-              "name": "entity.name.type.systemverilog"
-            }
-          ]
-        },
-        {
           "match": "\\b(endclass)\\b",
           "name": "invalid.illegal.stray-keyword.systemverilog"
         }
@@ -1888,17 +1844,6 @@
             {"include": "#operators"},
             {"include": "#variable_types"},
             {"include": "#uvm_types"}
-          ]
-        },
-        {
-          "begin": "(?i)(?<=(endgroup))(?=(?:\\s*\\:))",
-          "end": "(?=(?:\\/\\/|\\/\\*|\\n))",
-          "patterns": [
-            {
-              "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
-              "name": "entity.name.type.systemverilog"
-            },
-            {"include": "#punctuation"}
           ]
         },
         {

@@ -5,7 +5,7 @@ This extension incorporates syntax highlighting and snippet support for `IEEE St
 # Features
 * Syntax highlighting and basic syntax checking capabilites for SystemVerilog.
 * Scope start end checking for *module-endmodule*, *fork-join*, *begin-end*, etc.
-* UVM class and type integration ()
+* UVM class and type integration (mostly done, in progress)
 * Snippet support for the verification side of SV and UVM
 
 ![Screenshot](https://github.com/gvekony/sv-1800-2012/raw/master/images/sv_screenshot_vs_code_dark.png)
@@ -53,11 +53,26 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 
 # Release Notes
 
+## 1.0.5
+### Features
+* Added folding rules for all langauage constructs eg.: module-endmodule, class-endclass etc., to be foldable even when the indentation of the code is not perfect. Exceptions: begin-end, fork-join, as the editor has certain limitations; eg.: a line of 'end else begin' breaks the processing. Reindent still works on these lines and folding by indentation is possible
+* Also indentation regex rules are now more verbose; for some reason the folding markers work this way
+* Added support for user defined macro calls
+### Bugfixes
+* Compiler directives now scope correctly; standardized end-of-line termination on several scopes
+* Global clocking without a clocking_identifier now scopes correctly
+* Standardized end label scoping of classes, properties and sequences
+* Typedef with queue types will scope correctly
+* Module instantiation, function call parameters now scope correctly
+
 ## 1.0.4
-Fixed scoping on extern defined construct, to have the correct scopes defined for their namespaces and names.
+* Fixed scoping on extern defined construct, to have the correct scopes defined for their namespaces and names.
+
 
 # Known bugs
 * AND property/sequence operator and AND gate level primitive is not yet distinguished.
+* Limited support on module declaration's import statements (dependent on line breaks)
+* Limited support on unindented code's folding markers (editor limitation)
 
 
 # License information

@@ -1,16 +1,18 @@
 {
-  "module": {
+  "sv_module": {
     "prefix": "sv_module",
     "body": [
-      "module ${1:<module_name>} (",
-      "\t\t$2",
+      "module ${1:<module_name>} #(",
+      "\t\t${2:<parameter_list>}",
+      "\t)(",
+      "\t\t${3:<port_list>}",
       "\t);\n",
       "\t$0",
       "endmodule: $1"
     ],
     "description": "Basic SystemVerilog module construct."
   },
-  "interface": {
+  "sv_interface": {
     "prefix": "sv_interface",
     "body": [
       "interface ${1:<if_name>} (",
@@ -20,6 +22,15 @@
       "endinterface: $1"
     ],
     "description": "Basic SystemVerilog interface construct."
+  },
+  "sv_package": {
+    "prefix": "sv_package",
+    "body": [
+      "package ${1:<package_name>};",
+      "\t$0",
+      "endpackage: $1"
+    ],
+    "description": "Basic SystemVerilog package construct."
   },
   "sv_class": {
     "prefix": "sv_class",
@@ -33,4 +44,15 @@
     ],
     "description": "SV class template"
   },
+
+  "sv_guard_ifndef": {
+    "prefix": "sv_guard_ifndef",
+    "body": [
+      "`ifndef __${1:<guard_name>}",
+      "`define __$1",
+      "\n$0",
+      "`endif"
+    ],
+    "description": "Basic SystemVerilog guard ifndef-define-endif construct."
+  }
 }

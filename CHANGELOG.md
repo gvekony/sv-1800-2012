@@ -1,4 +1,16 @@
 # Change Log (Functional Changes)
+## [1.0.5]
+### Features
+* Added folding rules for all langauage constructs eg.: module-endmodule, class-endclass etc., to be foldable even when the indentation of the code is not perfect. Exceptions: begin-end, fork-join, as the editor has certain limitations; eg.: a line of 'end else begin' breaks the processing. Reindent still works on these lines and folding by indentation is possible
+* Also indentation regex rules are now more verbose; for some reason the folding markers work this way
+* Added support for user defined macro calls
+### Bugfixes
+* Compiler directives now scope correctly; standardized end-of-line termination on several scopes
+* Global clocking without a clocking_identifier now scopes correctly
+* Standardized end label scoping of classes, properties and sequences
+* Typedef with queue types will scope correctly
+* Module instantiation, function call parameters now scope correctly
+
 ## [1.0.4]
 * Added snippet demonstration gif
 * Added correct scoping to externally defined functions, tasks, modules, etc.

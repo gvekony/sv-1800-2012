@@ -26,6 +26,7 @@
     "prototype": {
       "patterns": [
         {"include": "#punctuation"},
+        {"include": "#compiler_directive"},
         {"include": "#curly_braces"},
         {"include": "#lifetime"},
         {"include": "#parens"}
@@ -69,7 +70,6 @@
       "patterns": [
         {"include": "#prototype"},
         {"include": "#blocks"},
-        {"include": "#compiler_directive"},
         {"include": "#net_types"},
         {"include": "#operators"},
         {"include": "#procedural_blocks"},
@@ -555,12 +555,12 @@
               "end": "(?=(?:\\;))",
               "name": "meta.external-declaration.function.systemverilog",
               "patterns": [
+                {"include": "#prototype"},
+                {"include": "#variable_types"},
                 {
                   "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
                   "name": "entity.name.function.systemverilog"
-                },
-                {"include": "#prototype"},
-                {"include": "#variable_types"}
+                }
               ]
             }
           ]

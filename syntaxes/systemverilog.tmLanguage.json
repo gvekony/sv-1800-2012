@@ -1791,6 +1791,7 @@
             {"include": "#covergroup_declaration"},
             {"include": "#external_declarations"},
             {"include": "#functions"},
+            {"include": "#system_tasks"},
             {"include": "#type_declaration"},
             {"include": "#variable_types"},
             {"include": "#uvm_types"},

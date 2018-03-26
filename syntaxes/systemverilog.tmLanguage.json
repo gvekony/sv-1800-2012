@@ -15,6 +15,7 @@
 
     {"include": "#compiler_directive"},
     {"include": "#functions"},
+    {"include": "#net_types"},
     {"include": "#punctuation"},
     {"include": "#type_declaration"},
 

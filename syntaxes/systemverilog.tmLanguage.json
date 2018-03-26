@@ -16,6 +16,7 @@
     {"include": "#compiler_directive"},
     {"include": "#functions"},
     {"include": "#net_types"},
+    {"include": "#system_tasks"},
     {"include": "#punctuation"},
     {"include": "#type_declaration"},
 

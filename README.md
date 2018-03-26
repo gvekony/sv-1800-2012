@@ -53,6 +53,12 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 
 # Release Notes
 
+## 1.0.6
+### Bugfixes
+* Added net and variable types to the compilation unit namespace
+* Compiler directives and system tasks are now correctly included in the appropriate scopes
+* External function declaration now correctly scopes the function name and the return type
+
 ## 1.0.5
 ### Features
 * Added folding rules for all langauage constructs eg.: module-endmodule, class-endclass etc., to be foldable even when the indentation of the code is not perfect. Exceptions: begin-end, fork-join, as the editor has certain limitations; eg.: a line of 'end else begin' breaks the processing. Reindent still works on these lines and folding by indentation is possible
@@ -64,10 +70,6 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Standardized end label scoping of classes, properties and sequences
 * Typedef with queue types will scope correctly
 * Module instantiation, function call parameters now scope correctly
-
-## 1.0.4
-* Fixed scoping on extern defined construct, to have the correct scopes defined for their namespaces and names.
-
 
 # Known bugs
 * AND property/sequence operator and AND gate level primitive is not yet distinguished.

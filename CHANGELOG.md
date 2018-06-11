@@ -1,4 +1,8 @@
 # Change Log (Functional Changes)
+## [1.0.7]
+### Features
+* Added external stubs for UVM phases; and also added UVM_runtime_phases to the snippet library.
+
 ## [1.0.6]
 ### Features
 * Added net and variable types to the compilation unit namespace

@@ -61,7 +61,6 @@
     "description": "UVM parametrized component class template"
   },
 
-  // UVM PHASES
   "uvm_build_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_build",
@@ -69,7 +68,8 @@
       "$1function void build_phase(uvm_phase phase);",
       "\tsuper.build_phase(phase);",
       "\t$0",
-      "endfunction: build_phase"],
+      "endfunction: build_phase"
+    ],
     "description": "UVM build_phase stub"
   },
   "uvm_connect_phase": {
@@ -79,7 +79,8 @@
       "$1function void connect_phase(uvm_phase phase);",
       "\tsuper.connect_phase(phase);",
       "\t$0",
-      "endfunction: connect_phase"],
+      "endfunction: connect_phase"
+    ],
     "description": "UVM connect_phase stub"
   },
   "uvm_end_of_elaboration_phase": {
@@ -89,7 +90,8 @@
       "$1function void end_of_elaboration(uvm_phase phase);",
       "\tsuper.end_of_elaboration(phase);",
       "\t$0",
-      "endfunction: end_of_elaboration"],
+      "endfunction: end_of_elaboration"
+    ],
     "description": "UVM end_of_elaboration stub"
   },
   "uvm_start_of_simulation_phase": {
@@ -99,7 +101,8 @@
       "$1function void start_of_simulation_phase(uvm_phase phase);",
       "\tsuper.start_of_simulation_phase(phase);",
       "\t$0",
-      "endfunction: start_of_simulation_phase"],
+      "endfunction: start_of_simulation_phase"
+    ],
     "description": "UVM start_of_simulation_phase stub"
   },
   "uvm_run_phase": {
@@ -108,8 +111,61 @@
     "body": [
       "task run_phase(uvm_phase phase);",
       "\t$0",
-      "endtask: run_phase"],
+      "endtask: run_phase"
+    ],
     "description": "UVM run_phase stub"
+  },
+  "uvm_reset_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_phase_reset",
+    "body": [
+      "$1task reset_phase(uvm_phase phase);",
+      "\t$0",
+      "endtask: reset_phase"
+    ],
+    "description": "UVM reset_phase stub"
+  },
+  "uvm_configure_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_phase_configure",
+    "body": [
+      "$1task configure_phase(uvm_phase phase);",
+      "\t$0",
+      "endtask: configure_phase"
+    ],
+    "description": "UVM configure_phase stub"
+  },
+  "uvm_main_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_phase_main",
+    "body": [
+      "$1task main_phase(uvm_phase phase);",
+      "\t$0",
+      "endtask: main_phase"
+    ],
+    "description": "UVM main_phase stub"
+  },
+  "uvm_shutdown_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_phase_shutdown",
+    "body": [
+      "$1task shutdown_phase(uvm_phase phase);",
+      "\t$0",
+      "endtask: shutdown_phase"
+    ],
+    "description": "UVM shutdown_phase stub"
+  },
+
+  "uvm_extract_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_phase_extract",
+    "body": [
+      "$1function void extract_phase(uvm_phase phase);",
+      "\tsuper.extract_phase(phase);",
+      "\t$0",
+      "endfunction: extract_phase"
+    ],
+    "description": "UVM extract_phase stub"
   },
   "uvm_report_phase": {
     "context": "meta.class-body.systemverilog",
@@ -118,7 +174,90 @@
       "$1function void report_phase(uvm_phase phase);",
       "\tsuper.report_phase(phase);",
       "\t$0",
-      "endfunction: report_phase"],
+      "endfunction: report_phase"
+    ],
+    "description": "UVM report_phase stub"
+  },
+
+  "uvm_extern_build_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_build_phase",
+    "body": [
+      "extern virtual function void build_phase(uvm_phase phase);"
+    ],
+    "description": "UVM build_phase stub"
+  },
+  "uvm_extern_connect_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_connect_phase",
+    "body": [
+      "extern virtual function void connect_phase(uvm_phase phase);"
+    ],
+    "description": "UVM connect_phase stub"
+  },
+  "uvm_extern_end_of_elaboration": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_end_of_elaboration_phase",
+    "body": [
+      "extern virtual function void end_of_elaboration(uvm_phase phase);"
+    ],
+    "description": "UVM end_of_elaboration stub"
+  },
+  "uvm_extern_start_of_simulation_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_start_of_simulation_phase",
+    "body": [
+      "extern virtual function void start_of_simulation_phase(uvm_phase phase);"
+    ],
+    "description": "UVM start_of_simulation_phase stub"
+  },
+  "uvm_extern_reset_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_reset_phase",
+    "body": [
+      "extern virtual task reset_phase(uvm_phase phase);"
+    ],
+    "description": "UVM reset_phase stub"
+  },
+  "uvm_extern_configure_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_configure_phase",
+    "body": [
+      "extern virtual task configure_phase(uvm_phase phase);"
+    ],
+    "description": "UVM configure_phase stub"
+  },
+  "uvm_extern_main_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_main_phase",
+    "body": [
+      "extern virtual task main_phase(uvm_phase phase);"
+    ],
+    "description": "UVM main_phase stub"
+  },
+  "uvm_extern_shutdown_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_shutdown_phase",
+    "body": [
+      "extern virtual task shutdown_phase(uvm_phase phase);"
+    ],
+    "description": "UVM shutdown_phase stub"
+  },
+  "uvm_extern_extract_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_extract_phase",
+    "body": [
+      "extern virtual function void extract_phase(uvm_phase phase);"
+    ],
+    "description": "UVM extract_phase stub"
+  },
+  "uvm_extern_report_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_report_phase",
+    "body": [
+      "extern virtual function void report_phase(uvm_phase phase);"
+    ],
     "description": "UVM report_phase stub"
   }
+
 }

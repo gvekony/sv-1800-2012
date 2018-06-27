@@ -13,7 +13,7 @@
     ],
     "description": "UVM object class template"
   },
-  "UVM_object_with_parameters":{
+  "UVM_object_with_parameters": {
     "prefix": "uvm_class_object_params",
     "body": [
       "class ${1:<class_name>} #(${2:<parameters>}) extends ${3:<base_class>};",
@@ -28,7 +28,6 @@
     ],
     "description": "UVM parametrized object class template"
   },
-
   "UVM_component": {
     "prefix": "uvm_class_component",
     "body": [
@@ -44,7 +43,7 @@
     ],
     "description": "UVM component class template"
   },
-  "UVM_component_with_parameters":{
+  "UVM_component_with_parameters": {
     "prefix": "uvm_class_component_params",
     "body": [
       "class ${1:<class_name>} #(${2:<parameters>}) extends ${3:<base_class>};",
@@ -60,7 +59,6 @@
     ],
     "description": "UVM parametrized component class template"
   },
-
   "uvm_build_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_build",
@@ -87,12 +85,12 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_end_of_elaboration",
     "body": [
-      "$1function void end_of_elaboration(uvm_phase phase);",
-      "\tsuper.end_of_elaboration(phase);",
+      "$1function void end_of_elaboration_phase(uvm_phase phase);",
+      "\tsuper.end_of_elaboration_phase(phase);",
       "\t$0",
-      "endfunction: end_of_elaboration"
+      "endfunction: end_of_elaboration_phase"
     ],
-    "description": "UVM end_of_elaboration stub"
+    "description": "UVM end_of_elaboration_phase stub"
   },
   "uvm_start_of_simulation_phase": {
     "context": "meta.class-body.systemverilog",
@@ -155,7 +153,6 @@
     ],
     "description": "UVM shutdown_phase stub"
   },
-
   "uvm_extract_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_extract",
@@ -178,7 +175,6 @@
     ],
     "description": "UVM report_phase stub"
   },
-
   "uvm_extern_build_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_build_phase",
@@ -199,7 +195,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_end_of_elaboration_phase",
     "body": [
-      "extern virtual function void end_of_elaboration(uvm_phase phase);"
+      "extern virtual function void end_of_elaboration_phase(uvm_phase phase);"
     ],
     "description": "UVM end_of_elaboration stub"
   },
@@ -259,5 +255,4 @@
     ],
     "description": "UVM report_phase stub"
   }
-
 }

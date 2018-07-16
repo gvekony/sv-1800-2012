@@ -1,4 +1,8 @@
 # Change Log (Functional Changes)
+## [1.0.8]
+### Features
+* Minor bugfixes in UVM phase snippets.
+
 ## [1.0.7]
 ### Features
 * Added external stubs for UVM phases; and also added UVM_runtime_phases to the snippet library.

@@ -191,7 +191,7 @@
     ],
     "description": "UVM connect_phase stub"
   },
-  "uvm_extern_end_of_elaboration": {
+  "uvm_extern_end_of_elaboration_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_end_of_elaboration_phase",
     "body": [
@@ -206,6 +206,14 @@
       "extern virtual function void start_of_simulation_phase(uvm_phase phase);"
     ],
     "description": "UVM start_of_simulation_phase stub"
+  },
+  "uvm_extern_run_phase": {
+    "context": "meta.class-body.systemverilog",
+    "prefix": "uvm_extern_run_phase",
+    "body": [
+      "extern virtual task run_phase(uvm_phase phase);"
+    ],
+    "description": "UVM run_phase stub"
   },
   "uvm_extern_reset_phase": {
     "context": "meta.class-body.systemverilog",

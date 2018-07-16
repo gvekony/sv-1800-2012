@@ -44,7 +44,6 @@
     ],
     "description": "SV class template"
   },
-
   "sv_guard_ifndef": {
     "prefix": "sv_guard_ifndef",
     "body": [
@@ -54,5 +53,24 @@
       "`endif"
     ],
     "description": "Basic SystemVerilog guard ifndef-define-endif construct."
+  },
+  "sv_separator_large": {
+    "prefix": "sv_separator_large",
+    "body": [
+      "/*----------------------------------------------------------------------------*/",
+      "/*  $1                                                                        */",
+      "/*----------------------------------------------------------------------------*/",
+      "$0"
+    ],
+    "description": "Large 80 ch wide separator."
+  },
+  "sv_separator_small_label": {
+    "prefix": "sv_separator_large",
+    "body": [
+      "/*---  $1                          ---*/",
+      "/*------------------------------------*/",
+      "$0"
+    ],
+    "description": "Small 40 ch wide separator."
   }
 }

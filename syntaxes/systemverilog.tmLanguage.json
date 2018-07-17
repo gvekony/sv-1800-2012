@@ -521,10 +521,7 @@
     "external_declarations": {
       "patterns": [
         {
-          "begin": "(?i)^\\s*(extern)\\b",
-          "beginCaptures": {
-            "1": {"name": "storage.modifier.systemverilog"}
-          },
+          "begin": "^\\s*(?=(?:(\\/\\*[\\w\\s]*\\*\\/)?\\s*(extern)\\b))",
           "end": "(?=(?:\\;))",
           "name": "meta.external-declaration.systemverilog",
           "patterns": [
@@ -533,6 +530,10 @@
               "include": "#variable_types"
             },
             {"include": "#punctuation"},
+            {
+              "match": "\\b(extern)\\b",
+              "name": "storage.modifier.systemverilog"
+            },
             {
               "comment": "External modules",
               "begin": "\\b(checker|constraint|module|program)\\b",
@@ -944,7 +945,7 @@
           "name": "storage.type.structure.systemverilog"
         },
         {
-          "match": "\\b([A-Za-z_][A-Za-z0-9_$]*_t)\\b",
+          "match": "\\b([A-Za-z_][A-Za-z0-9_$]*(_e|_t))\\b",
           "name": "support.type.posix-reserved.systemverilog"
         }
       ]
@@ -1516,7 +1517,7 @@
           "beginCaptures": {
             "1": {"name": "storage.type.function.systemverilog"}
           },
-          "end": "(?i)^\\s*(endfunction)\\b",
+          "end": "(?i)\\b(endfunction)\\b",
           "endCaptures": {
             "1": {"name": "storage.type.function.systemverilog"}
           },
@@ -1548,7 +1549,7 @@
           "beginCaptures": {
             "1": {"name": "storage.type.function.systemverilog"}
           },
-          "end": "(?i)^\\s*(endtask)\\b",
+          "end": "(?i)\\b(endtask)\\b",
           "endCaptures": {
             "1": {"name": "storage.type.function.systemverilog"}
           },

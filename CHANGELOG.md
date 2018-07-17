@@ -1,6 +1,7 @@
 # Change Log (Functional Changes)
 ## [1.0.8]
 ### Features
+* Better support of UVM source code, eg.: /* local */ extern functions, oneliner tasks and functions, etc.
 * Minor bugfixes in UVM phase snippets.
 
 ## [1.0.7]

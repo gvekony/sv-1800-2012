@@ -2,184 +2,344 @@
   "UVM_object": {
     "prefix": "uvm_class_object",
     "body": [
-      "class ${1:<class_name>} extends ${2:<base_class>};",
+      "class ${1:class_name} extends ${2:base_class};",
       "\t`uvm_object_utils($1);\n",
-      "\t/*  VARIABLES  */\n\n",
-      "\tfunction new(string name=\"$1\");",
+      "\t/*  PROPERTIES  */",
+      "\t${3:}\n",
+      "\tfunction new(string name = \"$1\");",
       "\t\tsuper.new(name);",
-      "\tendfunction: new\n\n",
-      "\t$0",
-      "endclass: $1"
+      "\tendfunction: new",
+      "\n\t$0",
+      "endclass: $1\n"
     ],
     "description": "UVM object class template"
   },
   "UVM_object_with_parameters": {
     "prefix": "uvm_class_object_params",
     "body": [
-      "class ${1:<class_name>} #(${2:<parameters>}) extends ${3:<base_class>};",
+      "class ${1:class_name} #(${2:parameters}) extends ${3:base_class};",
       "\ttypedef $1 #($2) this_type_t;",
       "\t`uvm_object_param_utils(this_type_t);\n",
-      "\t/*  VARIABLES  */\n\n",
-      "\tfunction new(string name=\"$1\");",
+      "\t/*  PROPERTIES  */",
+      "\t${4:}\n",
+      "\tfunction new(string name = \"$1\");",
       "\t\tsuper.new(name);",
-      "\tendfunction: new\n\n",
-      "\t$0",
-      "endclass: $1"
+      "\tendfunction: new",
+      "\n\t$0",
+      "endclass: $1\n"
     ],
     "description": "UVM parametrized object class template"
   },
+
   "UVM_component": {
     "prefix": "uvm_class_component",
     "body": [
-      "class ${1:<class_name>} extends ${2:<base_class>};",
+      "class ${1:class_name} extends ${2:base_class};",
       "\t`uvm_component_utils($1);\n",
-      "\t/*  COMPONENTS  */\n",
-      "\t/*  VARIABLES  */\n\n",
-      "\tfunction new(string name=\"$1\", uvm_component parent);",
+      "\t/*  SUB-COMPONENTS  */\n",
+      "\t/*  PROPERTIES  */",
+      "\t${3:}\n",
+      "\tfunction new(string name = \"$1\", uvm_component parent);",
       "\t\tsuper.new(name, parent);",
-      "\tendfunction: new\n\n",
+      "\tendfunction: new\n",
       "\t$0",
-      "endclass: $1"
+      "endclass: $1\n"
     ],
     "description": "UVM component class template"
   },
   "UVM_component_with_parameters": {
     "prefix": "uvm_class_component_params",
     "body": [
-      "class ${1:<class_name>} #(${2:<parameters>}) extends ${3:<base_class>};",
+      "class ${1:class_name} #(${2:parameters}) extends ${3:base_class};",
       "\ttypedef $1 #($2) this_type_t;",
       "\t`uvm_component_param_utils(this_type_t);\n",
-      "\t/*  COMPONENTS  */\n",
-      "\t/*  VARIABLES  */\n\n",
-      "\tfunction new(string name=\"$1\", uvm_component parent);",
+      "\t/*  SUB-COMPONENTS  */\n",
+      "\t/*  PROPERTIES  */",
+      "\t${4:}\n",
+      "\tfunction new(string name = \"$1\", uvm_component parent);",
       "\t\tsuper.new(name, parent);",
-      "\tendfunction: new\n\n",
+      "\tendfunction: new\n",
       "\t$0",
-      "endclass: $1"
+      "endclass: $1\n"
     ],
     "description": "UVM parametrized component class template"
   },
+
+  "UVM_sequence_item": {
+    "prefix": "uvm_sequence_item",
+    "body": [
+        "class ${1:class_name} extends ${2:uvm_sequence_item};",
+        "\ttypedef $1 this_type_t;",
+        "\t`uvm_object_utils($1);\n",
+        "\t/*  PROPERTIES  */",
+        "\t${3:}\n",
+        "\t/*  CONSTRAINTS  */\n\n",
+        "\tfunction new(string name = \"$1\");",
+        "\t\tsuper.new(name);",
+        "\tendfunction: new\n",
+        "\t// extern virtual function void do_copy(uvm_object rhs);",
+        "\t// extern virtual function bit do_compare(uvm_object rhs, uvm_comparer comparer);",
+        "\t// extern virtual function string convert2string();",
+        "\t// extern virtual function void do_print(uvm_printer printer);",
+        "\t// extern virtual function void do_record(uvm_recorder recorder);",
+        "\t// extern virtual function void do_pack();",
+        "\t// extern virtual function void do_unpack();",
+        "\n\t$0",
+        "endclass: $1\n"
+    ],
+    "description": "UVM sequence item class template"
+  },
+  "UVM_sequence_item_with_parameters": {
+    "prefix": "uvm_sequence_item_params",
+    "body": [
+        "class ${1:class_name} #(${2:parameters}) extends ${3:uvm_sequence_item};",
+        "\ttypedef $1 #($2) this_type_t;",
+        "\t`uvm_object_param_utils(this_type_t);\n",
+        "\t/*  PROPERTIES  */",
+        "\t${4:}\n",
+        "\t/*  CONSTRAINTS  */\n\n",
+        "\tfunction new(string name = \"$1\");",
+        "\t\tsuper.new(name);",
+        "\tendfunction: new\n",
+        "\t// extern virtual function void do_copy(uvm_object rhs);",
+        "\t// extern virtual function bit do_compare(uvm_object rhs, uvm_comparer comparer);",
+        "\t// extern virtual function string convert2string();",
+        "\t// extern virtual function void do_print(uvm_printer printer);",
+        "\t// extern virtual function void do_record(uvm_recorder recorder);",
+        "\t// extern virtual function void do_pack();",
+        "\t// extern virtual function void do_unpack();",
+        "\n\t$0",
+        "endclass: $1\n"
+    ],
+    "description": "UVM parametrized sequence item class template"
+  },
+
+  "uvm_sequence_item_do_copy": {
+    "prefix": "uvm_sequence_item_do_copy",
+    "body": [
+      "function void ${1:class_scope::}do_copy(uvm_object rhs);",
+      "\tthis_type_t rhs_;\n",
+      "\tassert (\\$cast(rhs_, rhs)) begin",
+      "\t\t${2:}// `uvm_info({this.get_name(), \".do_copy()\"}, \"Cast succeded.\", UVM_HIGH);",
+      "\tend else begin",
+      "\t\t`uvm_error({this.get_name(), \".do_copy()\"}, \"Cast failed!\");",
+      "\t\treturn;",
+      "\tend\n",
+      "\t/*  chain the copy with parent classes  */",
+      "\tsuper.do_copy(rhs);\n",
+      "\t/*  list of properties to be copied  */",
+      "\t${3:<this.property = rhs_.property>}",
+      "endfunction: $1do_copy\n$0"
+    ],
+    "description": "UVM sequence item do_copy() stub"
+  },
+  "uvm_sequence_item_do_compare": {
+    "prefix": "uvm_sequence_item_do_compare",
+    "body": [
+      "function bit ${1:class_scope::}do_compare(uvm_object rhs, uvm_comparer comparer);",
+      "\tthis_type_t rhs_;\n",
+      "\tassert (\\$cast(rhs_, rhs)) begin",
+      "\t\t${2:}// `uvm_info({this.get_name(), \".do_compare()\"}, \"Cast succeded.\", UVM_HIGH);",
+      "\tend else begin",
+      "\t\t`uvm_error({this.get_name(), \".do_compare()\"}, \"Cast failed!\");",
+      "\t\treturn 0;",
+      "\tend\n",
+      "\treturn (",
+      "\t\t/*  chain the compare with parent classes  */",
+      "\t\t(super.do_compare(rhs, comparer)) &&\n",
+      "\t\t/*  list of properties to be compared:  */",
+      "\t\t${3:(<this.property == rhs_.property>)}",
+      "\t);",
+      "endfunction: $1do_compare\n$0"
+    ],
+    "description": "UVM sequence item do_compare() stub"
+  },
+  "uvm_sequence_item_convert2string": {
+    "prefix": "uvm_sequence_item_convert2string",
+    "body": [
+      "function string ${1:class_scope::}convert2string();",
+      "\tstring s;",
+      "\t/*  chain the convert2string with parent classes  */",
+      "\ts = super.convert2string();\n",
+      "\t/*  use \\t (tab) and \\n (newline) to format the data in columns!  */",
+      "\t\\$sformat(s, \"${2:property_name}: ${3:<%0d>}\\n\", ${4:<this.property>});",
+      "\treturn s;",
+      "endfunction: $1convert2string\n$0"
+    ],
+    "description": "UVM sequence item convert2string() stub"
+  },
+  "uvm_sequence_item_do_print": {
+    "prefix": "uvm_sequence_item_do_print",
+    "body": [
+      "function void ${1:class_scope::}do_print(uvm_printer printer)",
+      "\tprinter.m_string = this.convert2string();",
+      "endfunction: $1do_print\n$0"
+    ],
+    "description": "UVM sequence item do_print() stub"
+  },
+  "uvm_sequence_item_do_record": {
+    "prefix": "uvm_sequence_item_do_record",
+    "body": [
+      "function void ${1:class_scope::}do_record(uvm_recorder recorder);",
+      "\t/*  chain the record with parent classes  */",
+      "\tsuper.do_record(recorder);\n",
+      "\t/*  list of properties to be recorded:  */",
+      "\t`uvm_record_field(\"${2:property_id}\", ${3:property_name});",
+      "endfunction: $1do_record\n$0"
+    ],
+    "description": "UVM sequence item do_record() stub"
+  },
+  "uvm_sequence_item_do_pack": {
+    "prefix": "uvm_sequence_item_do_pack",
+    "body": [
+      "function void ${1:class_scope::}do_pack(uvm_packer packer);",
+      "\t/*  chain the pack with parent classes  */",
+      "\tsuper.do_pack(packer);\n",
+      "\t/*  list of properties to be packed:  */",
+      "\t`${2:uvm_pack_int}(${3:property_name})",
+      "endfunction: $1do_pack\n$0"
+      ],
+    "description": "Compresses object contents into a bit format."
+  },
+  "uvm_sequence_item_do_unpack": {
+    "prefix": "uvm_sequence_item_do_unpack",
+    "body": [
+      "function void ${1:class_scope::}do_unpack(uvm_packer packer);",
+      "\t/*  chain the unpack with parent classes  */",
+      "\tsuper.do_unpack(packer);\n",
+      "\t/*  list of properties to be unpacked:  */",
+      "\t`${2:uvm_unpack_int}(${3:property_name})",
+      "endfunction: $1do_unpack\n$0"
+      ],
+    "description": "Converts a bit format into the data object format."
+  },
+
+  // UVM PHASE DEFINITIONS
   "uvm_build_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_build",
     "body": [
-      "$1function void build_phase(uvm_phase phase);",
-      "\tsuper.build_phase(phase);",
+      "function void ${1:class_scope::}build_phase(uvm_phase phase);",
+      "\t/*  note: Do not call super.build_phase() from any class that is extended from an UVM base class!  */",
+      "\t/*  For more information see UVM Cookbook v1800.2 p.503  */",
+      "\t// $2super.build_phase(phase);\n",
       "\t$0",
-      "endfunction: build_phase"
+      "endfunction: $1build_phase\n"
     ],
-    "description": "UVM build_phase stub"
+    "description": "UVM build_phase template"
   },
   "uvm_connect_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_connect",
     "body": [
-      "$1function void connect_phase(uvm_phase phase);",
-      "\tsuper.connect_phase(phase);",
+      "function void ${1:class_scope::}connect_phase(uvm_phase phase);",
+      "\tsuper.connect_phase(phase);\n",
       "\t$0",
-      "endfunction: connect_phase"
+      "endfunction: $1connect_phase\n"
     ],
-    "description": "UVM connect_phase stub"
+    "description": "UVM connect_phase template"
   },
   "uvm_end_of_elaboration_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_end_of_elaboration",
     "body": [
-      "$1function void end_of_elaboration_phase(uvm_phase phase);",
-      "\tsuper.end_of_elaboration_phase(phase);",
+      "function void ${1:class_scope::}end_of_elaboration_phase(uvm_phase phase);",
+      "\tsuper.end_of_elaboration_phase(phase);\n",
       "\t$0",
-      "endfunction: end_of_elaboration_phase"
+      "endfunction: $1end_of_elaboration_phase\n"
     ],
-    "description": "UVM end_of_elaboration_phase stub"
+    "description": "UVM end_of_elaboration_phase template"
   },
   "uvm_start_of_simulation_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_start_of_simulation",
     "body": [
-      "$1function void start_of_simulation_phase(uvm_phase phase);",
+      "function void ${1:class_scope::}start_of_simulation_phase(uvm_phase phase);",
       "\tsuper.start_of_simulation_phase(phase);",
       "\t$0",
-      "endfunction: start_of_simulation_phase"
+      "endfunction: $1start_of_simulation_phase\n"
     ],
-    "description": "UVM start_of_simulation_phase stub"
+    "description": "UVM start_of_simulation_phase template"
   },
   "uvm_run_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_run",
     "body": [
-      "task run_phase(uvm_phase phase);",
+      "task ${1:class_scope::}run_phase(uvm_phase phase);",
       "\t$0",
-      "endtask: run_phase"
+      "endtask: $1run_phase\n"
     ],
-    "description": "UVM run_phase stub"
+    "description": "UVM run_phase template"
   },
   "uvm_reset_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_reset",
     "body": [
-      "$1task reset_phase(uvm_phase phase);",
+      "task ${1:class_scope::}reset_phase(uvm_phase phase);",
       "\t$0",
-      "endtask: reset_phase"
+      "endtask: $1reset_phase\n"
     ],
-    "description": "UVM reset_phase stub"
+    "description": "UVM reset_phase template"
   },
   "uvm_configure_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_configure",
     "body": [
-      "$1task configure_phase(uvm_phase phase);",
+      "task ${1:class_scope::}configure_phase(uvm_phase phase);",
       "\t$0",
-      "endtask: configure_phase"
+      "endtask: $1configure_phase\n"
     ],
-    "description": "UVM configure_phase stub"
+    "description": "UVM configure_phase template"
   },
   "uvm_main_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_main",
     "body": [
-      "$1task main_phase(uvm_phase phase);",
+      "task ${1:class_scope::}main_phase(uvm_phase phase);",
       "\t$0",
-      "endtask: main_phase"
+      "endtask: $1main_phase\n"
     ],
-    "description": "UVM main_phase stub"
+    "description": "UVM main_phase template"
   },
   "uvm_shutdown_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_shutdown",
     "body": [
-      "$1task shutdown_phase(uvm_phase phase);",
+      "task ${1:class_scope::}shutdown_phase(uvm_phase phase);",
       "\t$0",
-      "endtask: shutdown_phase"
+      "endtask: $1shutdown_phase\n"
     ],
-    "description": "UVM shutdown_phase stub"
+    "description": "UVM shutdown_phase template"
   },
   "uvm_extract_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_extract",
     "body": [
-      "$1function void extract_phase(uvm_phase phase);",
+      "function void ${1:class_scope::}extract_phase(uvm_phase phase);",
       "\tsuper.extract_phase(phase);",
       "\t$0",
-      "endfunction: extract_phase"
+      "endfunction: $1extract_phase\n"
     ],
-    "description": "UVM extract_phase stub"
+    "description": "UVM extract_phase template"
   },
   "uvm_report_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_phase_report",
     "body": [
-      "$1function void report_phase(uvm_phase phase);",
+      "function void ${1:class_scope::}report_phase(uvm_phase phase);",
       "\tsuper.report_phase(phase);",
       "\t$0",
-      "endfunction: report_phase"
+      "endfunction: $1report_phase\n"
     ],
-    "description": "UVM report_phase stub"
+    "description": "UVM report_phase template"
   },
+
+  // EXTERNAL PHASE DECLARATIONS
   "uvm_extern_build_phase": {
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_build_phase",
     "body": [
-      "extern virtual function void build_phase(uvm_phase phase);"
+      "extern ${1:virtual }function void build_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM build_phase stub"
   },
@@ -187,7 +347,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_connect_phase",
     "body": [
-      "extern virtual function void connect_phase(uvm_phase phase);"
+      "extern ${1:virtual }function void connect_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM connect_phase stub"
   },
@@ -195,7 +355,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_end_of_elaboration_phase",
     "body": [
-      "extern virtual function void end_of_elaboration_phase(uvm_phase phase);"
+      "extern ${1:virtual }function void end_of_elaboration_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM end_of_elaboration stub"
   },
@@ -203,7 +363,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_start_of_simulation_phase",
     "body": [
-      "extern virtual function void start_of_simulation_phase(uvm_phase phase);"
+      "extern ${1:virtual }function void start_of_simulation_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM start_of_simulation_phase stub"
   },
@@ -211,7 +371,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_run_phase",
     "body": [
-      "extern virtual task run_phase(uvm_phase phase);"
+      "extern ${1:virtual }task run_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM run_phase stub"
   },
@@ -219,7 +379,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_reset_phase",
     "body": [
-      "extern virtual task reset_phase(uvm_phase phase);"
+      "extern ${1:virtual }task reset_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM reset_phase stub"
   },
@@ -227,7 +387,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_configure_phase",
     "body": [
-      "extern virtual task configure_phase(uvm_phase phase);"
+      "extern ${1:virtual }task configure_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM configure_phase stub"
   },
@@ -235,7 +395,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_main_phase",
     "body": [
-      "extern virtual task main_phase(uvm_phase phase);"
+      "extern ${1:virtual }task main_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM main_phase stub"
   },
@@ -243,7 +403,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_shutdown_phase",
     "body": [
-      "extern virtual task shutdown_phase(uvm_phase phase);"
+      "extern ${1:virtual }task shutdown_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM shutdown_phase stub"
   },
@@ -251,7 +411,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_extract_phase",
     "body": [
-      "extern virtual function void extract_phase(uvm_phase phase);"
+      "extern ${1:virtual }function void extract_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM extract_phase stub"
   },
@@ -259,7 +419,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_extern_report_phase",
     "body": [
-      "extern virtual function void report_phase(uvm_phase phase);"
+      "extern ${1:virtual }function void report_phase(uvm_phase phase);\n$0"
     ],
     "description": "UVM report_phase stub"
   }

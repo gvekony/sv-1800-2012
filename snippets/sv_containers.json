@@ -49,27 +49,35 @@
     "body": [
       "`ifndef __${1:<guard_name>}",
       "`define __$1",
-      "\n$0",
-      "`endif"
+      "\n$0\n",
+      "`endif\n"
     ],
     "description": "Basic SystemVerilog guard ifndef-define-endif construct."
   },
+  "sv_separator_block": {
+    "prefix": "sv_separator_block",
+    "body": [
+      "/*",
+      "**  $1",
+      "**",
+      "*/\n$0"
+    ],
+    "description": "C++ style block comment."
+  },
   "sv_separator_large": {
-    "prefix": "sv_separator_large",
+    "prefix": "sv_separator_full",
     "body": [
       "/*----------------------------------------------------------------------------*/",
-      "/*  $1                                                                        */",
-      "/*----------------------------------------------------------------------------*/",
-      "$0"
+      "/*  $1                                                                          */",
+      "/*----------------------------------------------------------------------------*/\n$0"
     ],
     "description": "Large 80 ch wide separator."
   },
   "sv_separator_small_label": {
-    "prefix": "sv_separator_large",
+    "prefix": "sv_separator_half",
     "body": [
-      "/*---  $1                          ---*/",
-      "/*------------------------------------*/",
-      "$0"
+      "/*---  $1                            ---*/",
+      "/*------------------------------------*/\n$0",
     ],
     "description": "Small 40 ch wide separator."
   }

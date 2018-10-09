@@ -3,70 +3,70 @@
   "systemverilog_fork_join": {
     "prefix": "sv_block_parallel",
     "body": [
-      "fork: ${1:<label>}",
+      "fork${1:: label}",
       "\t$0",
-      "join$2: ${1:<label>}"
+      "join${2:}$1",
+      "${3:// disable fork;}\n"
     ],
     "description": "The fork-join parallel block construct enables the creation of concurrent processes from each of its parallel statements."
   },
   "systemverilog_begin_end": {
     "prefix": "sv_block_sequential",
     "body": [
-      "begin: ${1:<label>}",
+      "begin${1:: label}",
       "\t$0",
-      "end: ${1:<label>}"
+      "end$1\n"
     ],
     "description": "The procedural statements in a sequential block shall be executed sequentially in the given order."
   },
   "systemverilog_if_else": {
     "prefix": "sv_if",
     "body": [
-      "if (${1:<condition>}) ${2:<true_block_statement>}",
-      "else ${3:<false_block_statement>}",
-      "$0"
+      "if (${1:condition}) ${2:true_block_statement}",
+      "else ${3:false_block_statement}\n$0"
     ],
     "description": "The conditional statement (or if–else statement) is used to make a decision about whether a statement is executed."
   },
   "systemverilog_if_else_with_blocks": {
     "prefix": "sv_if_blocks",
     "body": [
-      "if (${1:<condition>}) begin",
+      "if (${1:condition}) begin",
       "\t$0",
       "end $2else begin",
       "\t",
-      "end"
+      "end\n"
     ],
     "description": "The conditional statement (or if–else statement) is used to make a decision about whether a statement is executed."
   },
   "systemverilog_if_else_with_blocks_labels": {
     "prefix": "sv_if_blocks_labels",
     "body": [
-      "if (${1:<condition>}) begin${2::<true_block_label>}",
+      "if (${1:condition}) begin${2:: true_block_label}",
       "\t$0",
       "end$2",
-      "else begin${3::<false_block_label>}",
+      "else begin${3:: false_block_label}",
       "\t",
-      "end$3"
+      "end$3\n"
     ],
     "description": "The conditional statement (or if–else statement) is used to make a decision about whether a statement is executed."
   },
   "systemverilog_function": {
     "prefix": "sv_function",
     "body": [
-      "$4function ${1:<return>} ${2:<name>}(${3:parameters});",
+      "$4function ${1:return} ${2:class_scope::}${3:name}(${5:parameters});",
       "\t$0",
-      "endfunction: $2"
+      "endfunction: $2$3\n"
     ],
     "description": "function ... endfunction construct"
   },
   "systemverilog_task": {
     "prefix": "sv_task",
     "body": [
-      "$3task ${1:<name>}(${2:parameters});",
+      "$3task ${1:class_scope::}${2:name}(${4:parameters});",
       "\t$0",
-      "endtask: $1"
+      "endtask: $1$2\n"
     ],
-    "description": "function ... endfunction construct"
+    "description": "task  ... endtask construct"
   }
 
 }

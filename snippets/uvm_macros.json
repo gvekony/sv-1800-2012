@@ -2,61 +2,104 @@
   // REPORT MACROS
   "uvm_info": {
     "prefix": "uvm_macro_info",
-    "body": ["`uvm_info(${1:get_name()}, \"${2:<message>}\", ${3:UVM_MEDIUM})"],
-    "description": "Calls uvm_report_info if VERBOSITY is lower than the configured verbosity of the associated reporter. ID is given as the message tag and <message> is given as the message text. The file and line are also sent to the uvm_report_info call."
+    "body": ["`uvm_info(${1:get_name()}, \"${2:message}\", ${3:UVM_MEDIUM})\n$0"],
+    "description": "Calls uvm_report_info if VERBOSITY is lower than the configured verbosity of the associated reporter. ID is given as the message tag and message is given as the message text. The file and line are also sent to the uvm_report_info call."
   },
   "uvm_warning": {
     "prefix": "uvm_macro_warning",
-    "body": ["`uvm_warning(${1:get_name()}, \"${2:<message>}\")"],
-    "description": "Calls uvm_report_warning with a verbosity of UVM_NONE. ID is given as the message tag and <message> is given as the message text. The file and line are also sent to the uvm_report_warning call."
+    "body": ["`uvm_warning(${1:get_name()}, \"${2:message}\")\n$0"],
+    "description": "Calls uvm_report_warning with a verbosity of UVM_NONE. ID is given as the message tag and message is given as the message text. The file and line are also sent to the uvm_report_warning call."
   },
   "uvm_error": {
     "prefix": "uvm_macro_error",
-    "body": ["`uvm_error(${1:get_name()}, \"${2:<message>}\")"],
-    "description": "Calls uvm_report_error with a verbosity of UVM_NONE. ID is given as the message tag and <message> is given as the message text. The file and line are also sent to the uvm_report_error call."
+    "body": ["`uvm_error(${1:get_name()}, \"${2:message}\")\n$0"],
+    "description": "Calls uvm_report_error with a verbosity of UVM_NONE. ID is given as the message tag and message is given as the message text. The file and line are also sent to the uvm_report_error call."
   },
   "uvm_fatal": {
     "prefix": "uvm_macro_fatal",
-    "body": ["`uvm_fatal(${1:get_name()}, \"${2:<message>}\")"],
-    "description": "Calls uvm_report_fatal with a verbosity of UVM_NONE. ID is given as the message tag and <message> is given as the message text. The file and line are also sent to the uvm_report_fatal call."
+    "body": ["`uvm_fatal(${1:get_name()}, \"${2:message}\")\n$0"],
+    "description": "Calls uvm_report_fatal with a verbosity of UVM_NONE. ID is given as the message tag and message is given as the message text. The file and line are also sent to the uvm_report_fatal call."
   },
 
-  // UTILITY MACROS
+  // FACTORY RELATED MACROS
   "uvm_object_utils": {
     "prefix": "uvm_macro_object_utils",
-    "body": ["`uvm_object_utils(${1:<type>})"],
+    "context": "meta.class.systemverilog",
+    "body": ["`uvm_object_utils(${1:type})\n$0"],
     "description": "The utils macros define the infrastructure needed to enable the object/component for correct factory operation."
   },
   "uvm_object_utils": {
     "prefix": "uvm_macro_object_param_utils",
-    "body": ["`uvm_object_param_utils(${1:<type>})"],
+    "context": "meta.class.systemverilog",
+    "body": ["`uvm_object_param_utils(${1:type})\n$0"],
     "description": "The utils macros define the infrastructure needed to enable the object/component for correct factory operation."
   },
   "uvm_component_utils": {
     "prefix": "uvm_macro_component_utils",
-    "body": ["`uvm_component_utils(${1:<type>})"],
+    "context": "meta.class.systemverilog",
+    "body": ["`uvm_component_utils(${1:type})\n$0"],
     "description": "The utils macros define the infrastructure needed to enable the object/component for correct factory operation."
   },
   "uvm_component_param_utils": {
     "prefix": "uvm_macro_component_param_utils",
-    "body": ["`uvm_component_param_utils(${1:<type>})"],
+    "context": "meta.class.systemverilog",
+    "body": ["`uvm_component_param_utils(${1:type})\n$0"],
     "description": "The utils macros define the infrastructure needed to enable the object/component for correct factory operation."
   },
   "uvm_object_registry": {
     "prefix": "uvm_macro_object_registry",
-    "body": ["`uvm_object_registry(${1:<type>}, \"${2:<lookup_string>}\")"],
-    "description": "Registers a uvm_object-based class <type> and lookup string <lookup_string> with the factory. <lookup_string> typically is the name of the class in quotes."
+    "body": ["`uvm_object_registry(${1:type}, \"${2:lookup_string}\")\n$0"],
+    "description": "Registers a uvm_object-based class type and lookup string lookup_string with the factory. lookup_string typically is the name of the class in quotes."
   },
   "uvm_component_registry": {
     "prefix": "uvm_macro_component_registry",
-    "body": ["`uvm_component_registry(${1:<type>}, \"${2:<lookup_string>}\")"],
-    "description": "Registers a uvm_component-based class <type> and lookup string <lookup_string> with the factory. <lookup_string> typically is the name of the class in quotes."
+    "body": ["`uvm_component_registry(${1:type}, \"${2:lookup_string}\")\n$0"],
+    "description": "Registers a uvm_component-based class type and lookup string lookup_string with the factory. lookup_string typically is the name of the class in quotes."
+  },
+
+  // CONFIG_DB ACCESSORS
+  "uvm_config_db_set": {
+    "prefix": "uvm_config_db_set",
+    "body": ["uvm_config_db#(${1:type})::set(${2:contxt}, ${3:inst_name}, ${4:field_name}, ${5:value});\n$0"],
+    "description": "Create a new or update an existing configuration setting for field_name in inst_name from cntxt."
+  },
+  "uvm_config_db_get": {
+    "prefix": "uvm_config_db_get",
+    "body": ["uvm_config_db#(${1:type})::get(${2:contxt}, ${3:inst_name}, ${4:field_name}, ${5:value});\n$0"],
+    "description": "Get the value for field_name in inst_name, using component cntxt as the starting search point."
+  },
+  "uvm_config_db_get_guarded": {
+    "prefix": "uvm_config_db_get_guarded",
+    "body": [
+      "assert (uvm_config_db#(${1:type})::get(${2:contxt}, ${3:inst_name}, ${4:field_name}, ${5:value}))",
+      "else `${6:uvm_fatal}(${7:get_name()}, \"${8:message}\")\n$0"
+    ],
+    "description": "Get the value for field_name in inst_name, using component cntxt as the starting search point."
+  },
+  "uvm_config_db_exists": {
+    "prefix": "uvm_config_db_exists",
+    "body": ["uvm_config_db#(${1:type})::exists(${2:contxt}, ${3:inst_name}, ${4:field_name}, ${5:<expect_missing?>});\n$0"],
+    "description": "Check if a value for field_name is available in inst_name, using component cntxt as the starting search point."
+  },
+  "uvm_config_db_wait_modified": {
+    "prefix": "uvm_config_db_wait_modified",
+    "body": ["uvm_config_db#(${1:type})::wait_modified(${2:contxt}, ${3:inst_name}, ${4:field_name});\n$0"],
+    "description": "Wait for a configuration setting to be set for field_name in cntxt and inst_name. The task blocks until a new configuration setting is applied that effects the specified field."
   },
 
   // TLM MACROS
   "uvm_analysis_imp_decl": {
     "prefix": "uvm_macro_analysis_imp_decl",
-    "body": ["`uvm_analysis_imp_decl(${1:<suffix>})"],
+    "context": "meta.class.systemverilog",
+    "body": ["`uvm_analysis_imp_decl(${1:suffix})\n$0"],
     "description": "The `uvm_analysis_imp_decl allows for a component to support input from many places."
+  },
+
+  // MISC MACROS
+  "uvm_record_field": {
+    "prefix": "uvm_macro_record_field",
+    "context": "meta.function.systemverilog",
+    "body": ["`uvm_record_field(\"${1:property_id}\", ${2:property_name});\n$0"],
+    "description": "Macro for recording name-value pairs into a transaction recording database."
   }
 }

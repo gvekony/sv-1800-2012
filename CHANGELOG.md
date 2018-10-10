@@ -1,4 +1,8 @@
 # Change Log (Functional Changes)
+## 1.0.10 & 1.0.11
+### Features
+* Marketplace related changes and fixes.
+
 ## 1.0.9
 ### Features
 * Added several snippet to support quick UVM class deployment. Sequence item received a specialized snippet and also the do_ sequence item method boilerplates are added. (eg.: uvm_sequence_item, uvm_sequence_item_do_copy etc.)

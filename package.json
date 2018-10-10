@@ -14,11 +14,23 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/gvekony/sv-1800-2012"
   },
   "categories": [
+    "Formatters",
     "Languages",
+    "Programming Languages",
     "Snippets"
+  ],
+  "keywords": [
+      "Hardware Verification Language",
+      "Hardware Verification",
+      "HDL",
+      "HVL",
+      "SystemVerilog",
+      "UVM",
+      "Verification",
+      "Verilog"
   ],
   "contributes": {
     "languages": [

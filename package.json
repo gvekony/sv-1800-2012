@@ -24,13 +24,10 @@
   ],
   "keywords": [
       "Hardware Verification Language",
-      "Hardware Verification",
       "HDL",
       "HVL",
       "SystemVerilog",
-      "UVM",
-      "Verification",
-      "Verilog"
+      "UVM"
   ],
   "contributes": {
     "languages": [

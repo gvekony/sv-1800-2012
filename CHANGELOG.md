@@ -1,4 +1,11 @@
 # Change Log (Functional Changes)
+## 1.0.9
+### Features
+* Added several snippet to support quick UVM class deployment. Sequence item received a specialized snippet and also the do_ sequence item method boilerplates are added. (eg.: uvm_sequence_item, uvm_sequence_item_do_copy etc.)
+* Snippets are uniformized and end-of-line added to most of them.
+* Added snippets for separators/headers (eg.: sv_separator_full, sv_separator_block etc.)
+* Added protected|static|local method qualifiers to indentation rules.
+
 ## [1.0.8]
 ### Features
 * Better support of UVM source code, eg.: /* local */ extern functions, oneliner tasks and functions, etc.

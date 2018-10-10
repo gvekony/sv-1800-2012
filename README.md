@@ -53,6 +53,13 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 
 # Release Notes
 
+## 1.0.9
+### Features
+* Added several snippet to support quick UVM class deployment. Sequence item received a specialized snippet and also the do_ sequence item method boilerplates are added. (eg.: uvm_sequence_item, uvm_sequence_item_do_copy etc.)
+* Snippets are uniformized and end-of-line added to most of them.
+* Added snippets for separators/headers (eg.: sv_separator_full, sv_separator_block etc.)
+* Added protected|static|local method qualifiers to indentation rules.
+
 ## 1.0.8
 ### Features
 * Better support of UVM source code, eg.: /* local */ extern functions, oneliner tasks and functions, etc.
@@ -86,6 +93,9 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Limited support on unindented code's folding markers (editor limitation)
 
 
-# License information
+# License and source information
 
 [MIT](https://github.com/gvekony/sv-1800-2012/blob/master/LICENSE.md) &copy; **Gergo Vekony**
+
+The source can be found @ [GitHub](https://github.com/gvekony/sv-1800-2012)
+

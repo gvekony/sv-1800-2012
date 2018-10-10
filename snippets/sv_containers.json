@@ -8,7 +8,7 @@
       "\t\t${3:<port_list>}",
       "\t);\n",
       "\t$0",
-      "endmodule: $1"
+      "endmodule: $1\n"
     ],
     "description": "Basic SystemVerilog module construct."
   },
@@ -19,7 +19,7 @@
       "\t\t$2",
       "\t);\n",
       "\t$0",
-      "endinterface: $1"
+      "endinterface: $1\n"
     ],
     "description": "Basic SystemVerilog interface construct."
   },
@@ -28,7 +28,7 @@
     "body": [
       "package ${1:<package_name>};",
       "\t$0",
-      "endpackage: $1"
+      "endpackage: $1\n"
     ],
     "description": "Basic SystemVerilog package construct."
   },
@@ -36,11 +36,11 @@
     "prefix": "sv_class",
     "body": [
       "class ${1:<class_name>};",
-      "\t/*  VARIABLES  */\n",
-      "\tfunction new(string name=\"$1\");",
+      "\t/*  PROPERTIES  */\n",
+      "\tfunction new(string name = \"$1\");",
       "\tendfunction: new\n\n",
-      "\t$0",
-      "endclass: $1"
+      "\t$0\n",
+      "endclass: $1\n"
     ],
     "description": "SV class template"
   },
@@ -58,9 +58,9 @@
     "prefix": "sv_separator_block",
     "body": [
       "/*",
-      "**  $1",
+      "**  $0",
       "**",
-      "*/\n$0"
+      "*/\n"
     ],
     "description": "C++ style block comment."
   },
@@ -68,16 +68,16 @@
     "prefix": "sv_separator_full",
     "body": [
       "/*----------------------------------------------------------------------------*/",
-      "/*  $1                                                                          */",
-      "/*----------------------------------------------------------------------------*/\n$0"
+      "/*  $0                                                                          */",
+      "/*----------------------------------------------------------------------------*/\n"
     ],
     "description": "Large 80 ch wide separator."
   },
   "sv_separator_small_label": {
     "prefix": "sv_separator_half",
     "body": [
-      "/*---  $1                            ---*/",
-      "/*------------------------------------*/\n$0",
+      "/*---  $0                            ---*/",
+      "/*------------------------------------*/\n",
     ],
     "description": "Small 40 ch wide separator."
   }

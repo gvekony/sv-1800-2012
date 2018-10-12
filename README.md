@@ -54,6 +54,9 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
+## 1.0.13
+* [#2] Fixed unscoped property declaration in generate block. Due to tmLanguage limitations property-endproperty constructs will now be scoped in _all_ begin-end blocks as they cannot be differentiated from generate block begin-end blocks. Also changed the scoping of *genvar* keyword; it is moved to the net_types group.
+
 ## 1.0.12
 * Fixed reindent bug. One ')' was lost somewhere in the process.
 

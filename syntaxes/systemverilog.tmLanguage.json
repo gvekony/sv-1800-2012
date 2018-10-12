@@ -976,6 +976,10 @@
           "match": "(?i)\\b(large|medium|small)\\b",
           "name": "storage.modifier.net-charge.systemverilog"
         },
+        {
+          "match": "(?i)\\b(genvar)\\b",
+          "name": "storage.type.genvar.systemverilog"
+        },
         {"include": "#variable_types"}
       ]
     },
@@ -1098,7 +1102,8 @@
           },
           "name": "meta.sequential-block.systemverilog",
           "patterns": [
-            {"include": "#prototype_statements"}
+            {"include": "#prototype_statements"},
+            {"include": "#property"}
           ]
         },
         {
@@ -1241,11 +1246,7 @@
           },
           "name": "meta.generate-block.systemverilog",
           "patterns": [
-            {"include": "#prototype_statements"},
-            {
-              "match": "\\b(genvar)\\b",
-              "name": "storage.type.genvar.systemverilog"
-            }
+            {"include": "#prototype_statements"}
           ]
         },
 

@@ -1,84 +1,111 @@
 {
-  "sv_module": {
-    "prefix": "sv_module",
-    "body": [
-      "module ${1:<module_name>} #(",
-      "\t\t${2:<parameter_list>}",
-      "\t)(",
-      "\t\t${3:<port_list>}",
-      "\t);\n",
-      "\t$0",
-      "endmodule: $1\n"
-    ],
-    "description": "Basic SystemVerilog module construct."
-  },
-  "sv_interface": {
-    "prefix": "sv_interface",
-    "body": [
-      "interface ${1:<if_name>} (",
-      "\t\t$2",
-      "\t);\n",
-      "\t$0",
-      "endinterface: $1\n"
-    ],
-    "description": "Basic SystemVerilog interface construct."
-  },
-  "sv_package": {
-    "prefix": "sv_package",
-    "body": [
-      "package ${1:<package_name>};",
-      "\t$0",
-      "endpackage: $1\n"
-    ],
-    "description": "Basic SystemVerilog package construct."
-  },
-  "sv_class": {
-    "prefix": "sv_class",
-    "body": [
-      "class ${1:<class_name>};",
-      "\t/*  PROPERTIES  */\n",
-      "\tfunction new(string name = \"$1\");",
-      "\tendfunction: new\n\n",
-      "\t$0\n",
-      "endclass: $1\n"
-    ],
-    "description": "SV class template"
-  },
-  "sv_guard_ifndef": {
-    "prefix": "sv_guard_ifndef",
-    "body": [
-      "`ifndef __${1:<guard_name>}",
-      "`define __$1",
-      "\n$0\n",
-      "`endif\n"
-    ],
-    "description": "Basic SystemVerilog guard ifndef-define-endif construct."
-  },
-  "sv_separator_block": {
-    "prefix": "sv_separator_block",
-    "body": [
-      "/*",
-      "**  $0",
-      "**",
-      "*/\n"
-    ],
-    "description": "C++ style block comment."
-  },
-  "sv_separator_large": {
-    "prefix": "sv_separator_full",
-    "body": [
-      "/*----------------------------------------------------------------------------*/",
-      "/*  $0                                                                          */",
-      "/*----------------------------------------------------------------------------*/\n"
-    ],
-    "description": "Large 80 ch wide separator."
-  },
-  "sv_separator_small_label": {
-    "prefix": "sv_separator_half",
-    "body": [
-      "/*---  $0                            ---*/",
-      "/*------------------------------------*/\n",
-    ],
-    "description": "Small 40 ch wide separator."
-  }
+    "sv_module": {
+        "prefix": "sv_module",
+        "body": [
+            "//  Module: $1",
+            "//",
+            "module ${1:<module_name>} #(",
+            "\t\t${2:<parameter_list>}",
+            "\t)(",
+            "\t\t${3:<port_list>}",
+            "\t);\n",
+            "\t$0",
+            "endmodule: $1\n"
+        ],
+        "description": "Basic SystemVerilog module construct."
+    },
+    "sv_interface": {
+        "prefix": "sv_interface",
+        "body": [
+            "//  Interface: $1",
+            "//",
+            "interface ${1:<if_name>} #(",
+            "\t\t${2:<parameter_list>}",
+            "\t)(",
+            "\t\t${3:<port_list>}",
+            "\t);\n",
+            "\t$0",
+            "endinterface: $1\n"
+        ],
+        "description": "Basic SystemVerilog interface construct."
+    },
+    "sv_package": {
+        "prefix": "sv_package",
+        "body": [
+            "//  Package: $1",
+            "//",
+            "package ${1:<package_name>};",
+            "\t//  Group: Typedefs",
+            "\t$2\n",
+            "\t//  Group: Parameters",
+            "\t$3\n",
+            "\t$0",
+            "endpackage: $1\n"
+        ],
+        "description": "Basic SystemVerilog package construct."
+    },
+    "sv_class": {
+        "prefix": "sv_class",
+        "body": [
+            "//  Class: $1",
+            "//",
+            "class ${1:<class_name>};",
+            "\t/*  PROPERTIES  */\n",
+            "\tfunction new(string name = \"$1\");",
+            "\tendfunction: new\n\n",
+            "\t$0\n",
+            "endclass: $1\n"
+        ],
+        "description": "SV class template"
+    },
+    "sv_typedef": {
+        "prefix": "sv_typedef",
+        "body": [
+            "//  Typedef: $3",
+            "//  --- Prototype ---",
+            "//  typedef $1 $2$3",
+            "//  ---",
+            "typedef ${1:enum} ${2:#() }${3:<type_name>};",
+            "$0"
+        ],
+        "description": "SV Typedef construct for NaturalDocs"
+    },
+
+    "sv_guard_ifndef": {
+        "prefix": "sv_guard_ifndef",
+        "body": [
+            "`ifndef __${1:<guard_name>}",
+            "`define __$1",
+            "\n$0\n",
+            "`endif\n"
+        ],
+        "description": "Basic SystemVerilog guard ifndef-define-endif construct."
+    },
+    "sv_separator_block": {
+        "prefix": "sv_separator_block",
+        "body": [
+            "/*",
+            "**  $0",
+            "**",
+            "*/\n"
+        ],
+        "description": "C++ style block comment."
+    },
+    "sv_separator_large": {
+        "prefix": "sv_separator_full",
+        "body": [
+            "/*----------------------------------------------------------------------------*/",
+            "/*  $0                                                                          */",
+            "/*----------------------------------------------------------------------------*/\n"
+        ],
+        "description": "Large 80 ch wide separator."
+    },
+    "sv_separator_small_label": {
+        "prefix": "sv_separator_half",
+        "body": [
+            "/*---  $0                            ---*/",
+            "/*------------------------------------*/\n",
+        ],
+        "description": "Small 40 ch wide separator."
+    }
 }

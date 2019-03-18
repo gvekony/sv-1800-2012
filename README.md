@@ -54,6 +54,10 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
+## [1.0.15]
+* Changed: endtask [: [class_scope] task_identifier] -> endtask [: task_identifier] Changed: endfunction  [: [class_scope] task_identifier] -> endfunction [: function_identifier] in snippets.
+* Fixed various snippet issues.
+
 ## [1.0.14]
 ### Bugfixes
 * Fixed reindent issue for virtual and pure virtual functions and tasks.

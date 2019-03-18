@@ -55,7 +55,7 @@
     "body": [
       "$4function ${1:return} ${2:class_scope::}${3:name}(${5:parameters});",
       "\t$0",
-      "endfunction: $2$3\n"
+      "endfunction: $3\n"
     ],
     "description": "function ... endfunction construct"
   },
@@ -64,7 +64,7 @@
     "body": [
       "$3task ${1:class_scope::}${2:name}(${4:parameters});",
       "\t$0",
-      "endtask: $1$2\n"
+      "endtask: $2\n"
     ],
     "description": "task  ... endtask construct"
   }

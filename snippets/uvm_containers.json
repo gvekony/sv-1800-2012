@@ -130,40 +130,40 @@
             "/*----------------------------------------------------------------------------*/",
             "/*  UVM Build Phases                                                          */",
             "/*----------------------------------------------------------------------------*/",
-            "function void lc4_tb_test_base::build_phase(uvm_phase phase);",
+            "function void $1::build_phase(uvm_phase phase);",
             "\t/*  note: Do not call super.build_phase() from any class that is extended from an UVM base class!  */",
             "\t/*  For more information see UVM Cookbook v1800.2 p.503  */",
             "\t// super.build_phase(phase);",
-            "endfunction: lc4_tb_test_base::build_phase\n\n",
-            "function void lc4_tb_test_base::connect_phase(uvm_phase phase);",
+            "endfunction: build_phase\n\n",
+            "function void $1::connect_phase(uvm_phase phase);",
             "\tsuper.connect_phase(phase);",
-            "endfunction: lc4_tb_test_base::connect_phase\n\n",
-            "function void lc4_tb_test_base::end_of_elaboration_phase(uvm_phase phase);",
+            "endfunction: connect_phase\n\n",
+            "function void $1::end_of_elaboration_phase(uvm_phase phase);",
             "\tsuper.end_of_elaboration_phase(phase);",
-            "endfunction: lc4_tb_test_base::end_of_elaboration_phase\n\n",
+            "endfunction: end_of_elaboration_phase\n\n",
             "/*----------------------------------------------------------------------------*/",
             "/*  UVM Run Phases                                                            */",
             "/*----------------------------------------------------------------------------*/",
             "function void $1::start_of_simulation_phase(uvm_phase phase);",
             "\tsuper.start_of_simulation_phase(phase);",
-            "endfunction: $1::start_of_simulation_phase\n\n",
+            "endfunction: start_of_simulation_phase\n\n",
             "task $1::reset_phase(uvm_phase phase);",
-            "endtask: $1::reset_phase\n\n",
+            "endtask: reset_phase\n\n",
             "task $1::configure_phase(uvm_phase phase);",
-            "endtask: $1::configure_phase\n\n",
+            "endtask: configure_phase\n\n",
             "task $1::main_phase(uvm_phase phase);",
-            "endtask: $1::main_phase\n\n",
+            "endtask: main_phase\n\n",
             "task $1::shutdown_phase(uvm_phase phase);",
-            "endtask: $1::shutdown_phase\n\n",
+            "endtask: shutdown_phase\n\n",
             "/*----------------------------------------------------------------------------*/",
             "/*  UVM Cleanup Phases                                                        */",
             "/*----------------------------------------------------------------------------*/",
             "function void $1::report_phase(uvm_phase phase);",
             "\tsuper.report_phase(phase);",
-            "endfunction: $1::report_phase\n\n",
+            "endfunction: report_phase\n\n",
             "function void $1::extract_phase(uvm_phase phase);",
             "\tsuper.extract_phase(phase);",
-            "endfunction: $1::extract_phase\n\n"
+            "endfunction: extract_phase\n\n"
         ],
         "description": "UVM component class extended template"
     },
@@ -185,19 +185,19 @@
             "\t\tsuper.new(name);",
             "\tendfunction: new\n",
             "\t//  Function: do_copy",
-            "\t// extern virtual function void do_copy(uvm_object rhs);",
+            "\t// extern function void do_copy(uvm_object rhs);",
             "\t//  Function: do_compare",
-            "\t// extern virtual function bit do_compare(uvm_object rhs, uvm_comparer comparer);",
+            "\t// extern function bit do_compare(uvm_object rhs, uvm_comparer comparer);",
             "\t//  Function: convert2string",
-            "\t// extern virtual function string convert2string();",
+            "\t// extern function string convert2string();",
             "\t//  Function: do_print",
-            "\t// extern virtual function void do_print(uvm_printer printer);",
+            "\t// extern function void do_print(uvm_printer printer);",
             "\t//  Function: do_record",
-            "\t// extern virtual function void do_record(uvm_recorder recorder);",
+            "\t// extern function void do_record(uvm_recorder recorder);",
             "\t//  Function: do_pack",
-            "\t// extern virtual function void do_pack();",
+            "\t// extern function void do_pack();",
             "\t//  Function: do_unpack",
-            "\t// extern virtual function void do_unpack();",
+            "\t// extern function void do_unpack();",
             "\n\t$0",
             "endclass: $1\n"
         ],
@@ -219,19 +219,19 @@
             "\t\tsuper.new(name);",
             "\tendfunction: new\n",
             "\t//  Function: do_copy",
-            "\t// extern virtual function void do_copy(uvm_object rhs);",
+            "\t// extern function void do_copy(uvm_object rhs);",
             "\t//  Function: do_compare",
-            "\t// extern virtual function bit do_compare(uvm_object rhs, uvm_comparer comparer);",
+            "\t// extern function bit do_compare(uvm_object rhs, uvm_comparer comparer);",
             "\t//  Function: convert2string",
-            "\t// extern virtual function string convert2string();",
+            "\t// extern function string convert2string();",
             "\t//  Function: do_print",
-            "\t// extern virtual function void do_print(uvm_printer printer);",
+            "\t// extern function void do_print(uvm_printer printer);",
             "\t//  Function: do_record",
-            "\t// extern virtual function void do_record(uvm_recorder recorder);",
+            "\t// extern function void do_record(uvm_recorder recorder);",
             "\t//  Function: do_pack",
-            "\t// extern virtual function void do_pack();",
+            "\t// extern function void do_pack();",
             "\t//  Function: do_unpack",
-            "\t// extern virtual function void do_unpack();",
+            "\t// extern function void do_unpack();",
             "\n\t$0",
             "endclass: $1\n"
         ],
@@ -253,7 +253,7 @@
             "\tsuper.do_copy(rhs);\n",
             "\t/*  list of properties to be copied  */",
             "\t${4:<this.property = rhs_.property>}",
-            "endfunction: $1$2do_copy\n$0"
+            "endfunction: do_copy\n$0"
         ],
         "description": "UVM sequence item do_copy() stub"
     },
@@ -261,7 +261,7 @@
         "prefix": "uvm_sequence_item_do_compare",
         "body": [
             "function bit ${1:class_scope}${2:::}do_compare(uvm_object rhs, uvm_comparer comparer);",
-            "\tthis_type_t rhs_;\n",
+            "\tthis_type_t rhs_;\n",k
             "\tassert (\\$cast(rhs_, rhs)) begin",
             "\t\t${3:}// `uvm_info({this.get_name(), \".do_compare()\"}, \"Cast succeded.\", UVM_HIGH);",
             "\tend else begin",
@@ -274,7 +274,7 @@
             "\t\t/*  list of properties to be compared:  */",
             "\t\t${4:(<this.property == rhs_.property>)}",
             "\t);",
-            "endfunction: $1$2do_compare\n$0"
+            "endfunction: do_compare\n$0"
         ],
         "description": "UVM sequence item do_compare() stub"
     },
@@ -289,7 +289,7 @@
             "\t\\$sformat(s, \"${3:property_name}: ${4:<%0d>}\\n\", ${5:<this.property>});",
             "\n",
             "\treturn s;",
-            "endfunction: $1$2convert2string\n$0"
+            "endfunction: convert2string\n$0"
         ],
         "description": "UVM sequence item convert2string() stub"
     },
@@ -298,7 +298,7 @@
         "body": [
             "function void ${1:class_scope}${2:::}do_print(uvm_printer printer)",
             "\tprinter.m_string = this.convert2string();",
-            "endfunction: $1$2do_print\n$0"
+            "endfunction: do_print\n$0"
         ],
         "description": "UVM sequence item do_print() stub"
     },
@@ -311,7 +311,7 @@
             "\t/*  list of properties to be recorded:  */",
             "\t/*  note: use uvm_record_int, uvm_record_string, uvm_record_time, uvm_record_real for known basic types.  */",
             "\t`uvm_record_field(\"${3:property_id}\", ${4:property_name});",
-            "endfunction: $1$2do_record\n$0"
+            "endfunction: do_record\n$0"
         ],
         "description": "UVM sequence item do_record() stub"
     },
@@ -323,7 +323,7 @@
             "\tsuper.do_pack(packer);\n",
             "\t/*  list of properties to be packed:  */",
             "\t`${3:uvm_pack_int}(${4:property_name})",
-            "endfunction: $1$2do_pack\n$0"
+            "endfunction: do_pack\n$0"
         ],
         "description": "Compresses object contents into a bit format."
     },
@@ -335,7 +335,7 @@
             "\tsuper.do_unpack(packer);\n",
             "\t/*  list of properties to be unpacked:  */",
             "\t`${3:uvm_unpack_int}(${4:property_name})",
-            "endfunction: $1$2do_unpack\n$0"
+            "endfunction: do_unpack\n$0"
         ],
         "description": "Converts a bit format into the data object format."
     },
@@ -350,7 +350,7 @@
             "\t/*  For more information see UVM Cookbook v1800.2 p.503  */",
             "\t$3//super.build_phase(phase);\n",
             "\t$0",
-            "endfunction: $1$2build_phase\n"
+            "endfunction: build_phase\n"
         ],
         "description": "UVM build_phase template"
     },
@@ -361,7 +361,7 @@
             "function void ${1:class_scope}${2:::}connect_phase(uvm_phase phase);",
             "\tsuper.connect_phase(phase);\n",
             "\t$0",
-            "endfunction: $1$2connect_phase\n"
+            "endfunction: connect_phase\n"
         ],
         "description": "UVM connect_phase template"
     },
@@ -372,7 +372,7 @@
             "function void ${1:class_scope}${2:::}end_of_elaboration_phase(uvm_phase phase);",
             "\tsuper.end_of_elaboration_phase(phase);\n",
             "\t$0",
-            "endfunction: $1$2end_of_elaboration_phase\n"
+            "endfunction: end_of_elaboration_phase\n"
         ],
         "description": "UVM end_of_elaboration_phase template"
     },
@@ -383,7 +383,7 @@
             "function void ${1:class_scope}${2:::}start_of_simulation_phase(uvm_phase phase);",
             "\tsuper.start_of_simulation_phase(phase);",
             "\t$0",
-            "endfunction: $1$2start_of_simulation_phase\n"
+            "endfunction: start_of_simulation_phase\n"
         ],
         "description": "UVM start_of_simulation_phase template"
     },
@@ -393,7 +393,7 @@
         "body": [
             "task ${1:class_scope}${2:::}run_phase(uvm_phase phase);",
             "\t$0",
-            "endtask: $1$2run_phase\n"
+            "endtask: run_phase\n"
         ],
         "description": "UVM run_phase template"
     },
@@ -403,7 +403,7 @@
         "body": [
             "task ${1:class_scope}${2:::}reset_phase(uvm_phase phase);",
             "\t$0",
-            "endtask: $1$2reset_phase\n"
+            "endtask: reset_phase\n"
         ],
         "description": "UVM reset_phase template"
     },
@@ -413,7 +413,7 @@
         "body": [
             "task ${1:class_scope}${2:::}configure_phase(uvm_phase phase);",
             "\t$0",
-            "endtask: $1$2configure_phase\n"
+            "endtask: configure_phase\n"
         ],
         "description": "UVM configure_phase template"
     },
@@ -423,7 +423,7 @@
         "body": [
             "task ${1:class_scope}${2:::}main_phase(uvm_phase phase);",
             "\t$0",
-            "endtask: $1$2main_phase\n"
+            "endtask: main_phase\n"
         ],
         "description": "UVM main_phase template"
     },
@@ -433,7 +433,7 @@
         "body": [
             "task ${1:class_scope}${2:::}shutdown_phase(uvm_phase phase);",
             "\t$0",
-            "endtask: $1$2shutdown_phase\n"
+            "endtask: shutdown_phase\n"
         ],
         "description": "UVM shutdown_phase template"
     },
@@ -444,7 +444,7 @@
             "function void ${1:class_scope}${2:::}extract_phase(uvm_phase phase);",
             "\tsuper.extract_phase(phase);",
             "\t$0",
-            "endfunction: $1$2extract_phase\n"
+            "endfunction: extract_phase\n"
         ],
         "description": "UVM extract_phase template"
     },
@@ -455,7 +455,7 @@
             "function void ${1:class_scope}${2:::}report_phase(uvm_phase phase);",
             "\tsuper.report_phase(phase);",
             "\t$0",
-            "endfunction: $1$2report_phase\n"
+            "endfunction: report_phase\n"
         ],
         "description": "UVM report_phase template"
     },
@@ -466,7 +466,7 @@
         "prefix": "uvm_extern_build_phase",
         "body": [
             "//  Function: build_phase",
-            "extern ${1:virtual }function void build_phase(uvm_phase phase);\n$0"
+            "extern function void build_phase(uvm_phase phase);\n$0"
         ],
         "description": "UVM build_phase stub"
     },
@@ -475,7 +475,7 @@
         "prefix": "uvm_extern_connect_phase",
         "body": [
             "//  Function: connect_phase",
-            "extern ${1:virtual }function void connect_phase(uvm_phase phase);\n$0"
+            "extern function void connect_phase(uvm_phase phase);\n$0"
         ],
         "description": "UVM connect_phase stub"
     },
@@ -484,7 +484,7 @@
         "prefix": "uvm_extern_end_of_elaboration_phase",
         "body": [
             "//  Function: end_of_elaboration_phase",
-            "extern ${1:virtual }function void end_of_elaboration_phase(uvm_phase phase);\n$0"
+            "extern function void end_of_elaboration_phase(uvm_phase phase);\n$0"
         ],
         "description": "UVM end_of_elaboration stub"
     },
@@ -493,7 +493,7 @@
         "prefix": "uvm_extern_start_of_simulation_phase",
         "body": [
             "//  Function: start_of_simulation_phase",
-            "extern ${1:virtual }function void start_of_simulation_phase(uvm_phase phase);\n$0"
+            "extern function void start_of_simulation_phase(uvm_phase phase);\n$0"
         ],
         "description": "UVM start_of_simulation_phase stub"
     },

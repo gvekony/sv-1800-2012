@@ -1,4 +1,9 @@
 # Change Log (Functional Changes)
+## [1.0.15]
+### Bugfixes
+* Changed: endtask [: [class_scope] task_identifier] -> endtask [: task_identifier] Changed: endfunction  [: [class_scope] task_identifier] -> endfunction [: function_identifier] in snippets. Reason: class scope at the end of tasks and functions compile in ModelSim/QuestaSim but fails with more strict compiler implementations.
+* Fixed various snippet issues.
+
 ## [1.0.14]
 ### Bugfixes
 * Fixed reindent issue for virtual and pure virtual functions and tasks.

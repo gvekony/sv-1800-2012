@@ -71,6 +71,10 @@
 			{
 				"language": "systemverilog",
 				"path": "./snippets/uvm_macros.json"
+            },
+			{
+				"language": "systemverilog",
+				"path": "./snippets/uvm_phases.json"
 			}
 		]
 	},

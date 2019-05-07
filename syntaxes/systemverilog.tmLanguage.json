@@ -649,7 +649,7 @@
         },
         {
           "match": ",",
-          "name": "punctuation.separator.delimiter.c"
+          "name": "punctuation.separator.delimiter.systemverilog"
         },
         {
           "match": ";",
@@ -1719,16 +1719,20 @@
                       "match": "([A-Za-z_][A-Za-z0-9_$]*)",
                       "name": "entity.other.inherited-class.systemverilog"
                     },
-                    {"include": "#prototype"}
+                    {"include": "#prototype"},
+                    {"include": "#operators"}
                   ]
                 },
-                {"include": "#prototype"}
+                {"include": "#prototype"},
+                {"include": "#operators"}
               ]
             },
             {"include": "#prototype"},
             {"include": "#function_abstract"},
+            {"include": "#operators"},
+            {"include": "#system_tasks"},
             {"include": "#type_declaration"},
-            {"include": "#variables_types"},
+            {"include": "#variable_types"},
             {"include": "#uvm_types"},
             {"include": "#uvm_functions_and_macros"}
           ]
@@ -1768,7 +1772,8 @@
                       "match": "([A-Za-z_][A-Za-z0-9_$]*)",
                       "name": "entity.other.inherited-class.systemverilog"
                     },
-                    {"include": "#prototype"}
+                    {"include": "#prototype"},
+                    {"include": "#operators"}
                   ]
                 },
                 {
@@ -1783,10 +1788,12 @@
                       "match": "([A-Za-z_][A-Za-z0-9_$]*)",
                       "name": "entity.other.inherited-class.systemverilog"
                     },
-                    {"include": "#prototype"}
+                    {"include": "#prototype"},
+                    {"include": "#operators"}
                   ]
                 },
-                {"include": "#prototype"}
+                {"include": "#prototype"},
+                {"include": "#operators"}
               ]
             },
             {"include": "#prototype"},
@@ -1795,6 +1802,7 @@
             {"include": "#covergroup_declaration"},
             {"include": "#external_declarations"},
             {"include": "#functions"},
+            {"include": "#operators"},
             {"include": "#system_tasks"},
             {"include": "#type_declaration"},
             {"include": "#variable_types"},

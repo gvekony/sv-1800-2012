@@ -74,7 +74,7 @@
     "sv_guard_ifndef": {
         "prefix": "sv_guard_ifndef",
         "body": [
-            "`ifndef __${1:<guard_name>}",
+            "`ifndef __${1:$TM_FILENAME}",
             "`define __$1",
             "\n$0\n",
             "`endif\n"

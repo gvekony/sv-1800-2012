@@ -4,7 +4,7 @@
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:class_name} extends ${2:base_class};",
+            "class ${1:$TM_FILENAME_BASE} extends ${2:base_class};",
             "\t`uvm_object_utils($1);\n",
             "\t//  Group: Variables",
             "\t${3:}\n",
@@ -23,7 +23,7 @@
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:class_name} #(${2:parameters}) extends ${3:base_class};",
+            "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:base_class};",
             "\ttypedef $1 #($2) this_type_t;",
             "\t`uvm_object_param_utils(this_type_t);\n",
             "\t//  Group: Variables",
@@ -44,7 +44,7 @@
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:class_name} extends ${2:base_class};",
+            "class ${1:$TM_FILENAME_BASE} extends ${2:base_class};",
             "\t`uvm_component_utils($1);\n",
             "\t//  Group: Config",
             "\t${3:}\n",
@@ -65,7 +65,7 @@
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:class_name} #(${2:parameters}) extends ${3:base_class};",
+            "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:base_class};",
             "\ttypedef $1 #($2) this_type_t;",
             "\t`uvm_component_param_utils(this_type_t);\n",
             "\t//  Group: Config",
@@ -88,7 +88,7 @@
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:class_name} extends ${2:base_class};",
+            "class ${1:$TM_FILENAME_BASE} extends ${2:base_class};",
             "\t`uvm_component_utils($1);\n",
             "\t//  Group: Config",
             "\t${3:}\n",
@@ -174,7 +174,7 @@
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:class_name} extends ${2:uvm_sequence_item};",
+            "class ${1:$TM_FILENAME_BASE} extends ${2:uvm_sequence_item};",
             "\ttypedef $1 this_type_t;",
             "\t`uvm_object_utils($1);\n",
             "\t//  Group: Variables",
@@ -208,7 +208,7 @@
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:class_name} #(${2:parameters}) extends ${3:uvm_sequence_item};",
+            "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:uvm_sequence_item};",
             "\ttypedef $1 #($2) this_type_t;",
             "\t`uvm_object_param_utils(this_type_t);\n",
             "\t//  Group: Variables",

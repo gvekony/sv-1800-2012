@@ -103,18 +103,12 @@
               "end": "(?=(?:\\;))",
               "name": "meta.module.declaration.systemverilog",
               "patterns": [
+                {"include": "#prototype"},
+                {"include": "#operators"},
                 {
-                  "match": "((\\:\\:)\\s*)?([A-Za-z_][A-Za-z0-9_$]*)\\s*(?=(?:\\(|\\#\\(|\\;|\\bimport\\b|\\/\\/|\\/\\*|\\n))",
-                  "captures": {
-                    "2": {"name": "punctuation.separator.namespace.access.systemverilog"},
-                    "3": {"name": "entity.name.type.systemverilog"}
-                  }
-                },
-                {
-                  "match": "\\b(import)\\b",
-                  "name": "keyword.control.import.systemverilog"
-                },
-                {"include": "#prototype"}
+                    "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
+                    "name": "entity.name.type.systemverilog"
+                }
               ]
             },
             {"include": "#prototype_statements"},
@@ -205,18 +199,17 @@
           "name": "meta.interface.systemverilog",
           "patterns": [
             {
+              "comment": "Interface declaration construct to identify the entity name",
               "begin": "\\G",
               "end": "(?=(?:\\;))",
               "name": "meta.interface.declaration.systemverilog",
               "patterns": [
+                {"include": "#prototype"},
+                {"include": "#operators"},
                 {
-                  "match": "((\\:\\:)\\s*)?([A-Za-z_][A-Za-z0-9_$]*)\\s*(?=(?:\\(|\\#\\(|\\;))",
-                  "captures": {
-                    "2": {"name": "punctuation.separator.namespace.access.systemverilog"},
-                    "3": {"name": "entity.name.type.systemverilog"}
-                  }
-                },
-                {"include": "#prototype"}
+                    "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
+                    "name": "entity.name.type.systemverilog"
+                }
               ]
             },
             {"include": "#prototype_statements"},
@@ -579,7 +572,6 @@
       ]
     },
 
-
     "punctuation": {
       "patterns": [
         {"include": "#end_labels"},
@@ -601,22 +593,66 @@
           "name": "punctuation.definition.label.systemverilog"
         },
         {
-          "comment": "Namespace member functions.",
-          "match": "(\\:\\:)\\s*([A-Za-z_][A-Za-z0-9_$]*)(?=(?:\\s*\\())",
-          "captures": {
-            "1": {"name": "punctuation.separator.namespace.access.systemverilog"},
-            "2": {"name": "support.function.systemverilog"}
-          }
+            "begin": "\\b(import|export)\\b(?!.*\\()",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.import.systemverilog.new"}
+            },
+            "end": "(?<=\\;)",
+            "name": "meta.import.declaration.systemverilog",
+            "patterns": [
+                {
+                    "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
+                    "name": "entity.name.type.systemverilog"
+                },
+                {
+                    "match": "\\*",
+                    "name": "keyword.operator.wildcard.systemverilog"
+                },
+                {
+                    "begin": "(\\:\\:)",
+                    "beginCaptures": {
+                        "1": {"name": "punctuation.separator.namespace.access.systemverilog"}
+                    },
+                    "end": "(?=(?:\\;))",
+                    "name": "meta.import.declaration.elements.systemverilog",
+                    "patterns": [
+                        {
+                            "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
+                            "name": "entity.name.type.systemverilog"
+                        },
+                        {
+                            "match": "\\*",
+                            "name": "keyword.operator.wildcard.systemverilog"
+                        },
+                        {
+                            "match": "\\,",
+                            "name": "punctuation.separator.delimiter.systemverilog"
+                        }
+                    ]
+                },
+                {
+                    "match": "\\;",
+                    "name": "punctuation.terminator.statement.systemverilog"
+                }
+            ]
         },
         {
-          "comment": "Namespace member properties, members and attributes.",
-          "match": "(\\:\\:)\\s*((([A-Za-z_][A-Za-z0-9_$]*)\\b|(\\*))(?!\\s*\\())?",
-          "captures": {
-            "1": {"name": "punctuation.separator.namespace.access.systemverilog"},
-            "4": {"name": "entity.name.type.systemverilog"},
-            "5": {"name": "keyword.operator.wildcard.systemverilog"}
-          }
+            "comment": "Namespace member functions.",
+            "match": "(\\:\\:)\\s*([A-Za-z_][A-Za-z0-9_$]*)(?=(?:\\s*\\())",
+            "captures": {
+              "1": {"name": "punctuation.separator.namespace.access.systemverilog"},
+              "2": {"name": "support.function.systemverilog"}
+            }
         },
+        {
+            "comment": "Namespace members.",
+            "match": "(\\:\\:)\\s*([A-Za-z_][A-Za-z0-9_$]*)\\b",
+            "captures": {
+              "1": {"name": "punctuation.separator.namespace.access.systemverilog"},
+              "2": {"name": "entity.name.type.systemverilog"}
+            }
+        },
+
         {
           "comment": "Class, interface, other data structure accessed by the dot accessor.",
           "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)(?=(?:\\s*(\\[.*\\])?\\.\\s*\\w+))",
@@ -987,7 +1023,7 @@
       "patterns": [
         {
           "comment": "DPI function import to make sure keywords are colored in this one.",
-          "begin": "^\\s*(import)\\s+(\"DPI\"|\"DPI-C\")",
+          "begin": "^\\s*(import|export)\\s+(\"DPI\"|\"DPI-C\")",
           "beginCaptures": {
             "1": {"name": "keyword.control.import.systemverilog"},
             "2": {"name": "string.other.systemverilog"}
@@ -1007,10 +1043,7 @@
             {"include": "#variable_types"}
           ]
         },
-        {
-          "match": "^\\s*(import|export)\\b",
-          "name": "keyword.control.import.systemverilog"
-        },
+
         {
           "begin": "^\\s*(typedef)\\b",
           "beginCaptures": {

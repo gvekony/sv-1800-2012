@@ -7,7 +7,7 @@ package ComplexPkg;
     add.r = a.r + b.r;
     add.i = a.i + b.i;
   endfunction
-  
+
   function Complex mul(Complex a, b);
     mul.r = (a.r * b.r) - (a.i * b.i);
     mul.i = (a.r * b.i) + (a.i * b.r);
@@ -25,9 +25,10 @@ endpackage
 module top1 ;
   import p::*;
   import q::teeth_t;
+  export *::*;
 
   teeth_t myteeth;
-  
+
   initial begin
     myteeth = q:: FALSE; // OK:
     myteeth = FALSE; // ERROR: Direct reference to FALSE refers to the

@@ -1,4 +1,9 @@
 # Change Log (Functional Changes)
+## [1.0.18]
+### Bugfixes
+* Import-Export keyword and related construct refactorization. (To support multiple imported items and entity name scopes in modules and interfaces.)
+* Various UVM snippet related fixes and improvements.
+
 ## [1.0.15]
 ### Bugfixes
 * Changed: endtask [: [class_scope] task_identifier] -> endtask [: task_identifier] Changed: endfunction  [: [class_scope] task_identifier] -> endfunction [: function_identifier] in snippets. Reason: class scope at the end of tasks and functions compile in ModelSim/QuestaSim but fails with more strict compiler implementations.

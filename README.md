@@ -54,6 +54,11 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
+## [1.0.18]
+### Bugfixes
+* Import-Export keyword and related construct refactorization. (To support multiple imported items and entity name scopes in modules and interfaces.)
+* Various UVM snippet related fixes and improvements.
+*
 ## [1.0.15]
 * Changed: endtask [: [class_scope] task_identifier] -> endtask [: task_identifier] Changed: endfunction  [: [class_scope] task_identifier] -> endfunction [: function_identifier] in snippets.
 * Fixed various snippet issues.

@@ -308,7 +308,7 @@
         },
         {
           "match": "\\b(endclocking)\\b",
-          "name": "invalid.illegal.stray-keywords.systemverilog"
+          "name": "invalid.illegal.stray-keyword.systemverilog"
         }
       ]
     },
@@ -595,7 +595,7 @@
         {
             "begin": "\\b(import|export)\\b(?!.*\\()",
             "beginCaptures": {
-                "1": {"name": "keyword.control.import.systemverilog.new"}
+                "1": {"name": "keyword.control.import.systemverilog"}
             },
             "end": "(?<=\\;)",
             "name": "meta.import.declaration.systemverilog",
@@ -741,7 +741,7 @@
         },
         {
           "match": "\\*\\/.*\\n",
-          "name": "invalid.illegal.stray-comment-end.c"
+          "name": "invalid.illegal.stray-comment-end.systemverilog"
         }
       ]
     },
@@ -1697,7 +1697,7 @@
       "patterns": [
         {
           "match": "(?i)\\b(before|disable|solve)\\b",
-          "name": "keyword.control.constrint-expression.systemverilog"
+          "name": "keyword.control.constraint-expression.systemverilog"
         },
         {
           "match": "(?i)\\b(if|else|foreach)\\b",

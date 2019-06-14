@@ -1,4 +1,8 @@
 # Change Log (Functional Changes)
+## [1.0.19]
+### Changes
+* Changed the `sv_function` and `sv_task` snippet to have the class resolution operator `::` in a separate scope.
+
 ## [1.0.18]
 ### Bugfixes
 * Import-Export keyword and related construct refactorization. (To support multiple imported items and entity name scopes in modules and interfaces.)

@@ -1,5 +1,4 @@
 {
-  // Processes -- block statements
   "systemverilog_fork_join": {
     "prefix": "sv_block_parallel",
     "body": [
@@ -53,18 +52,18 @@
   "systemverilog_function": {
     "prefix": "sv_function",
     "body": [
-      "$4function ${1:return} ${2:class_scope::}${3:name}(${5:parameters});",
+      "$5function ${1:return} ${2:class_scope}${3:::}${4:name}(${6:parameters});",
       "\t$0",
-      "endfunction: $3\n"
+      "endfunction: $4\n"
     ],
     "description": "function ... endfunction construct"
   },
   "systemverilog_task": {
     "prefix": "sv_task",
     "body": [
-      "$3task ${1:class_scope::}${2:name}(${4:parameters});",
+      "$4task ${1:class_scope}${2:::}${3:name}(${5:parameters});",
       "\t$0",
-      "endtask: $2\n"
+      "endtask: $3\n"
     ],
     "description": "task  ... endtask construct"
   }

@@ -1,4 +1,15 @@
 # Change Log (Functional Changes)
+## [1.0.20]
+### Changes
+* Changed sv_guard snippet to automatically use uppercase defines with `.` replaced to `_`.
+* Changed the SV module and interface container snippets to default the name to the file name.
+* Changed the SV module and interface snippets to point out proper `package_import_declaration` placement. By importing packages here, the package contents are available even in the parameter and port list and the import does not happen in the compilation unit/global namespace, thus avoiding confusions and overrides in various simulators. (See SV-LRM-2017: Syntax23-1 for more details.)
+* Changed the SV function and task snippets to default the class scope to the file name.
+* Changed the UVM phase snippets to default the class scope to the file name.
+
+### Bugfixes
+* Fixed reindent feature to ignore the `disable fork` and `wait fork` statements in the indentation increase.
+
 ## [1.0.19]
 ### Changes
 * Changed the `sv_function` and `sv_task` snippet to have the class resolution operator `::` in a separate scope.

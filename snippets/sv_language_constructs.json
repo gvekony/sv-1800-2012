@@ -52,7 +52,7 @@
   "systemverilog_function": {
     "prefix": "sv_function",
     "body": [
-      "$5function ${1:return} ${2:class_scope}${3:::}${4:name}(${6:parameters});",
+      "$5function ${1:return} ${2:$TM_FILENAME_BASE}${3:::}${4:name}(${6:parameters});",
       "\t$0",
       "endfunction: $4\n"
     ],
@@ -61,7 +61,7 @@
   "systemverilog_task": {
     "prefix": "sv_task",
     "body": [
-      "$4task ${1:class_scope}${2:::}${3:name}(${5:parameters});",
+      "$4task ${1:$TM_FILENAME_BASE}${2:::}${3:name}(${5:parameters});",
       "\t$0",
       "endtask: $3\n"
     ],

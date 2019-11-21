@@ -241,7 +241,7 @@
     "uvm_sequence_item_do_copy": {
         "prefix": "uvm_sequence_item_do_copy",
         "body": [
-            "function void ${1:class_scope}${2:::}do_copy(uvm_object rhs);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}do_copy(uvm_object rhs);",
             "\tthis_type_t rhs_;\n",
             "\tassert (\\$cast(rhs_, rhs)) begin",
             "\t\t${3:}// `uvm_info({this.get_name(), \".do_copy()\"}, \"Cast succeded.\", UVM_HIGH);",
@@ -260,7 +260,7 @@
     "uvm_sequence_item_do_compare": {
         "prefix": "uvm_sequence_item_do_compare",
         "body": [
-            "function bit ${1:class_scope}${2:::}do_compare(uvm_object rhs, uvm_comparer comparer);",
+            "function bit ${1:$TM_FILENAME_BASE}${2:::}do_compare(uvm_object rhs, uvm_comparer comparer);",
             "\tthis_type_t rhs_;\n",k
             "\tassert (\\$cast(rhs_, rhs)) begin",
             "\t\t${3:}// `uvm_info({this.get_name(), \".do_compare()\"}, \"Cast succeded.\", UVM_HIGH);",
@@ -281,7 +281,7 @@
     "uvm_sequence_item_convert2string": {
         "prefix": "uvm_sequence_item_convert2string",
         "body": [
-            "function string ${1:class_scope}${2:::}convert2string();",
+            "function string ${1:$TM_FILENAME_BASE}${2:::}convert2string();",
             "\tstring s;",
             "\t/*  chain the convert2string with parent classes  */",
             "\ts = super.convert2string();\n",
@@ -296,7 +296,7 @@
     "uvm_sequence_item_do_print": {
         "prefix": "uvm_sequence_item_do_print",
         "body": [
-            "function void ${1:class_scope}${2:::}do_print(uvm_printer printer)",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}do_print(uvm_printer printer)",
             "\tprinter.m_string = this.convert2string();",
             "endfunction: do_print\n$0"
         ],
@@ -305,7 +305,7 @@
     "uvm_sequence_item_do_record": {
         "prefix": "uvm_sequence_item_do_record",
         "body": [
-            "function void ${1:class_scope}${2:::}do_record(uvm_recorder recorder);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}do_record(uvm_recorder recorder);",
             "\t/*  chain the record with parent classes  */",
             "\tsuper.do_record(recorder);\n",
             "\t/*  list of properties to be recorded:  */",
@@ -318,7 +318,7 @@
     "uvm_sequence_item_do_pack": {
         "prefix": "uvm_sequence_item_do_pack",
         "body": [
-            "function void ${1:class_scope}${2:::}do_pack(uvm_packer packer);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}do_pack(uvm_packer packer);",
             "\t/*  chain the pack with parent classes  */",
             "\tsuper.do_pack(packer);\n",
             "\t/*  list of properties to be packed:  */",
@@ -330,7 +330,7 @@
     "uvm_sequence_item_do_unpack": {
         "prefix": "uvm_sequence_item_do_unpack",
         "body": [
-            "function void ${1:class_scope}${2:::}do_unpack(uvm_packer packer);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}do_unpack(uvm_packer packer);",
             "\t/*  chain the unpack with parent classes  */",
             "\tsuper.do_unpack(packer);\n",
             "\t/*  list of properties to be unpacked:  */",

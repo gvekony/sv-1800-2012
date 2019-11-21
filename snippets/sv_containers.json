@@ -4,7 +4,9 @@
         "body": [
             "//  Module: $1",
             "//",
-            "module ${1:<module_name>} #(",
+            "module ${1:$TM_FILENAME_BASE}",
+            "\t/*  package imports  */",
+            "\t#(",
             "\t\t${2:<parameter_list>}",
             "\t)(",
             "\t\t${3:<port_list>}",
@@ -19,7 +21,9 @@
         "body": [
             "//  Interface: $1",
             "//",
-            "interface ${1:<if_name>} #(",
+            "interface ${1:$TM_FILENAME_BASE}",
+            "\t/*  package imports  */",
+            "\t#(",
             "\t\t${2:<parameter_list>}",
             "\t)(",
             "\t\t${3:<port_list>}",
@@ -34,7 +38,7 @@
         "body": [
             "//  Package: $1",
             "//",
-            "package ${1:<package_name>};",
+            "package ${1:$TM_FILENAME_BASE};",
             "\t//  Group: Typedefs",
             "\t$2\n",
             "\t//  Group: Parameters",
@@ -49,7 +53,7 @@
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:<class_name>};",
+            "class ${1:$TM_FILENAME_BASE};",
             "\t/*  PROPERTIES  */\n",
             "\tfunction new(string name = \"$1\");",
             "\tendfunction: new\n\n",
@@ -74,7 +78,7 @@
     "sv_guard_ifndef": {
         "prefix": "sv_guard_ifndef",
         "body": [
-            "`ifndef __${1:$TM_FILENAME}",
+            "`ifndef __${1:${TM_FILENAME/((\\w*)(\\.)?)/${2:/upcase}${3:+_}/g}}",
             "`define __$1",
             "\n$0\n",
             "`endif\n"

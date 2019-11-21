@@ -195,7 +195,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "function void ${1:class_scope}${2:::}build_phase(uvm_phase phase);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}build_phase(uvm_phase phase);",
             "\t/*  note: Do not call super.build_phase() from any class that is extended from an UVM base class!  */",
             "\t/*  For more information see UVM Cookbook v1800.2 p.503  */",
             "\t$3//super.build_phase(phase);\n",
@@ -208,7 +208,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "function void ${1:class_scope}${2:::}connect_phase(uvm_phase phase);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}connect_phase(uvm_phase phase);",
             "\tsuper.connect_phase(phase);\n",
             "\t$0",
             "endfunction: connect_phase\n"
@@ -219,7 +219,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "function void ${1:class_scope}${2:::}end_of_elaboration_phase(uvm_phase phase);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}end_of_elaboration_phase(uvm_phase phase);",
             "\tsuper.end_of_elaboration_phase(phase);\n",
             "\t$0",
             "endfunction: end_of_elaboration_phase\n"
@@ -231,7 +231,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "function void ${1:class_scope}${2:::}start_of_simulation_phase(uvm_phase phase);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}start_of_simulation_phase(uvm_phase phase);",
             "\tsuper.start_of_simulation_phase(phase);",
             "\t$0",
             "endfunction: start_of_simulation_phase\n"
@@ -242,7 +242,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}run_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}run_phase(uvm_phase phase);",
             "\tphase.raise_objection(this);",
             "\t$0",
             "\tphase.drop_objection(this);",
@@ -254,7 +254,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}pre_reset_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}pre_reset_phase(uvm_phase phase);",
             "\t$0",
             "endtask: pre_reset_phase\n"
         ],
@@ -264,7 +264,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}reset_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}reset_phase(uvm_phase phase);",
             "\tphase.raise_objection(this);",
             "\t$0",
             "\tphase.drop_objection(this);",
@@ -276,7 +276,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}post_reset_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}post_reset_phase(uvm_phase phase);",
             "\t$0",
             "endtask: post_reset_phase\n"
         ],
@@ -286,7 +286,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}pre_configure_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}pre_configure_phase(uvm_phase phase);",
             "\t$0",
             "endtask: pre_configure_phase\n"
         ],
@@ -296,7 +296,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}configure_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}configure_phase(uvm_phase phase);",
             "\tphase.raise_objection(this);",
             "\t$0",
             "\tphase.drop_objection(this);",
@@ -308,7 +308,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}post_configure_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}post_configure_phase(uvm_phase phase);",
             "\t$0",
             "endtask: post_configure_phase\n"
         ],
@@ -318,7 +318,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}pre_main_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}pre_main_phase(uvm_phase phase);",
             "\t$0",
             "endtask: pre_main_phase\n"
         ],
@@ -328,7 +328,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}main_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}main_phase(uvm_phase phase);",
             "\tphase.raise_objection(this);",
             "\t$0",
             "\tphase.drop_objection(this);",
@@ -340,7 +340,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}post_main_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}post_main_phase(uvm_phase phase);",
             "\t$0",
             "endtask: post_main_phase\n"
         ],
@@ -350,7 +350,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}pre_shutdown_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}pre_shutdown_phase(uvm_phase phase);",
             "\t$0",
             "endtask: pre_shutdown_phase\n"
         ],
@@ -360,7 +360,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}shutdown_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}shutdown_phase(uvm_phase phase);",
             "\tphase.raise_objection(this);",
             "\t$0",
             "\tphase.drop_objection(this);",
@@ -372,7 +372,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "task ${1:class_scope}${2:::}post_shutdown_phase(uvm_phase phase);",
+            "task ${1:$TM_FILENAME_BASE}${2:::}post_shutdown_phase(uvm_phase phase);",
             "\t$0",
             "endtask: post_shutdown_phase\n"
         ],
@@ -383,7 +383,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "function void ${1:class_scope}${2:::}extract_phase(uvm_phase phase);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}extract_phase(uvm_phase phase);",
             "\tsuper.extract_phase(phase);",
             "\t$0",
             "endfunction: extract_phase\n"
@@ -394,7 +394,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "function void ${1:class_scope}${2:::}check_phase(uvm_phase phase);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}check_phase(uvm_phase phase);",
             "\tsuper.check_phase(phase);",
             "\t$0",
             "endfunction: check_phase\n"
@@ -405,7 +405,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "function void ${1:class_scope}${2:::}report_phase(uvm_phase phase);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}report_phase(uvm_phase phase);",
             "\tsuper.report_phase(phase);",
             "\t$0",
             "endfunction: report_phase\n"
@@ -416,7 +416,7 @@
         "context": "meta.class-body.systemverilog",
         "prefix": "uvm_phase",
         "body": [
-            "function void ${1:class_scope}${2:::}final_phase(uvm_phase phase);",
+            "function void ${1:$TM_FILENAME_BASE}${2:::}final_phase(uvm_phase phase);",
             "\tsuper.final_phase(phase);",
             "\t$0",
             "endfunction: final_phase\n"

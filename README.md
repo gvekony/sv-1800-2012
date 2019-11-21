@@ -54,11 +54,23 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
+## [1.0.20]
+### Changes
+* Changed sv_guard snippet to automatically use uppercase defines with `.` replaced to `_`.
+* Changed the SV module and interface container snippets to default the name to the file name.
+* Changed the SV module and interface snippets to point out proper `package_import_declaration` placement. By importing packages here, the package contents are available even in the parameter and port list and the import does not happen in the compilation unit/global namespace, thus avoiding confusions and overrides in various simulators. (See SV-LRM-2017: Syntax23-1 for more details.)
+* Changed the SV function and task snippets to default the class scope to the file name.
+* Changed the UVM phase snippets to default the class scope to the file name.
+
+### Bugfixes
+* Fixed reindent feature to ignore the `disable fork` and `wait fork` statements in the indentation increase.
+
 ## [1.0.18]
 ### Bugfixes
 * Import-Export keyword and related construct refactorization. (To support multiple imported items and entity name scopes in modules and interfaces.)
 * Various UVM snippet related fixes and improvements.
-*
+
+
 ## [1.0.15]
 * Changed: endtask [: [class_scope] task_identifier] -> endtask [: task_identifier] Changed: endfunction  [: [class_scope] task_identifier] -> endfunction [: function_identifier] in snippets.
 * Fixed various snippet issues.
@@ -70,17 +82,17 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 ### Features
 * Added NaturalDocs compatible comment lines for SystemVerilog and UVM snippet constructs.
 
-## 1.0.13
+## [1.0.13]
 * [#2] Fixed unscoped property declaration in generate block. Due to tmLanguage limitations property-endproperty constructs will now be scoped in _all_ begin-end blocks as they cannot be differentiated from generate block begin-end blocks. Also changed the scoping of *genvar* keyword; it is moved to the net_types group.
 
-## 1.0.12
+## [1.0.12]
 * Fixed reindent bug. One ')' was lost somewhere in the process.
 
-## 1.0.10 & 1.0.11
+## [1.0.10] & [1.0.11]
 ### Features
 * Marketplace related changes and fixes.
 
-## 1.0.9
+## [1.0.9]
 ### Features
 * Added several snippet to support quick UVM class deployment. Sequence item received a specialized snippet and also the do_ sequence item method boilerplates are added. (eg.: uvm_sequence_item, uvm_sequence_item_do_copy etc.)
 * Snippets are uniformized and end-of-line added to most of them.

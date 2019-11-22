@@ -2,7 +2,7 @@
 	"name": "systemverilog-1800-2012",
 	"displayName": "SystemVerilog-1800-2012",
 	"description": "Unified hardware design, specification, and verification language + One functional verification methodology for everyone.",
-	"version": "1.0.22",
+	"version": "1.0.23",
 	"publisher": "gvekony",
 	"engines": {
 		"vscode": "^1.12.0"

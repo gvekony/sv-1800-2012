@@ -117,7 +117,7 @@
     "context": "meta.class-body.systemverilog",
     "prefix": "uvm_factory_instantation_component",
     "body": [
-        "${1:<instance_name>} = ${2:<component_type>}::type_id::create(.name(\"$1\"), .parent(this);\n"
+        "${1:<instance_name>} = ${2:<component_type>}::type_id::create(.name(\"$1\"), .parent(this));\n"
     ]
   }
 }

@@ -1,4 +1,11 @@
 # Change Log (Functional Changes)
+## [1.0.22]
+### Changes
+Minor snippet additions:
+* Cleared up `uvm_config_db_get_guarded` snippet to be more user friendly.
+* Added UVM Factory instantiation snippets. (`uvm_object_factory_instantiation`, `uvm_component_factory_instantiation`)
+* Added UVM objection snippet (`uvm_objection_block`) to be available in task contexts.
+
 ## [1.0.20]
 ### Changes
 * Changed sv_guard snippet to automatically use uppercase defines with `.` replaced to `_`.

@@ -39,9 +39,11 @@ As VS Code uses clever search in words and snippets pressing `sq` will most like
 ### UVM Snippets
 The most common UVM boilerplates are available with an `uvm_` prefix.
 
-* UVM containers: uvm_class_object, uvm_class_object_params, uvm_class_component, uvm_class_component_params
+* UVM containers, eg.: uvm_class_object, uvm_class_object_params, uvm_class_component, uvm_class_component_params, etc.
+* ConfigDB accesses, eg.: uvm_config_db_get, uvm_config_db_set, uvm_config_db_get_guarded, etc.
+* Factory instantiations, eg.: uvm_factory_instantiation_object, uvm_factory_instantiation_component
 * Macros (field macros are purposely omitted): uvm_macro_info, uvm_macro_warning, uvm_macro_error, uvm_macro_object_utils, etc.
-* Phases: uvm_phase_build, uvm_phase_connect, etc.
+* Phases in both short extern versions and fully fledged ones, eg.: uvm_extern_build_phase, uvm_pre_configure_phase, etc.
 
 ![Snippets](https://github.com/gvekony/sv-1800-2012/raw/master/images/vs_code_snippets.gif)
 
@@ -54,6 +56,13 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
+## [1.0.22]
+### Changes
+Minor snippet additions:
+* Cleared up `uvm_config_db_get_guarded` snippet to be more user friendly.
+* Added UVM Factory instantiation snippets. (`uvm_object_factory_instantiation`, `uvm_component_factory_instantiation`)
+* Added UVM objection snippet (`uvm_objection_block`) to be available in task contexts.
+
 ## [1.0.20]
 ### Changes
 * Changed sv_guard snippet to automatically use uppercase defines with `.` replaced to `_`.
@@ -64,46 +73,6 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 
 ### Bugfixes
 * Fixed reindent feature to ignore the `disable fork` and `wait fork` statements in the indentation increase.
-
-## [1.0.18]
-### Bugfixes
-* Import-Export keyword and related construct refactorization. (To support multiple imported items and entity name scopes in modules and interfaces.)
-* Various UVM snippet related fixes and improvements.
-
-
-## [1.0.15]
-* Changed: endtask [: [class_scope] task_identifier] -> endtask [: task_identifier] Changed: endfunction  [: [class_scope] task_identifier] -> endfunction [: function_identifier] in snippets.
-* Fixed various snippet issues.
-
-## [1.0.14]
-### Bugfixes
-* Fixed reindent issue for virtual and pure virtual functions and tasks.
-
-### Features
-* Added NaturalDocs compatible comment lines for SystemVerilog and UVM snippet constructs.
-
-## [1.0.13]
-* [#2] Fixed unscoped property declaration in generate block. Due to tmLanguage limitations property-endproperty constructs will now be scoped in _all_ begin-end blocks as they cannot be differentiated from generate block begin-end blocks. Also changed the scoping of *genvar* keyword; it is moved to the net_types group.
-
-## [1.0.12]
-* Fixed reindent bug. One ')' was lost somewhere in the process.
-
-## [1.0.10] & [1.0.11]
-### Features
-* Marketplace related changes and fixes.
-
-## [1.0.9]
-### Features
-* Added several snippet to support quick UVM class deployment. Sequence item received a specialized snippet and also the do_ sequence item method boilerplates are added. (eg.: uvm_sequence_item, uvm_sequence_item_do_copy etc.)
-* Snippets are uniformized and end-of-line added to most of them.
-* Added snippets for separators/headers (eg.: sv_separator_full, sv_separator_block etc.)
-* Added protected|static|local method qualifiers to indentation rules.
-
-# Known bugs
-* AND property/sequence operator and AND gate level primitive is not yet distinguished.
-* Limited support on module declaration's import statements (dependent on line breaks)
-* Limited support on unindented code's folding markers (editor limitation)
-
 
 # License and source information
 

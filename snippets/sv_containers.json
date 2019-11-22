@@ -78,7 +78,7 @@
     "sv_guard_ifndef": {
         "prefix": "sv_guard_ifndef",
         "body": [
-            "`ifndef __${1:${TM_FILENAME/((\\w*)(\\.)?)/${2:/upcase}${3:+_}/g}}",
+            "`ifndef __${1:${TM_FILENAME/((\\w*)([\\.\\s])?)/${2:/upcase}${3:+_}/g}}",
             "`define __$1",
             "\n$0\n",
             "`endif\n"

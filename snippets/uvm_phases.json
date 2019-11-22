@@ -422,6 +422,18 @@
             "endfunction: final_phase\n"
         ],
         "description": "UVM final_phase template"
-    }
+    },
 
+    "uvm_objection_block": {
+        "context": "meta.task.systemverilog",
+        "prefix": "uvm_objection_block",
+        "body": [
+            "phase.raise_objection(this);",
+            "`uvm_info(get_name(), \"${1:<phase>} started, objection raised.\", UVM_LOW)",
+            "\n$0\n",
+            "phase.drop_objection(this);",
+            "`uvm_info(get_name(), \"$1 finished, objection dropped.\", UVM_LOW)"
+        ],
+        "description": "UVM raise_objection & drop_objection template"
+    }
 }

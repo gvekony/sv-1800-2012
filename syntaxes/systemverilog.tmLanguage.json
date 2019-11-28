@@ -953,23 +953,23 @@
     "variable_types": {
       "patterns": [
         {
-          "match": "(?i)\\b(null|void)\\b",
+          "match": "\\b(null|void)\\b",
           "name": "constant.language.systemverilog"
         },
         {
-          "match": "(?i)\\b(new|super|this)\\b",
+          "match": "\\b(new|super|this)\\b",
           "name": "variable.language.systemverilog"
         },
         {
-          "match": "(?i)\\b(bit|byte|chandle|event|(long|short|)int|integer|logic|process|(short|)real|reg|string|(real|)time)\\b",
+          "match": "\\b(bit|byte|chandle|event|(long|short|)int|integer|logic|process|(short|)real|reg|string|(real|)time)\\b",
           "name": "storage.type.variable.systemverilog"
         },
         {
-          "match": "(?i)\\b(const|local|protected|rand|randc)\\b",
+          "match": "\\b(const|local|protected|rand|randc)\\b",
           "name": "storage.modifier.class-variable.systemverilog"
         },
         {
-          "match": "(?i)\\b(automatic|defparam|inout|input|localparam|output|packed|parameter|ref|(un|)signed|specparam|static|tagged|var|virtual)\\b",
+          "match": "\\b(automatic|defparam|inout|input|localparam|output|packed|parameter|ref|(un|)signed|specparam|static|tagged|var|virtual)\\b",
           "name": "storage.modifier.systemverilog"
         },
         {
@@ -1049,19 +1049,39 @@
           "beginCaptures": {
             "0": {"name": "keyword.control.typedef.systemverilog"}
           },
-          "end": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b(?=(?:([\\[\\]0-9:_\\s\\$]*)?\\;))",
-          "endCaptures": {
-            "1": {"name": "support.type.systemverilog"}
-          },
+          "end": "(?=(?:\\;))",
           "name": "meta.type-declaration.systemverilog",
           "patterns": [
             {
               "match": "\\b(class|interface\\s+class)\\b",
               "name": "storage.type.class.systemverilog"
             },
+            {
+              "begin": "\\[",
+              "beginCaptures": {
+                "1": {
+                  "name": "punctuation.definition.begin.bracket.square.systemverilog"
+                }
+              },
+              "end": "\\]",
+              "endCaptures": {
+                  "1": {
+                    "name": "punctuation.definition.begin.bracket.square.systemverilog"
+                  }
+              },
+              "patterns": [
+                {"include": "#prototype"},
+                {"include": "#operators"},
+                {"include": "#net_types"}
+              ]
+            },
             {"include": "#prototype"},
             {"include": "#operators"},
-            {"include": "#net_types"}
+            {"include": "#net_types"},
+            {
+              "match": "\\b([A-Za-z_][A-Za-z0-9_$]*)\\b",
+              "name": "support.type.posix-reserved.systemverilog"
+            }
           ]
         }
       ]

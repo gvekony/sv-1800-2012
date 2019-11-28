@@ -31,7 +31,8 @@
         {"include": "#compiler_directive"},
         {"include": "#curly_braces"},
         {"include": "#lifetime"},
-        {"include": "#parens"}
+        {"include": "#parens"},
+        {"include": "#square_brackets"}
       ]
     },
     "prototype_parens": {
@@ -577,18 +578,6 @@
         {"include": "#end_labels"},
         {"include": "#namespaces"},
         {
-          "comment": "Square brackets.",
-          "match": "(\\[)|(\\])",
-          "captures": {
-            "1": {
-              "name": "punctuation.definition.begin.bracket.square.systemverilog"
-            },
-            "2": {
-              "name": "punctuation.definition.end.bracket.square.systemverilog"
-            }
-          }
-        },
-        {
           "match": "(?<!\\:)\\:(?!\\:)",
           "name": "punctuation.definition.label.systemverilog"
         },
@@ -896,8 +885,31 @@
         }
       ]
     },
-
-
+    "square_brackets": {
+      "patterns": [
+        {
+          "begin": "\\[",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.begin.bracket.square.systemverilog"
+            }
+          },
+          "end": "\\]",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.end.bracket.square.systemverilog"
+            }
+          },
+          "patterns": [
+            {"include": "#prototype_parens"}
+          ]
+        },
+        {
+          "match": "\\]",
+          "name": "invalid.illegal.stray.parens.end.bracket.square.systemverilog"
+        }
+      ]
+    },
     "curly_braces": {
       "patterns": [
         {
@@ -1043,7 +1055,6 @@
             {"include": "#variable_types"}
           ]
         },
-
         {
           "begin": "^\\s*(typedef)\\b",
           "beginCaptures": {
@@ -1059,20 +1070,18 @@
             {
               "begin": "\\[",
               "beginCaptures": {
-                "1": {
+                "0": {
                   "name": "punctuation.definition.begin.bracket.square.systemverilog"
                 }
               },
               "end": "\\]",
               "endCaptures": {
-                  "1": {
-                    "name": "punctuation.definition.begin.bracket.square.systemverilog"
-                  }
+                "0": {
+                  "name": "punctuation.definition.end.bracket.square.systemverilog"
+                }
               },
               "patterns": [
-                {"include": "#prototype"},
-                {"include": "#operators"},
-                {"include": "#net_types"}
+                {"include": "#prototype_parens"}
               ]
             },
             {"include": "#prototype"},
@@ -1365,6 +1374,10 @@
             "0": {"name": "punctuation.definition.keyword.systemverilog"},
             "1": {"name": "keyword.operator.timing.systemverilog"}
           }
+        },
+        {
+          "match": "\\$(?:(?=[^A-Za-z0-9_$]))",
+          "name": "keyword.operator.range.systemverilog"
         }
       ]
     },

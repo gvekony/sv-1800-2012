@@ -1,4 +1,17 @@
 # Change Log (Functional Changes)
+## [1.0.24]
+### Changes
+Language definition overhaul:
+* Fixed and added proper support (autocomplete, stray checking, etc.) for all three kinds of paranthesis (Curly, Square, Round).
+* UVM types and enum values received a major overhaul.
+* Refactored the typedef scoping rules to have more flexibility regarding unpacked vectorized typedefs.
+* Proper support of unbound expressions via `$`.
+* Added snippets for factory overrides (`uvm_factory_inst_override`, `uvm_factory_type_override`).
+
+### Bugfixes
+* Folding markers end bug fixed; it consumed the rest of the file after the last fold.
+* Component factory instantiation snippet was missing a `)`.
+
 ## [1.0.22]
 ### Changes
 Minor snippet additions:

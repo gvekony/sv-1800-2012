@@ -56,9 +56,20 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
+## [1.0.24]
+### Changes
+* Fixed and added proper support (autocomplete, stray checking, etc.) for all three kinds of paranthesis (Curly, Square, Round).
+* UVM types and enum values received a major overhaul.
+* Refactored the typedef scoping rules to have more flexibility regarding unpacked vectorized typedefs.
+* Proper support of unbound expressions via `$`.
+* Added snippets for factory overrides (`uvm_factory_inst_override`, `uvm_factory_type_override`).
+
+### Bugfixes
+* Folding markers end bug fixed; it consumed the rest of the file after the last fold.
+* Component factory instantiation snippet was missing a `)`.
+
 ## [1.0.22]
 ### Changes
-Minor snippet additions:
 * Cleared up `uvm_config_db_get_guarded` snippet to be more user friendly.
 * Added UVM Factory instantiation snippets. (`uvm_object_factory_instantiation`, `uvm_component_factory_instantiation`)
 * Added UVM objection snippet (`uvm_objection_block`) to be available in task contexts.

@@ -1003,6 +1003,14 @@
         {
           "match": "\\b([A-Za-z_][A-Za-z0-9_$]*(_e|_t))\\b",
           "name": "support.type.posix-reserved.systemverilog"
+        },
+        {
+          "match": "\\b(i|o|io|q|w)_[A-Za-z0-9_$]+\\b",
+          "name": "variable.name.design-conventions.systemverilog"
+        },
+        {
+          "match": "\\b([A-Za-z_][A-Za-z0-9_$]*(_if|_vif))\\b",
+          "name": "variable.name.interface-conventions.systemverilog"
         }
       ]
     },

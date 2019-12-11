@@ -66,6 +66,38 @@
       "endtask: $3\n"
     ],
     "description": "task  ... endtask construct"
-  }
+  },
 
+  "sv_always_comb": {
+    "prefix": "sv_always_comb",
+    "body": [
+      "always_comb begin${1:: <process_label>}",
+      "\t$0",
+      "end$1"
+    ],
+    "description": "Always block for combinatorial logics."
+  },
+  "sv_always_ff": {
+      "prefix": "sv_always_ff",
+      "body": [
+        "always_ff @(posedge ${1:clk}) begin${2:: <process_label>}",
+        "\t$0",
+        "end$2\n"
+      ],
+      "description": "Always block for synchronous logics."
+  },
+  "sv_always_ff_with_rst": {
+    "prefix": "sv_always_ff_with_rst",
+    "body": [
+      "always_ff @(posedge ${1:clk}) begin${2:: <process_label>}",
+      "\tif (${3:rst}) begin${4:: <rst_branch_label>}",
+      "\t\t$0",
+      "\tend$4",
+      "\telse begin${5:: <no_rst_branch_label>}",
+      "\t\t",
+      "\tend$5",
+      "end$2\n"
+    ],
+    "description": "Always block for synchronous logics with reset support."
+  }
 }

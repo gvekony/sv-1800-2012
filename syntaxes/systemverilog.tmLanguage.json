@@ -31,6 +31,7 @@
         {"include": "#compiler_directive"},
         {"include": "#curly_braces"},
         {"include": "#lifetime"},
+        {"include": "#parameter_parens"},
         {"include": "#parens"},
         {"include": "#square_brackets"}
       ]
@@ -938,6 +939,26 @@
         }
       ]
     },
+    "parameter_parens": {
+      "comment": "Parameter list and compound delay (eg.: #(x * 1ns);) captures exactly the same sadly.",
+      "patterns": [
+        {
+          "begin": "(\\#)\\s*(\\()",
+          "beginCaptures": {
+            "1": {"name": "keyword.operator.systemverilog"},
+            "2": {"name": "punctuation.section.begin.bracket.round.systemverilog"}
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {"name": "punctuation.section.end.bracket.round.systemverilog"}
+          },
+          "name": "section.bracket.round.systemverilog",
+          "patterns": [
+            {"include": "#prototype_parens"}
+          ]
+        }
+      ]
+    },
     "parens": {
       "patterns": [
         {
@@ -1372,13 +1393,6 @@
         {
           "match": "(?<!\\=)\\=(?!(?:\\=))",
           "name": "keyword.operator.assignment.systemverilog"
-        },
-        {
-          "comment": "Parameter parenthesis",
-          "match": "(\\#)\\s*(?=(?:\\())",
-          "captures": {
-            "1": {"name": "keyword.operator.systemverilog"}
-          }
         },
         {
           "match": "(?i)\\b((neg|pos|)edge|s_always|(s_|)eventually|(s_|)nexttime|(s_|)until|(s_|)until_with|(sync_|)accept_on|(sync_|)reject_on|and|binsof|disable\\s+iff|dist|first_match|iff|implies|inside|intersect|matches|not|or|throughout|type|with|within)\\b",

@@ -46,7 +46,7 @@
       "patterns": [
         {
           "comment": "Instantiation parameter patterns" ,
-          "match": "(?<!\\w)\\s*(\\.)\\s*([a-zA-Z_][a-zA-Z_0-9]*)(?=(?:\\s*\\())",
+          "match": "(?<!\\w|\\])\\s*(\\.)\\s*([a-zA-Z_][a-zA-Z_0-9]*)(?=(?:\\s*\\())",
           "captures": {
             "1": {"name": "punctuation.separator.dot-access.systemverilog"},
             "2": {"name": "variable.parameter.systemverilog"}
@@ -661,7 +661,7 @@
         },
         {
           "comment": "Fields, properties, members and attributes of a class or other data structure.",
-          "match": "(\\.)\\s*(([a-zA-Z_][a-zA-Z_0-9]*)\\b(?!\\s*\\())?",
+          "match": "(\\.)\\s*(([a-zA-Z_][a-zA-Z_0-9]*)\\b(?!\\s*\\())",
           "captures": {
             "1": {"name": "punctuation.separator.dot-access.systemverilog"},
             "2": {"name": "variable.other.member.systemverilog"}

@@ -1274,11 +1274,11 @@
         },
         {
           "comment": "do-while loop statements",
-          "begin": "(?i)\\b(do)\\b",
+          "begin": "\\b(do)\\b",
           "beginCaptures": {
             "0": {"name": "keyword.control.systemverilog"}
           },
-          "end": "(?i)\\b(while)\\b",
+          "end": "\\b(while)\\b",
           "endCaptures": {
             "0": {"name": "keyword.control.systemverilog"}
           },
@@ -2001,7 +2001,7 @@
               "name": "support.class.uvm.systemverilog"
             },
             {
-              "match": "\\b(uvm_(agent|algorithmic_comparator|analysis_((ex|)port|imp)|barrier|built_in_(clone|comp|converter|pair)|callback(_iter|)|callbacks(_objection|)|class_(clone|comp|converter|pair)|cmdline_processor|comparer|component(_registry|)|config_db(_options|)|converter|domain|driver|env|event(_callback|)|factory|hdl_path_concat|heartbeat|in_order_(built_in_|class_|)comparator|line_printer|mem(_region|(_shared|_single|)_access_seq|(_single|)_walk_seq|)|mem_mam(_cfg|_policy|)|monitor|object(_registry|_string_pool|_wrapper|)|objection(_callback|)|packer|phase|pool|port_(base|component(_base|))|printer(_knobs|)|push_(driver|sequencer)|queue|random_stimulus|recorder|reg(_access_seq|_adapter|_backdoor|_bit_bash_seq|_block|_bus_op|_cbs|_field|_fifo|_file|_frontdoor|_hw_reset_seq|_indirect_data|_item|_map|_mem_( access_seq|built_in_seq|hdl_paths_seq|shared_access_seq)|_predictor|_read_only_cbs|_sequence|_(shared|single)_access_seq|_single_bit_bash_seq|_tlm_adapter|_write_only_cbs|)|report_(catcher|handler|object|server)|resource(_base|_(class_|sprint_|)converter|_db(_options|)|_default_converter(s|)|_options|_pool|_types|)|root|scoreboard|seq_item_pull_((ex|)port|imp)|sequence(_base|_item|_library|)|sequencer(_base|_param_base|)|sqr_if_base|subscriber|table_printer|test|tlm_(analysis_fifo|b_(initiator|target)_socket(_base|)|b_passthrough_(initiator|target)_socket(_base|)|b_transport_((ex|)port|imp)|extension(_base|)|fifo(_base|)|generic_payload|gp|if(_base|)|nb_(initiator|target)_socket(_base|)|nb_passthrough_(initiator|target)_socket(_base|)|nb_transport_(b|f)w_((ex|)port|imp)|(req_rsp|transport)_channel|time)|transaction|tree_printer|utils|vcs_recorder|vreg(_field|)(_cbs|)))\\b",
+              "match": "\\b(uvm_(agent|algorithmic_comparator|analysis_((ex|)port|imp|imp\\w+)|barrier|built_in_(clone|comp|converter|pair)|callback(_iter|)|callbacks(_objection|)|class_(clone|comp|converter|pair)|cmdline_processor|comparer|component(_registry|)|config_db(_options|)|converter|domain|driver|env|event(_callback|)|factory|hdl_path_concat|heartbeat|in_order_(built_in_|class_|)comparator|line_printer|mem(_region|(_shared|_single|)_access_seq|(_single|)_walk_seq|)|mem_mam(_cfg|_policy|)|monitor|object(_registry|_string_pool|_wrapper|)|objection(_callback|)|packer|phase|pool|port_(base|component(_base|))|printer(_knobs|)|push_(driver|sequencer)|queue|random_stimulus|recorder|reg(_access_seq|_adapter|_backdoor|_bit_bash_seq|_block|_bus_op|_cbs|_field|_fifo|_file|_frontdoor|_hw_reset_seq|_indirect_data|_item|_map|_mem_( access_seq|built_in_seq|hdl_paths_seq|shared_access_seq)|_predictor|_read_only_cbs|_sequence|_(shared|single)_access_seq|_single_bit_bash_seq|_tlm_adapter|_write_only_cbs|)|report_(catcher|handler|object|server)|resource(_base|_(class_|sprint_|)converter|_db(_options|)|_default_converter(s|)|_options|_pool|_types|)|root|scoreboard|seq_item_pull_((ex|)port|imp)|sequence(_base|_item|_library|)|sequencer(_base|_param_base|)|sqr_if_base|subscriber|table_printer|test|tlm_(analysis_fifo|b_(initiator|target)_socket(_base|)|b_passthrough_(initiator|target)_socket(_base|)|b_transport_((ex|)port|imp)|extension(_base|)|fifo(_base|)|generic_payload|gp|if(_base|)|nb_(initiator|target)_socket(_base|)|nb_passthrough_(initiator|target)_socket(_base|)|nb_transport_(b|f)w_((ex|)port|imp)|(req_rsp|transport)_channel|time)|transaction|tree_printer|utils|vcs_recorder|vreg(_field|)(_cbs|)))\\b",
               "name": "support.class.uvm.systemverilog"
             }
           ]

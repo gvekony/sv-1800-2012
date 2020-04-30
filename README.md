@@ -2,6 +2,11 @@
 
 This extension incorporates syntax highlighting and snippet support for `IEEE Std 1800-2012 - SystemVerilog` hardware description language and `Universal Verification Methodology` (UVM) in [Visual Studio Code](https://code.visualstudio.com/).
 
+# Note
+Please note, that I've created this extension to create a comfortable environment for my workflow. It does not and does not even aim to fullfill the needs of everyone, especially since I am much more involved in the UVM based verification side than in design. It will not give you any kind of built in support for any FOSS or industry tools by default, so please don't expect that.
+
+If you still like the extension, please feel free to throw me a 'Hi!' if we meet at a conference or exhibition or even on LinkedIn. I'd like to hear about your experiences! :)
+
 # Features
 * Syntax highlighting and basic syntax checking capabilites for SystemVerilog.
 * Scope based start end checking for *module-endmodule*, *fork-join*, *begin-end*, etc. constructs to help debugging via the highlighting
@@ -43,7 +48,7 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * ConfigDB accesses, eg.: uvm_config_db_get, uvm_config_db_set, uvm_config_db_get_guarded, etc.
 * Factory instantiations, eg.: uvm_factory_instantiation_object, uvm_factory_instantiation_component
 * Macros (field macros are purposely omitted): uvm_macro_info, uvm_macro_warning, uvm_macro_error, uvm_macro_object_utils, etc.
-* Phases in both short extern versions and fully fledged ones, eg.: uvm_extern_build_phase, uvm_pre_configure_phase, etc.
+* Phases in both short extern versions and fully fledged ones, eg.: `uvm_extern_phase_build`, `uvm_phase_pre_configure`, etc.
 
 ![Snippets](https://github.com/gvekony/sv-1800-2012/raw/master/images/vs_code_snippets.gif)
 
@@ -52,11 +57,22 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * As VS Code uses tmLanguage (TextMate) styled rules for this, there is no multiline support, eg. block comments can break your indentation if a line starts with begin for example.
 
 ## Extra folding rules
-* Extra folding (but not indentation) rules are set for SystemVerilog compiler directives (eg.: ifndef-endif, pragma protect begin-end, etc.)
+* Extra folding (but not indentation) rules are set for SystemVerilog compiler directives (eg.: ifdef-endif, pragma protect begin-end, etc.)
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
-## [1.0.24]
+## [1.0.25] 2020, 30th of April
+### Changes
+* Added snippet support for always block and design type variable names, also added parameter_parens construct.
+* UVM phase function/task snippets follow the rule of `(uvm_)(extern_)?(phase)(<phase_name>)` now. (eg.: `uvm_extern_phase_build` or `uvm_phase_build`) Somehow it worked differently on Windows, Linux and MacOS with the previous definition. (Makes more sense to me to get the desired snippet via pressing `UPBU` or `UXPBU`.)
+
+### Bugfixes
+* Fixed `[(b[1].size()]` type scoping error where `.size()` was treated as an instantiation parameter.
+* `define` folding mark removed. Might be a strange legacy from the past?
+* Removed case independency from the do and while keywords. A full refactor of case independent flag might be required.
+* Added proper scope support for multiple uvm_analysis_imp-s (macro defined extended names).
+
+## [1.0.24] 2019, 29th of November
 ### Changes
 * Fixed and added proper support (autocomplete, stray checking, etc.) for all three kinds of paranthesis (Curly, Square, Round).
 * UVM types and enum values received a major overhaul.
@@ -68,22 +84,6 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Folding markers end bug fixed; it consumed the rest of the file after the last fold.
 * Component factory instantiation snippet was missing a `)`.
 
-## [1.0.22]
-### Changes
-* Cleared up `uvm_config_db_get_guarded` snippet to be more user friendly.
-* Added UVM Factory instantiation snippets. (`uvm_object_factory_instantiation`, `uvm_component_factory_instantiation`)
-* Added UVM objection snippet (`uvm_objection_block`) to be available in task contexts.
-
-## [1.0.20]
-### Changes
-* Changed sv_guard snippet to automatically use uppercase defines with `.` replaced to `_`.
-* Changed the SV module and interface container snippets to default the name to the file name.
-* Changed the SV module and interface snippets to point out proper `package_import_declaration` placement. By importing packages here, the package contents are available even in the parameter and port list and the import does not happen in the compilation unit/global namespace, thus avoiding confusions and overrides in various simulators. (See SV-LRM-2017: Syntax23-1 for more details.)
-* Changed the SV function and task snippets to default the class scope to the file name.
-* Changed the UVM phase snippets to default the class scope to the file name.
-
-### Bugfixes
-* Fixed reindent feature to ignore the `disable fork` and `wait fork` statements in the indentation increase.
 
 # License and source information
 

@@ -1,4 +1,16 @@
 # Change Log (Functional Changes)
+## [1.0.25]
+### Changes
+* Added snippet support for always block and design type variable names, also added parameter_parens construct.
+* UVM phase function/task snippets follow the rule of `(uvm_)(extern_)?(phase)(<phase_name>)` now. (eg.: `uvm_extern_phase_build` or `uvm_phase_build`) Somehow it worked differently on Windows, Linux and MacOS with the previous definition. (Makes more sense to me to get the desired snippet via pressing `UPBU` or `UXPBU`.)
+
+### Bugfixes
+* Fixed `[(b[1].size()]` type scoping error where `.size()` was treated as an instantiation parameter.
+* `define` folding mark removed. Might be a strange legacy from the past?
+* Removed case independency from the do and while keywords. A full refactor of case independent flag might be required.
+* Added proper scope support for multiple uvm_analysis_imp-s (macro defined extended names).
+
+
 ## [1.0.24]
 ### Changes
 Language definition overhaul:

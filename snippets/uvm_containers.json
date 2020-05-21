@@ -1,39 +1,47 @@
 {
     "uvm_object": {
         "prefix": "uvm_object",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:$TM_FILENAME_BASE} extends ${2:base_class};",
+            "class ${1:$TM_FILENAME_BASE} extends ${2:uvm_object};",
             "\t`uvm_object_utils($1);\n",
-            "\t//  Group: Variables",
-            "\t${3:}\n",
+            "\t//  Group: Variables\n\n",
+            "\t//  Group: Constraints\n\n",
             "\t//  Group: Functions\n",
             "\t//  Constructor: new",
             "\tfunction new(string name = \"$1\");",
             "\t\tsuper.new(name);",
             "\tendfunction: new",
-            "\n\t$0",
+            "\t$0",
             "endclass: $1\n"
         ],
         "description": "UVM object class template"
     },
     "uvm_object_with_parameters": {
         "prefix": "uvm_object_with_parameters",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:base_class};",
-            "\ttypedef $1 #($2) this_type_t;",
+            "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:uvm_object};",
+            "\ttypedef $1 #(${2/(\\b(parameter|type)\\s+([A-Za-z_][A-Za-z0-9_$]*)(\\s*=\\s*([A-Za-z0-9_$]+))?)*\\b/$3/g}) this_type_t;",
             "\t`uvm_object_param_utils(this_type_t);\n",
-            "\t//  Group: Variables",
-            "\t${4:}\n",
+            "\t//  Group: Variables\n\n",
+            "\t//  Group: Constraints\n\n",
             "\t//  Group: Functions\n",
             "\t//  Constructor: new",
             "\tfunction new(string name = \"$1\");",
             "\t\tsuper.new(name);",
             "\tendfunction: new",
-            "\n\t$0",
+            "\t$0",
             "endclass: $1\n"
         ],
         "description": "UVM parametrized object class template"
@@ -41,15 +49,20 @@
 
     "uvm_component": {
         "prefix": "uvm_component",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:$TM_FILENAME_BASE} extends ${2:base_class};",
+            "class ${1:$TM_FILENAME_BASE} extends ${2:uvm_component};",
             "\t`uvm_component_utils($1);\n",
-            "\t//  Group: Config",
-            "\t${3:}\n",
-            "\t//  Group: Variables",
-            "\t${4:}\n",
+            "\t//  Group: Configuration Object(s)\n",
+            "\t//  Var: config_obj",
+            "\t${3:config_obj_t} config_obj;\n\n",
+            "\t//  Group: Components\n\n",
+            "\t//  Group: Variables\n\n",
             "\t//  Group: Functions\n",
             "\t//  Constructor: new",
             "\tfunction new(string name = \"$1\", uvm_component parent);",
@@ -62,17 +75,21 @@
     },
     "uvm_component_with_parameters": {
         "prefix": "uvm_component_with_parameters",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "//  Class: $1",
             "//",
-            "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:base_class};",
-            "\ttypedef $1 #($2) this_type_t;",
+            "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:uvm_component};",
+            "\ttypedef $1 #(${2/(\\b(parameter|type)\\s+([A-Za-z_][A-Za-z0-9_$]*)(\\s*=\\s*([A-Za-z0-9_$]+))?)*\\b/$3/g}) this_type_t;",
             "\t`uvm_component_param_utils(this_type_t);\n",
-            "\t//  Group: Config",
-            "\t${4:}\n",
-            "\t//  Group: Variables",
-            "\t${5:}\n",
-            "\t//  Group: Functions\n",
+            "\t//  Group: Configuration Object(s)\n",
+            "\t//  Var: config_obj",
+            "\t${4:config_obj_t} config_obj;\n\n",
+            "\t//  Group: Components\n\n",
+            "\t//  Group: Variables\n\n",
             "\t//  Constructor: new",
             "\tfunction new(string name = \"$1\", uvm_component parent);",
             "\t\tsuper.new(name, parent);",
@@ -82,18 +99,20 @@
         ],
         "description": "UVM parametrized component class template"
     },
-
     "uvm_component_extended": {
         "prefix": "uvm_component_extended",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "//  Class: $1",
             "//",
             "class ${1:$TM_FILENAME_BASE} extends ${2:base_class};",
             "\t`uvm_component_utils($1);\n",
-            "\t//  Group: Config",
-            "\t${3:}\n",
-            "\t//  Group: Variables",
-            "\t${4:}\n",
+            "\t//  Group: Configuration Object(s)\n\n",
+            "\t//  Group: Components\n\n",
+            "\t//  Group: Variables\n\n",
             "\t//  Group: Functions\n",
             "\t//  Constructor: new",
             "\tfunction new(string name = \"$1\", uvm_component parent);",
@@ -168,17 +187,146 @@
         "description": "UVM component class extended template"
     },
 
+    "uvm_sequence": {
+        "prefix": "uvm_sequence",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
+        "body": [
+            "//  Class: $1",
+            "//",
+            "class ${1:$TM_FILENAME_BASE} extends ${2:uvm_sequence};",
+            "\t`uvm_object_utils($1);\n",
+            "\t//  Group: Variables\n\n",
+            "\t//  Group: Constraints\n\n",
+            "\t//  Group: Functions\n",
+            "\t//  Constructor: new",
+            "\tfunction new(string name = \"$1\");",
+            "\t\tsuper.new(name);",
+            "\tendfunction: new\n",
+            "\t//  Task: pre_start",
+            "\t//  This task is a user-definable callback that is called before the optional ",
+            "\t//  execution of <pre_body>.",
+            "\t// extern virtual task pre_start();\n",
+            "\t//  Task: pre_body",
+            "\t//  This task is a user-definable callback that is called before the execution ",
+            "\t//  of <body> ~only~ when the sequence is started with <start>.",
+            "\t//  If <start> is called with ~call_pre_post~ set to 0, ~pre_body~ is not called.",
+            "\t// extern virtual task pre_body();\n",
+            "\t//  Task: pre_do",
+            "\t//  This task is a user-definable callback task that is called ~on the parent ",
+            "\t//  sequence~, if any. The sequence has issued a wait_for_grant() call and after",
+            "\t//  the sequencer has selected this sequence, and before the item is randomized.",
+            "\t//",
+            "\t//  Although pre_do is a task, consuming simulation cycles may result in unexpected",
+            "\t//  behavior on the driver.",
+            "\t// extern virtual task pre_do(bit is_item);\n",
+            "\t//  Function: mid_do",
+            "\t//  This function is a user-definable callback function that is called after the ",
+            "\t//  sequence item has been randomized, and just before the item is sent to the ",
+            "\t//  driver.",
+            "\t// extern virtual function void mid_do(uvm_sequence_item this_item);\n",
+            "\t//  Task: body",
+            "\t//  This is the user-defined task where the main sequence code resides.",
+            "\textern virtual task body();\n",
+            "\t//  Function: post_do",
+            "\t//  This function is a user-definable callback function that is called after the ",
+            "\t//  driver has indicated that it has completed the item, using either this ",
+            "\t//  item_done or put methods. ",
+            "\t// extern virtual function void post_do(uvm_sequence_item this_item);\n",
+            "\t//  Task: post_body",
+            "\t//  This task is a user-definable callback task that is called after the execution ",
+            "\t//  of <body> ~only~ when the sequence is started with <start>.",
+            "\t//  If <start> is called with ~call_pre_post~ set to 0, ~post_body~ is not called.",
+            "\t// extern virtual task post_body();\n",
+            "\t//  Task: post_start",
+            "\t//  This task is a user-definable callback that is called after the optional ",
+            "\t//  execution of <post_body>.",
+            "\t// extern virtual task post_start();",
+            "\t$0",
+            "endclass: $1"
+        ],
+        "description": "UVM sequence class template"
+    },
+    "uvm_sequence_with_parameters": {
+        "prefix": "uvm_sequence_with_parameters",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
+        "body": [
+            "//  Class: $1",
+            "//",
+            "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:uvm_sequence};",
+            "\ttypedef $1 #(${2/(\\b(parameter|type)\\s+([A-Za-z_][A-Za-z0-9_$]*)(\\s*=\\s*([A-Za-z0-9_$]+))?)*\\b/$3/g}) this_type_t;",
+            "\t`uvm_object_param_utils(this_type_t);\n",
+            "\t//  Group: Variables\n\n",
+            "\t//  Group: Constraints\n\n",
+            "\t//  Group: Functions\n",
+            "\t//  Constructor: new",
+            "\tfunction new(string name = \"$1\");",
+            "\t\tsuper.new(name);",
+            "\tendfunction: new\n",
+            "\t//  Task: pre_start",
+            "\t//  This task is a user-definable callback that is called before the optional ",
+            "\t//  execution of <pre_body>.",
+            "\t// extern virtual task pre_start();\n",
+            "\t//  Task: pre_body",
+            "\t//  This task is a user-definable callback that is called before the execution ",
+            "\t//  of <body> ~only~ when the sequence is started with <start>.",
+            "\t//  If <start> is called with ~call_pre_post~ set to 0, ~pre_body~ is not called.",
+            "\t// extern virtual task pre_body();\n",
+            "\t//  Task: pre_do",
+            "\t//  This task is a user-definable callback task that is called ~on the parent ",
+            "\t//  sequence~, if any. The sequence has issued a wait_for_grant() call and after",
+            "\t//  the sequencer has selected this sequence, and before the item is randomized.",
+            "\t//",
+            "\t//  Although pre_do is a task, consuming simulation cycles may result in unexpected",
+            "\t//  behavior on the driver.",
+            "\t// extern virtual task pre_do(bit is_item);\n",
+            "\t//  Function: mid_do",
+            "\t//  This function is a user-definable callback function that is called after the ",
+            "\t//  sequence item has been randomized, and just before the item is sent to the ",
+            "\t//  driver.",
+            "\t// extern virtual function void mid_do(uvm_sequence_item this_item);\n",
+            "\t//  Task: body",
+            "\t//  This is the user-defined task where the main sequence code resides.",
+            "\textern virtual task body();\n",
+            "\t//  Function: post_do",
+            "\t//  This function is a user-definable callback function that is called after the ",
+            "\t//  driver has indicated that it has completed the item, using either this ",
+            "\t//  item_done or put methods. ",
+            "\t// extern virtual function void post_do(uvm_sequence_item this_item);\n",
+            "\t//  Task: post_body",
+            "\t//  This task is a user-definable callback task that is called after the execution ",
+            "\t//  of <body> ~only~ when the sequence is started with <start>.",
+            "\t//  If <start> is called with ~call_pre_post~ set to 0, ~post_body~ is not called.",
+            "\t// extern virtual task post_body();\n",
+            "\t//  Task: post_start",
+            "\t//  This task is a user-definable callback that is called after the optional ",
+            "\t//  execution of <post_body>.",
+            "\t// extern virtual task post_start();",
+            "\t$0",
+            "endclass: $1"
+        ],
+        "description": "UVM sequence class template with parameters"
+    },
 
     "uvm_sequence_item": {
         "prefix": "uvm_sequence_item",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "//  Class: $1",
             "//",
             "class ${1:$TM_FILENAME_BASE} extends ${2:uvm_sequence_item};",
             "\ttypedef $1 this_type_t;",
             "\t`uvm_object_utils($1);\n",
-            "\t//  Group: Variables",
-            "\t${3:}\n",
+            "\t//  Group: Variables\n\n",
+            "\t//  Group: Constraints\n\n",
             "\t//  Group: Functions\n",
             "\t//  Constructor: new",
             "\tfunction new(string name = \"$1\");",
@@ -198,21 +346,33 @@
             "\t// extern function void do_pack();",
             "\t//  Function: do_unpack",
             "\t// extern function void do_unpack();",
-            "\n\t$0",
-            "endclass: $1\n"
+            "\t$0",
+            "endclass: $1\n\n",
+            "/*----------------------------------------------------------------------------*/",
+            "/*  Constraints                                                               */",
+            "/*----------------------------------------------------------------------------*/",
+            "\n\n\n",
+            "/*----------------------------------------------------------------------------*/",
+            "/*  Functions                                                                 */",
+            "/*----------------------------------------------------------------------------*/",
+            "\n"
         ],
         "description": "UVM sequence item class template"
     },
     "uvm_sequence_item_with_parameters": {
         "prefix": "uvm_sequence_item_with_parameters",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "//  Class: $1",
             "//",
             "class ${1:$TM_FILENAME_BASE} #(${2:parameters}) extends ${3:uvm_sequence_item};",
-            "\ttypedef $1 #($2) this_type_t;",
+            "\ttypedef $1 #(${2/(\\b(parameter|type)\\s+([A-Za-z_][A-Za-z0-9_$]*)(\\s*=\\s*([A-Za-z0-9_$]+))?)*\\b/$3/g}) this_type_t;",
             "\t`uvm_object_param_utils(this_type_t);\n",
-            "\t//  Group: Variables",
-            "\t${4:}\n",
+            "\t//  Group: Variables\n\n",
+            "\t//  Group: Constraints\n\n",
             "\t//  Group: Functions\n",
             "\t//  Constructor: new",
             "\tfunction new(string name = \"$1\");",
@@ -232,110 +392,157 @@
             "\t// extern function void do_pack();",
             "\t//  Function: do_unpack",
             "\t// extern function void do_unpack();",
-            "\n\t$0",
-            "endclass: $1\n"
+            "\t$0",
+            "endclass: $1\n\n",
+            "/*----------------------------------------------------------------------------*/",
+            "/*  Constraints                                                               */",
+            "/*----------------------------------------------------------------------------*/",
+            "\n\n\n",
+            "/*----------------------------------------------------------------------------*/",
+            "/*  Functions                                                                 */",
+            "/*----------------------------------------------------------------------------*/",
+            "\n"
         ],
         "description": "UVM parametrized sequence item class template"
     },
 
     "uvm_sequence_item_do_copy": {
         "prefix": "uvm_sequence_item_do_copy",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}do_copy(uvm_object rhs);",
             "\tthis_type_t rhs_;\n",
-            "\tassert (\\$cast(rhs_, rhs)) begin",
-            "\t\t${3:}// `uvm_info({this.get_name(), \".do_copy()\"}, \"Cast succeded.\", UVM_HIGH);",
-            "\tend else begin",
+            "\tif (!\\$cast(rhs_, rhs)) begin",
             "\t\t`uvm_error({this.get_name(), \".do_copy()\"}, \"Cast failed!\");",
             "\t\treturn;",
-            "\tend\n",
+            "\tend",
+            "\t// `uvm_info({this.get_name(), \".do_copy()\"}, \"Cast succeded.\", UVM_HIGH);\n",
             "\t/*  chain the copy with parent classes  */",
             "\tsuper.do_copy(rhs);\n",
-            "\t/*  list of properties to be copied  */",
-            "\t${4:<this.property = rhs_.property>}",
-            "endfunction: do_copy\n$0"
+            "\t/*  list of local properties to be copied  */",
+            "\t// <this.property_name = rhs_.property_name>;",
+            "endfunction: do_copy\n\n$0"
         ],
         "description": "UVM sequence item do_copy() stub"
     },
     "uvm_sequence_item_do_compare": {
         "prefix": "uvm_sequence_item_do_compare",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "function bit ${1:$TM_FILENAME_BASE}${2:::}do_compare(uvm_object rhs, uvm_comparer comparer);",
-            "\tthis_type_t rhs_;\n",k
-            "\tassert (\\$cast(rhs_, rhs)) begin",
-            "\t\t${3:}// `uvm_info({this.get_name(), \".do_compare()\"}, \"Cast succeded.\", UVM_HIGH);",
-            "\tend else begin",
+            "\tthis_type_t rhs_;\n",
+            "\tif (!\\$cast(rhs_, rhs)) begin",
             "\t\t`uvm_error({this.get_name(), \".do_compare()\"}, \"Cast failed!\");",
-            "\t\treturn 0;",
-            "\tend\n",
-            "\treturn (",
-            "\t\t/*  chain the compare with parent classes  */",
-            "\t\t(super.do_compare(rhs, comparer)) &&\n",
-            "\t\t/*  list of properties to be compared:  */",
-            "\t\t${4:(<this.property == rhs_.property>)}",
+            "\t\treturn;",
+            "\tend",
+            "\t// `uvm_info({this.get_name(), \".do_compare()\"}, \"Cast succeded.\", UVM_HIGH);\n",
+            "\t/*  chain the compare with parent classes  */",
+            "\tdo_compare = super.do_compare(rhs, comparer);\n",
+            "\t/*  list of local properties to be compared:  */",
+            "\tdo_compare &= (",
+            "\t\t// <this.property_name == rhs_.property_name> &&",
+            "\t\t// <this.property_name == rhs_.property_name>",
             "\t);",
-            "endfunction: do_compare\n$0"
+            "endfunction: do_compare\n\n$0"
         ],
         "description": "UVM sequence item do_compare() stub"
     },
     "uvm_sequence_item_convert2string": {
         "prefix": "uvm_sequence_item_convert2string",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "function string ${1:$TM_FILENAME_BASE}${2:::}convert2string();",
-            "\tstring s;",
+            "\tstring s;\n",
             "\t/*  chain the convert2string with parent classes  */",
             "\ts = super.convert2string();\n",
-            "\t/*  use \\t (tab) and \\n (newline) to format the data in columns!  */",
-            "\t\\$sformat(s, \"${3:property_name}: ${4:<%0d>}\\n\", ${5:<this.property>});",
-            "\n",
+            "\t/*  list of local properties to be printed:  */",
+            "\t//  guide             0---4---8--12--16--20--24--28--32--36--40--44--48--",
+            "\t// s = {s, \\$sformatf(\"property_label      : 0x%0h\\n\", property_name)};",
+            "\t// s = {s, \\$sformatf(\"property_label      :   %0d\\n\", property_name)};\n",
             "\treturn s;",
-            "endfunction: convert2string\n$0"
+            "endfunction: convert2string\n\n$0"
         ],
         "description": "UVM sequence item convert2string() stub"
     },
     "uvm_sequence_item_do_print": {
         "prefix": "uvm_sequence_item_do_print",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}do_print(uvm_printer printer)",
-            "\tprinter.m_string = this.convert2string();",
-            "endfunction: do_print\n$0"
+            "\t/*  chain the print with parent classes  */",
+            "\tsuper.do_print(printer);\n",
+            "\t/*  list of local properties to be printed:  */",
+            "\t// printer.print_string(\"property_label\", property_name);",
+            "\t// printer.print_field_int(\"property_label\", property_name, \\$bits(property_name), UVM_HEX);",
+            "endfunction: do_print\n\n$0"
         ],
         "description": "UVM sequence item do_print() stub"
     },
     "uvm_sequence_item_do_record": {
         "prefix": "uvm_sequence_item_do_record",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}do_record(uvm_recorder recorder);",
             "\t/*  chain the record with parent classes  */",
             "\tsuper.do_record(recorder);\n",
-            "\t/*  list of properties to be recorded:  */",
+            "\t/*  list of local properties to be recorded:  */",
             "\t/*  note: use uvm_record_int, uvm_record_string, uvm_record_time, uvm_record_real for known basic types.  */",
-            "\t`uvm_record_field(\"${3:property_id}\", ${4:property_name});",
-            "endfunction: do_record\n$0"
+            "\t// `uvm_record_string(\"property_label\", property_name);",
+            "\t// `uvm_record_int(\"property_label\", property_name, \\$bits(property_name), UVM_HEX);",
+            "endfunction: do_record\n\n$0"
         ],
         "description": "UVM sequence item do_record() stub"
     },
     "uvm_sequence_item_do_pack": {
         "prefix": "uvm_sequence_item_do_pack",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}do_pack(uvm_packer packer);",
             "\t/*  chain the pack with parent classes  */",
             "\tsuper.do_pack(packer);\n",
-            "\t/*  list of properties to be packed:  */",
-            "\t`${3:uvm_pack_int}(${4:property_name})",
-            "endfunction: do_pack\n$0"
+            "\t/*  list of local properties to be packed:  */",
+            "\t//  note: look up the appropriate macro(s) for your properties!",
+            "\t// `uvm_pack_int(property_name);",
+            "\t// `uvm_pack_queue(property_name);",
+            "\t// `uvm_pack_string(property_name);",
+            "endfunction: do_pack\n\n$0"
         ],
         "description": "Compresses object contents into a bit format."
     },
     "uvm_sequence_item_do_unpack": {
         "prefix": "uvm_sequence_item_do_unpack",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}do_unpack(uvm_packer packer);",
             "\t/*  chain the unpack with parent classes  */",
             "\tsuper.do_unpack(packer);\n",
-            "\t/*  list of properties to be unpacked:  */",
-            "\t`${3:uvm_unpack_int}(${4:property_name})",
-            "endfunction: do_unpack\n$0"
+            "\t/*  list of local properties to be unpacked:  */",
+            "\t//  note: look up the appropriate macro(s) for your properties!",
+            "\t// `uvm_unpack_int(property_name);",
+            "\t// `uvm_unpack_queue(property_name);",
+            "\t// `uvm_unpack_string(property_name);",
+            "endfunction: do_unpack\n\n$0"
         ],
         "description": "Converts a bit format into the data object format."
     }

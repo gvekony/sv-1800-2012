@@ -54,9 +54,12 @@
             "//  Class: $1",
             "//",
             "class ${1:$TM_FILENAME_BASE};",
-            "\t/*  PROPERTIES  */\n",
+            "\t//  Group: Variables\n\n",
+            "\t//  Group: Constraints\n\n",
+            "\t//  Group: Functions\n",
+            "\t//  Constructor: new",
             "\tfunction new(string name = \"$1\");",
-            "\tendfunction: new\n\n",
+            "\tendfunction: new",
             "\t$0\n",
             "endclass: $1\n"
         ],
@@ -85,6 +88,135 @@
         ],
         "description": "Basic SystemVerilog guard ifndef-define-endif construct."
     },
+
+    //  Constraints
+    "sv_extern_constraint": {
+        "context": ["meta.class.systemverilog"],
+        "prefix": "extern_constraint",
+        "body": [
+            "//  Constraint: $1",
+            "extern constraint $1;\n$0"
+        ],
+        "description": "Constraint declaration stub."
+    },
+    "sv_constraint_block": {
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
+        "prefix": "constraint_block",
+        "body": [
+            "constraint ${1:$TM_FILENAME_BASE}${2:::}$3 {",
+            "\t/*  solve order constraints  */\n",
+            "\t/*  rand variable constraints  */",
+            "\t$0",
+            "}\n"
+        ],
+        "description": "Constraint block template."
+    },
+
+    //  Coverage
+    "sv_covergroup": {
+        "prefix": "sv_covergroup",
+        "body": [
+            "//  Covergroup: cg_$1",
+            "//",
+            "covergroup cg_${1:identifier} (${2:port_list}) ${3:@(coverage_event)};",
+            "\t$0",
+            "endgroup: cg_$1"
+        ],
+        "description": "Basic SystemVerilog covergroup template."
+    },
+    "sv_covergroup_options": {
+        "prefix": "sv_covergroup_options",
+        "body": [
+            "// option.name = \"\";",
+            "// option.at_least = ;",
+            "// option.auto_bin_max = ;",
+            "// option.comment = \"\";",
+            "// option.cross_num_print_missing = ;",
+            "// option.detect_overlap = ;",
+            "// option.get_inst_coverage = ;",
+            "// option.goal = ;",
+            "// option.per_instance = ;",
+            "// option.weight = ;",
+            "$0"
+        ],
+        "description": "Covergroup option block template."
+    },
+    "sv_covergroup_type_options": {
+        "prefix": "sv_covergroup_type_options",
+        "body": [
+            "// type_option.comment = \"\";",
+            "// type_option.distribute_first = ;",
+            "// type_option.goal = ;",
+            "// type_option.merge_instances = ;",
+            "// type_option.strobe = ;",
+            "// type_option.weight = ;",
+            "$0"
+        ],
+        "description": "Covergroup type_options block template."
+    },
+    "sv_coverpoint": {
+        "prefix": "sv_coverpoint",
+        "body": [
+            "//  Coverpoint: cp_$1",
+            "cp_${1:cover_point_identifier}: coverpoint ${2:covered_expression} iff (${3:1}) {",
+            "\t$0",
+            "}\n"
+        ],
+        "description": "Coverage point template."
+    },
+    "sv_coverpoint_options": {
+        "prefix": "sv_coverpoint_options",
+        "body": [
+            "// option.at_least = ;",
+            "// option.auto_bin_max = ;",
+            "// option.comment = \"\";",
+            "// option.detect_overlap = ;",
+            "// option.goal = ;",
+            "// option.weight = ;",
+            "$0"
+        ],
+        "description": "Coverage point option block template."
+    },
+    "sv_coverpoint_type_options": {
+        "prefix": [
+            "sv_coverpoint_type_options",
+            "sv_cross_type_options"
+        ],
+        "body": [
+            "// type_option.comment = \"\";",
+            "// type_option.goal = ;",
+            "// type_option.weight = ;",
+            "$0"
+        ],
+        "description": "Coverage point and cross coverage type_options block template."
+    },
+    "sv_covercross": {
+        "prefix": "sv_covercross",
+        "body": [
+            "//  Cross: cx_$1",
+            "cx_${1:cross_identifier}: cross ${2:list_of_cross_items} iff (${3:1}) {",
+            "\t$0",
+            "}\n"
+        ],
+        "description": "Cross coverage template."
+    },
+    "sv_covercross_options": {
+        "prefix": "sv_covercross_options",
+        "body": [
+            "// option.at_least = ;",
+            "// option.comment = \"\";",
+            "// option.cross_num_print_missing = ;",
+            "// option.goal = ;",
+            "// option.weight = ;",
+            "$0"
+        ],
+        "description": "Cross coverage option block template."
+    }
+
+    //  Separators
     "sv_separator_block": {
         "prefix": "sv_separator_block",
         "body": [

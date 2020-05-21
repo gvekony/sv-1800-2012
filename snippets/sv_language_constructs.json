@@ -31,7 +31,8 @@
     "body": [
       "if (${1:condition}) begin",
       "\t$0",
-      "end $2else begin",
+      "end",
+      "else begin",
       "\t",
       "end\n"
     ],
@@ -99,5 +100,42 @@
       "end$2\n"
     ],
     "description": "Always block for synchronous logics with reset support."
-  }
+  },
+
+    //  Common System Calls
+    "bits" : {
+        "prefix": "$bits",
+        "body": [
+            "\\$bits($1)$0"
+        ],
+        "description": "The $bits system function returns the number of bits required to hold an expression as a bit stream."
+    },
+    "cast": {
+        "prefix": "$cast",
+        "body": [
+            "\\$cast(${1:singular_dest_var}, ${2:singular_source_expr})$0"
+        ],
+        "description": "The $cast system function performs a dynamic cast of an expression type."
+    },
+    "sformatf": {
+        "prefix": "$sformatf",
+        "body": [
+            "\\$sformatf(\"$1\", $2)$0"
+        ],
+        "description": "Returns a formatted string."
+    },
+    "timeformat": {
+        "prefix": "$timeformat",
+        "body": [
+            "\\$timeformat(${1:units_number}, ${2:precision_number}, ${3:suffix_string}, ${4:minimum_field_width});\n$0"
+        ],
+        "description": "The $timeformat system task specifies how the %t format specification reports time information."
+    },
+    "urandom_range": {
+        "prefix": "$urandom_range",
+        "body": [
+            "\\$urandom_range(${1:maxval}, ${2:minval = 0})$0"
+        ],
+        "description": "The $urandom_range() function returns an unsigned integer within a specified range."
+    }
 }

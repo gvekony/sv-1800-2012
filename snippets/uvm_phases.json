@@ -1,7 +1,6 @@
 {
-    // EXTERNAL PHASE DECLARATIONS
     "uvm_extern_build_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_build",
         "body": [
             "//  Function: build_phase",
@@ -10,7 +9,7 @@
         "description": "UVM build_phase stub"
     },
     "uvm_extern_connect_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_connect",
         "body": [
             "//  Function: connect_phase",
@@ -19,7 +18,7 @@
         "description": "UVM connect_phase stub"
     },
     "uvm_extern_end_of_elaboration_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_end_of_elaboration",
         "body": [
             "//  Function: end_of_elaboration_phase",
@@ -28,7 +27,7 @@
         "description": "UVM end_of_elaboration stub"
     },
     "uvm_extern_start_of_simulation_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_start_of_simulation",
         "body": [
             "//  Function: start_of_simulation_phase",
@@ -37,7 +36,7 @@
         "description": "UVM start_of_simulation_phase stub"
     },
     "uvm_extern_run_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_run",
         "body": [
             "//  Function: run_phase",
@@ -46,7 +45,7 @@
         "description": "UVM run_phase stub"
     },
     "uvm_extern_pre_reset_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_pre_reset",
         "body": [
             "//  Function: pre_reset_phase",
@@ -55,7 +54,7 @@
         "description": "UVM pre_reset_phase stub"
     },
     "uvm_extern_reset_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_reset",
         "body": [
             "//  Function: reset_phase",
@@ -64,7 +63,7 @@
         "description": "UVM reset_phase stub"
     },
     "uvm_extern_post_reset_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_post_reset",
         "body": [
             "//  Function: post_reset_phase",
@@ -73,7 +72,7 @@
         "description": "UVM post_reset_phase stub"
     },
     "uvm_extern_pre_configure_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_pre_configure",
         "body": [
             "//  Function: pre_configure_phase",
@@ -82,7 +81,7 @@
         "description": "UVM pre_configure_phase stub"
     },
     "uvm_extern_configure_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_configure",
         "body": [
             "//  Function: configure_phase",
@@ -91,7 +90,7 @@
         "description": "UVM configure_phase stub"
     },
     "uvm_extern_post_configure_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_post_configure",
         "body": [
             "//  Function: post_configure_phase",
@@ -100,7 +99,7 @@
         "description": "UVM post_configure_phase stub"
     },
     "uvm_extern_pre_main_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_pre_main",
         "body": [
             "//  Function: pre_main_phase",
@@ -109,7 +108,7 @@
         "description": "UVM pre_main_phase stub"
     },
     "uvm_extern_main_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_main",
         "body": [
             "//  Function: main_phase",
@@ -118,7 +117,7 @@
         "description": "UVM main_phase stub"
     },
     "uvm_extern_post_main_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_post_main",
         "body": [
             "//  Function: post_main_phase",
@@ -127,7 +126,7 @@
         "description": "UVM post_main_phase stub"
     },
     "uvm_extern_pre_shutdown_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_pre_shutdown",
         "body": [
             "//  Function: pre_shutdown_phase",
@@ -136,7 +135,7 @@
         "description": "UVM pre_shutdown_phase stub"
     },
     "uvm_extern_shutdown_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_shutdown",
         "body": [
             "//  Function: shutdown_phase",
@@ -145,7 +144,7 @@
         "description": "UVM shutdown_phase stub"
     },
     "uvm_extern_post_shutdown_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_post_shutdown",
         "body": [
             "//  Function: post_shutdown_phase",
@@ -154,7 +153,7 @@
         "description": "UVM post_shutdown_phase stub"
     },
     "uvm_extern_extract_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_extract",
         "body": [
             "//  Function: extract_phase",
@@ -163,7 +162,7 @@
         "description": "UVM extract_phase stub"
     },
     "uvm_extern_check_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_check",
         "body": [
             "//  Function: check_phase",
@@ -172,7 +171,7 @@
         "description": "UVM extract_phase stub"
     },
     "uvm_extern_report_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_report",
         "body": [
             "//  Function: report_phase",
@@ -181,7 +180,7 @@
         "description": "UVM report_phase stub"
     },
     "uvm_extern_final_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": "meta.class.systemverilog",
         "prefix": "uvm_extern_phase_final",
         "body": [
             "//  Function: final_phase",
@@ -192,7 +191,10 @@
 
     // UVM PHASE DEFINITIONS
     "uvm_build_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_build",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}build_phase(uvm_phase phase);",
@@ -205,7 +207,10 @@
         "description": "UVM build_phase template"
     },
     "uvm_connect_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_connect",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}connect_phase(uvm_phase phase);",
@@ -216,7 +221,10 @@
         "description": "UVM connect_phase template"
     },
     "uvm_end_of_elaboration_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_end_of_elaboration",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}end_of_elaboration_phase(uvm_phase phase);",
@@ -228,7 +236,10 @@
     },
 
     "uvm_start_of_simulation_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_start_of_simulation",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}start_of_simulation_phase(uvm_phase phase);",
@@ -239,7 +250,10 @@
         "description": "UVM start_of_simulation_phase template"
     },
     "uvm_run_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_run",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}run_phase(uvm_phase phase);",
@@ -251,7 +265,10 @@
         "description": "UVM run_phase template"
     },
     "uvm_pre_reset_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_pre_reset",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}pre_reset_phase(uvm_phase phase);",
@@ -261,7 +278,10 @@
         "description": "UVM pre_reset_phase template"
     },
     "uvm_reset_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_reset",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}reset_phase(uvm_phase phase);",
@@ -273,7 +293,10 @@
         "description": "UVM reset_phase template"
     },
     "uvm_post_reset_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_post_reset",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}post_reset_phase(uvm_phase phase);",
@@ -283,7 +306,10 @@
         "description": "UVM post_reset_phase template"
     },
     "uvm_pre_configure_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_pre_configure",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}pre_configure_phase(uvm_phase phase);",
@@ -293,7 +319,10 @@
         "description": "UVM pre_configure_phase template"
     },
     "uvm_configure_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_configure",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}configure_phase(uvm_phase phase);",
@@ -305,7 +334,10 @@
         "description": "UVM post_configure_phase template"
     },
     "uvm_post_configure_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_post_configure",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}post_configure_phase(uvm_phase phase);",
@@ -315,7 +347,10 @@
         "description": "UVM post_configure_phase template"
     },
     "uvm_pre_main_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_pre_main",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}pre_main_phase(uvm_phase phase);",
@@ -325,7 +360,10 @@
         "description": "UVM pre_main_phase template"
     },
     "uvm_main_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_main",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}main_phase(uvm_phase phase);",
@@ -337,7 +375,10 @@
         "description": "UVM main_phase template"
     },
     "uvm_post_main_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_post_main",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}post_main_phase(uvm_phase phase);",
@@ -347,7 +388,10 @@
         "description": "UVM post_main_phase template"
     },
     "uvm_pre_shutdown_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_pre_shutdown",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}pre_shutdown_phase(uvm_phase phase);",
@@ -357,7 +401,10 @@
         "description": "UVM pre_shutdown_phase template"
     },
     "uvm_shutdown_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_shutdown",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}shutdown_phase(uvm_phase phase);",
@@ -369,7 +416,10 @@
         "description": "UVM shutdown_phase template"
     },
     "uvm_post_shutdown_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_post_shutdown",
         "body": [
             "task ${1:$TM_FILENAME_BASE}${2:::}post_shutdown_phase(uvm_phase phase);",
@@ -380,7 +430,10 @@
     },
 
     "uvm_extract_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_extract",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}extract_phase(uvm_phase phase);",
@@ -391,7 +444,10 @@
         "description": "UVM extract_phase template"
     },
     "uvm_check_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_check",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}check_phase(uvm_phase phase);",
@@ -402,7 +458,10 @@
         "description": "UVM check_phase template"
     },
     "uvm_report_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_report",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}report_phase(uvm_phase phase);",
@@ -413,7 +472,10 @@
         "description": "UVM report_phase template"
     },
     "uvm_final_phase": {
-        "context": "meta.class-body.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_phase_final",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}final_phase(uvm_phase phase);",
@@ -425,15 +487,20 @@
     },
 
     "uvm_objection_block": {
-        "context": "meta.task.systemverilog",
+        "context": [
+            "meta.class.systemverilog",
+            "source.systemverilog"
+        ],
         "prefix": "uvm_objection_block",
         "body": [
             "phase.raise_objection(this);",
-            "`uvm_info(get_name(), \"${1:<phase>} started, objection raised.\", UVM_LOW)",
+            "`uvm_info(get_name(), \"${1:<phase>} started, objection raised.\", UVM_FULL)",
             "\n$0\n",
             "phase.drop_objection(this);",
-            "`uvm_info(get_name(), \"$1 finished, objection dropped.\", UVM_LOW)"
+            "`uvm_info(get_name(), \"$1 finished, objection dropped.\", UVM_FULL)"
         ],
         "description": "UVM raise_objection & drop_objection template"
     }
+
+
 }

@@ -3,7 +3,9 @@
 This extension incorporates syntax highlighting and snippet support for `IEEE Std 1800-2012 - SystemVerilog` hardware description language and `Universal Verification Methodology` (UVM) in [Visual Studio Code](https://code.visualstudio.com/).
 
 # Note
-Please note, that I've created this extension to create a comfortable environment for my workflow. It does not and does not even aim to fullfill the needs of everyone, especially since I am much more involved in the UVM based verification side than in design. It will not give you any kind of built in support for any FOSS or industry tools by default, so please don't expect that.
+Please note, that I've created this extension to create a comfortable environment for my workflow. It **does not** and **does not even aim** to fullfill the needs of everyone, especially since I am much more involved in the UVM based verification side than in design. It will not give you any kind of built in support for any FOSS or industry tools (eg.: Verilator, VCS, ModelSim, etc.) by default, so please don't expect that.
+
+At this stage the extension does not have instantation pattern or language server support neither. However you can expect proper syntax recognization, scoping and snippets for both SystemVerilog and UVM.
 
 If you still like the extension, please feel free to throw me a 'Hi!' if we meet at a conference or exhibition or even on LinkedIn. I'd like to hear about your experiences! :)
 
@@ -61,29 +63,22 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
-## [1.0.25] 2020, 30th of April
+## [1.0.26] Snippet reorganization: Coronavirus edition
 ### Changes
-* Added snippet support for always block and design type variable names, also added parameter_parens construct.
-* UVM phase function/task snippets follow the rule of `(uvm_)(extern_)?(phase)(<phase_name>)` now. (eg.: `uvm_extern_phase_build` or `uvm_phase_build`) Somehow it worked differently on Windows, Linux and MacOS with the previous definition. (Makes more sense to me to get the desired snippet via pressing `UPBU` or `UXPBU`.)
+* Reworked UVM related snippets to be more convenient.
+    * Parametrized UVM class snippets (eg.: `uvm_component_with_parameters`) will construct a proper parameter list for the typedef and the factory registration macro. The regexp transformation is not failsafe, but works well with `type` and `parameter` definitions. (eg.: `class x #(type T, parameter w = 3);`)
+    * UVM sequence item related `do_` function snippets received an overhaul. (eg.: `uvm_sequence_item_do_compare`, `uvm_sequence_item_convert2string`, `uvm_sequence_item_do_print`, etc.) Instead of user constructed placeholders, they contain examples for placeholders via comments. Their structures are also unified.
+    * The `uvm_info` macro snippet received a conditional placeholder for the verbosity setting.
+    * The `uvm_error`, `uvm_fatal`, `uvm_info` and `uvm_warning` macro snippet received various conditional placeholder options for the ID field.
+    * Added snippet for uvm_sequence derived classes with defined callback stubs and quick reference. (eg.: `uvm_sequence`)
+    * UVM Phase snippets received a proper context parameter, but alas VSCode ignores it alltogether.
+* Fixed `sv_class` and UVM class snippets to contain the same NaturalDocs group headers. (Variables, Constraints, Functions)
+* Added snippets for some system tasks and functions; mostly because of the common use or the bogus parameter list. (eg: `$cast`, `$sformatf`, `$timeformat`, etc.)
+* Added snippet support for the external and normal constraint blocks of SystemVerilog. (eg.: `sv_extern_constraint`, `sv_constraint_block`)
+* Added snippet support for the covergroup, coverpoint and cross coverage blocks; also added snippets for their appropriate option and type_option structures. (eg.: `sv_covergroup`, `sv_covergroup_options`, `sv_covercross`, etc.)
 
 ### Bugfixes
-* Fixed `[(b[1].size()]` type scoping error where `.size()` was treated as an instantiation parameter.
-* `define` folding mark removed. Might be a strange legacy from the past?
-* Removed case independency from the do and while keywords. A full refactor of case independent flag might be required.
-* Added proper scope support for multiple uvm_analysis_imp-s (macro defined extended names).
-
-## [1.0.24] 2019, 29th of November
-### Changes
-* Fixed and added proper support (autocomplete, stray checking, etc.) for all three kinds of paranthesis (Curly, Square, Round).
-* UVM types and enum values received a major overhaul.
-* Refactored the typedef scoping rules to have more flexibility regarding unpacked vectorized typedefs.
-* Proper support of unbound expressions via `$`.
-* Added snippets for factory overrides (`uvm_factory_inst_override`, `uvm_factory_type_override`).
-
-### Bugfixes
-* Folding markers end bug fixed; it consumed the rest of the file after the last fold.
-* Component factory instantiation snippet was missing a `)`.
-
+* A few minor syntax fixes.
 
 # License and source information
 

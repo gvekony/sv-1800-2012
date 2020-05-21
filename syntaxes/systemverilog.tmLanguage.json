@@ -2107,7 +2107,7 @@
               "name": "support.variable.uvm.enum.severity-type.systemverilog"
             },
             {
-              "match": "\\bUVM_(HAS_X|IS_OKNOT_OK)\\b",
+              "match": "\\bUVM_(HAS_X|IS_OK|NOT_OK)\\b",
               "name": "support.variable.uvm.enum.status-type.systemverilog"
             },
             {

@@ -1,4 +1,21 @@
 # Change Log (Functional Changes)
+## [1.0.26] Snippet reorganization: Coronavirus edition
+### Changes
+* Reworked UVM related snippets to be more convenient.
+    * Parametrized UVM class snippets (eg.: `uvm_component_with_parameters`) will construct a proper parameter list for the typedef and the factory registration macro. The regexp transformation is not failsafe, but works well with `type` and `parameter` definitions. (eg.: `class x #(type T, parameter w = 3);`)
+    * UVM sequence item related `do_` function snippets received an overhaul. (eg.: `uvm_sequence_item_do_compare`, `uvm_sequence_item_convert2string`, `uvm_sequence_item_do_print`, etc.) Instead of user constructed placeholders, they contain examples for placeholders via comments. Their structures are also unified.
+    * The `uvm_info` macro snippet received a conditional placeholder for the verbosity setting.
+    * The `uvm_error`, `uvm_fatal`, `uvm_info` and `uvm_warning` macro snippet received various conditional placeholder options for the ID field.
+    * Added snippet for uvm_sequence derived classes with defined callback stubs and quick reference. (eg.: `uvm_sequence`)
+    * UVM Phase snippets received a proper context parameter, but alas VSCode ignores it alltogether.
+* Fixed `sv_class` and UVM class snippets to contain the same NaturalDocs group headers. (Variables, Constraints, Functions)
+* Added snippets for some system tasks and functions; mostly because of the common use or the bogus parameter list. (eg: `$cast`, `$sformatf`, `$timeformat`, etc.)
+* Added snippet support for the external and normal constraint blocks of SystemVerilog. (eg.: `sv_extern_constraint`, `sv_constraint_block`)
+* Added snippet support for the covergroup, coverpoint and cross coverage blocks; also added snippets for their appropriate option and type_option structures. (eg.: `sv_covergroup`, `sv_covergroup_options`, `sv_covercross`, etc.)
+
+### Bugfixes
+* A few minor syntax fixes.
+
 ## [1.0.25]
 ### Changes
 * Added snippet support for always block and design type variable names, also added parameter_parens construct.

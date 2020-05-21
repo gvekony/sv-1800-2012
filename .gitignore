@@ -1,0 +1,11 @@
+# output is generated
+# output folder could hold persistent files but that requires
+# force add
+/output/*
+
+# vscode generated files
+/.vscode/*
+*.code-workspace
+
+# macos generated files
+.DS_Store

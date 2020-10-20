@@ -1026,7 +1026,7 @@
           "name": "support.type.posix-reserved.systemverilog"
         },
         {
-          "match": "\\b(i|o|io|q|w)_[A-Za-z0-9_$]+\\b",
+          "match": "\\b(c|i|o|io|if|q|w)_[A-Za-z0-9_$]+\\b",
           "name": "variable.name.design-conventions.systemverilog"
         },
         {

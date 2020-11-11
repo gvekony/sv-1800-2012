@@ -243,5 +243,12 @@
             "/*------------------------------------*/\n",
         ],
         "description": "Small 40 ch wide separator."
+    },
+    "sv_whitespace_guide": {
+        "prefix": "sv_whitespace_guide",
+        "body": [
+            "//  guide  0---4---8--12--16--20--24--28--32--36--40--44--48--52--56--60--"
+        ],
+        "description": "A simple whitespace guide."
     }
 }

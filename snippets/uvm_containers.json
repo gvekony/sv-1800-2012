@@ -312,6 +312,33 @@
         ],
         "description": "UVM sequence class template with parameters"
     },
+    "uvm_sequence_functions": {
+        "prefix": "uvm_sequence_functions",
+        "context": [
+            "meta.package.systemverilog",
+            "source.systemverilog"
+        ],
+        "body": [
+            "// task ${1:$TM_FILENAME_BASE::}pre_start();",
+            "// endtask: pre_start\n\n",
+            "// task $1pre_body();",
+            "// endtask: pre_body\n\n",
+            "// task $1pre_do(bit is_item);",
+            "// endtask: pre_do\n\n",
+            "// function void $1mid_do(uvm_sequence_item this_item);",
+            "// endfunction: mid_do\n\n",
+            "task $1body();",
+            "\t$0",
+            "endtask: body\n\n",
+            "// function void $1post_do(uvm_sequence_item this_item);",
+            "// endfunction: post_do\n\n",
+            "// task $1post_body();",
+            "// endtask: post_body\n\n",
+            "// task $1post_start();",
+            "// endtask: post_start\n"
+        ],
+        "description": "UVM Sequence class functions"
+    },
 
     "uvm_sequence_item": {
         "prefix": "uvm_sequence_item",

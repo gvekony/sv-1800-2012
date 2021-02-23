@@ -63,22 +63,15 @@ The most common UVM boilerplates are available with an `uvm_` prefix.
 * Similarly to indentation rules, line breaked `` `pragma protect begin`` break this feature.
 
 # Release Notes
-## [1.0.26] Snippet reorganization: Coronavirus edition
+## [1.0.27]
 ### Changes
-* Reworked UVM related snippets to be more convenient.
-    * Parametrized UVM class snippets (eg.: `uvm_component_with_parameters`) will construct a proper parameter list for the typedef and the factory registration macro. The regexp transformation is not failsafe, but works well with `type` and `parameter` definitions. (eg.: `class x #(type T, parameter w = 3);`)
-    * UVM sequence item related `do_` function snippets received an overhaul. (eg.: `uvm_sequence_item_do_compare`, `uvm_sequence_item_convert2string`, `uvm_sequence_item_do_print`, etc.) Instead of user constructed placeholders, they contain examples for placeholders via comments. Their structures are also unified.
-    * The `uvm_info` macro snippet received a conditional placeholder for the verbosity setting.
-    * The `uvm_error`, `uvm_fatal`, `uvm_info` and `uvm_warning` macro snippet received various conditional placeholder options for the ID field.
-    * Added snippet for uvm_sequence derived classes with defined callback stubs and quick reference. (eg.: `uvm_sequence`)
-    * UVM Phase snippets received a proper context parameter, but alas VSCode ignores it alltogether.
-* Fixed `sv_class` and UVM class snippets to contain the same NaturalDocs group headers. (Variables, Constraints, Functions)
-* Added snippets for some system tasks and functions; mostly because of the common use or the bogus parameter list. (eg: `$cast`, `$sformatf`, `$timeformat`, etc.)
-* Added snippet support for the external and normal constraint blocks of SystemVerilog. (eg.: `sv_extern_constraint`, `sv_constraint_block`)
-* Added snippet support for the covergroup, coverpoint and cross coverage blocks; also added snippets for their appropriate option and type_option structures. (eg.: `sv_covergroup`, `sv_covergroup_options`, `sv_covercross`, etc.)
-
+* Added `uvm_sequence` functions snippet.
+* Updated the main UVM phase snippet definition with proper objection related `uvm_info` macros.
+* Added whitespace guide snippet aligned for `$sformatf()`.
+* Added `c_` and `if_` to variable naming conventions to represent combinatorical wires and interfaces. (Design Naming Convention)
 ### Bugfixes
-* A few minor syntax fixes.
+* Added missing `extensionKind` to package.json thus enabled remote install for SSH development.
+* Added indent pattern for `(local|protected|static) virtual` functions and tasks.
 
 # License and source information
 

@@ -1,4 +1,14 @@
 # Change Log (Functional Changes)
+## [1.0.27]
+### Changes
+* Added `uvm_sequence` functions snippet.
+* Updated the main UVM phase snippet definition with proper objection related `uvm_info` macros.
+* Added whitespace guide snippet aligned for `$sformatf()`.
+* Added `c_` and `if_` to variable naming conventions to represent combinatorical wires and interfaces. (Design Naming Convention)
+### Bugfixes
+* Added missing `extensionKind` to package.json thus enabled remote install for SSH development.
+* Added indent pattern for `(local|protected|static) virtual` functions and tasks.
+
 ## [1.0.26] Snippet reorganization: Coronavirus edition
 ### Changes
 * Reworked UVM related snippets to be more convenient.

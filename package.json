@@ -78,6 +78,10 @@
 			}
 		]
 	},
+    "extensionKind": [
+        "workspace",
+        "ui"
+    ],
 	"icon": "sv_icon.png",
 	"__metadata": {
 		"id": "7b02296d-50c0-4efa-abca-4aa654a94b01",

@@ -5,7 +5,7 @@
             "//  Module: $1",
             "//",
             "module ${1:$TM_FILENAME_BASE}",
-            "\t/*  package imports  */",
+            "\t//  package imports",
             "\t#(",
             "\t\t${2:<parameter_list>}",
             "\t)(",
@@ -22,7 +22,7 @@
             "//  Interface: $1",
             "//",
             "interface ${1:$TM_FILENAME_BASE}",
-            "\t/*  package imports  */",
+            "\t//  package imports",
             "\t#(",
             "\t\t${2:<parameter_list>}",
             "\t)(",
@@ -107,8 +107,8 @@
         "prefix": "constraint_block",
         "body": [
             "constraint ${1:$TM_FILENAME_BASE}${2:::}$3 {",
-            "\t/*  solve order constraints  */\n",
-            "\t/*  rand variable constraints  */",
+            "\t//  solve order constraints\n",
+            "\t//  rand variable constraints",
             "\t$0",
             "}\n"
         ],
@@ -230,17 +230,17 @@
     "sv_separator_large": {
         "prefix": "sv_separator_full",
         "body": [
-            "/*----------------------------------------------------------------------------*/",
-            "/*  $0                                                                          */",
-            "/*----------------------------------------------------------------------------*/\n"
+            "//----------------------------------------------------------------------------//",
+            "//  $0",
+            "//----------------------------------------------------------------------------//\n"
         ],
         "description": "Large 80 ch wide separator."
     },
     "sv_separator_small_label": {
         "prefix": "sv_separator_half",
         "body": [
-            "/*---  $0                            ---*/",
-            "/*------------------------------------*/\n",
+            "//---  $0                            ---//",
+            "//------------------------------------//\n",
         ],
         "description": "Small 40 ch wide separator."
     },

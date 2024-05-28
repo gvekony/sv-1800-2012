@@ -198,8 +198,8 @@
         "prefix": "uvm_phase_build",
         "body": [
             "function void ${1:$TM_FILENAME_BASE}${2:::}build_phase(uvm_phase phase);",
-            "\t/*  note: Do not call super.build_phase() from any class that is extended from an UVM base class!  */",
-            "\t/*  For more information see UVM Cookbook v1800.2 p.503  */",
+            "\t//  note: Do not call super.build_phase() from any class that is extended from an UVM base class!",
+            "\t//  For more information see UVM Cookbook v1800.2 p.503",
             "\t$3//super.build_phase(phase);\n",
             "\t$0",
             "endfunction: build_phase\n"
